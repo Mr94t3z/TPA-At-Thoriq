@@ -27,6 +27,10 @@ Route::get('/login', function () {
     return view('backend/login');
 });
 
+Route::get('/registrasi', function () {
+    return view('backend/register');
+});
+
 Route::get('/dashboard', function () {
     return view('backend/dashboard');
 });

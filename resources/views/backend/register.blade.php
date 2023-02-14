@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>TPA At-Thoriq - Login</title>
+    <title>TPA At-Thoriq - Registrasi</title>
 
     <!-- Custom fonts for this template-->
     <link href="{{ asset('backend/vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
@@ -38,9 +38,13 @@
                             <div class="col-lg">
                                 <div class="p-5">
                                     <div class="text-center">
-                                        <h1 class="h4 text-gray-900 mb-4">Silahkan Login!</h1>
+                                        <h1 class="h4 text-gray-900 mb-4">Silahkan Registrasi!</h1>
                                     </div>
                                     <form class="user">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control form-control-user"
+                                                id="nama"placeholder="Nama">
+                                        </div>
                                         <div class="form-group">
                                             <input type="text" class="form-control form-control-user"
                                                 id="email"placeholder="Email">
@@ -55,13 +59,13 @@
                                             </div>
                                         </div>
                                         <a href="index.html" class="btn btn-primary btn-user btn-block">
-                                            Login
+                                            Register
                                         </a>
                                         
                                     </form>
                                     <hr>
                                     <div class="text-center">
-                                        <a class="small" href="{{ url('registrasi') }}">Belum punya akun? Silahkan registrasi!</a>
+                                        <a class="small" href="{{ url('login') }}">Sudah punya akun? Silahkan login!</a>
                                     </div>
                                 </div>
                             </div>
