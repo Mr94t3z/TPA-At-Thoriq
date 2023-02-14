@@ -2,9 +2,9 @@
     <div class="container px-5">
         <div class="text-white-50 small">
             <div class="mb-2">&copy; TPA At-Thoriq 2023. All Rights Reserved.</div>
-            <a href="#!">Visi</a>
+            <a href="#visi">Visi</a>
             <span class="mx-1">&middot;</span>
-            <a href="#!">Misi</a>
+            <a href="#misi">Misi</a>
             <span class="mx-1">&middot;</span>
             <a href="#!">FAQ</a>
         </div>
