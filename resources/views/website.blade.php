@@ -9,7 +9,7 @@
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top shadow-sm" id="mainNav">
         <div class="container px-5">
-            <img src="{{ asset('assets/img/logo.png') }}" alt="" style="height: 40px; margin-right: 7px;">
+            <img src="{{ asset('assets/img/logo.png') }}" alt="" style="height: 70px; margin-right: 7px;">
             <a class="navbar-brand fw-bold" href="#page-top">
                 <span style="font-size: 12px;">Taman Pendidikan Al-Quran</span>
                 <br>
@@ -51,11 +51,11 @@
                             sehari-hari, hal ini akan menghasilkan generasi yang memahami Al-Qur'an dan memiliki akhlak
                             yang baik.</p>
                         <div class="d-flex flex-column flex-lg-row align-items-center">
-                            <button class="btn btn-success rounded-pill px-3 mb-2 mb-lg-0" data-bs-toggle="modal"
+                            <button class="btn bg-gradient-primary-to-secondary rounded-pill px-3 mb-2 mb-lg-0" data-bs-toggle="modal"
                                 data-bs-target="#">
                                 <span class="d-flex align-items-center">
-                                    <i class="bi bi-arrow-down-right-circle me-2"></i>
-                                    <span class="small">Selengkapnya</span>
+                                    <i class="bi bi-arrow-down-right-circle me-2 text-white"></i>
+                                    <span class="small text-white">Selengkapnya</span>
                                 </span>
                             </button>
                         </div>
@@ -119,8 +119,8 @@
                                     <!-- * * This can be a video, image, or just about anything else.-->
                                     <!-- * * Set the max width of your media to 100% and the height to-->
                                     <!-- * * 100% like the demo example below.-->
-                                    <video muted="muted" autoplay="" loop="" style="max-width: 100%; height: 100%">
-                                        <source src="assets/img/demo-screen.mp4" type="video/mp4" /></video>
+                                    <video muted="muted" autoplay="" loop="" style="width: 100%; height: 100%; object-fit: cover">
+                                        <source src="{{ asset('assets/img/male-kid.mp4') }}" type="video/mp4" /></video>
                                 </div>
                             </div>
                         </div>
@@ -134,9 +134,9 @@
         <div class="container px-5">
             <div class="row gx-5 justify-content-center">
                 <div class="col-xl-8">
-                    <div class="h2 fs-1 text-white mb-4">"An intuitive solution to a common problem that we all face,
-                        wrapped up in a single app!"</div>
-                    <img src="assets/img/tnw-logo.svg" alt="..." style="height: 3rem" />
+                    <div class="h2 fs-1 text-white mb-4">"Tahapan pertama dalam mencari ilmu adalah mendengarkan, kemudian diam dan menyimak dengan penuh perhatian, lalu menjaganya, lalu mengamalkannya dan kemudian menyebarkannya"</div>
+                    <p class="lead fw-normal text-white mb-5">– Sufyan bin Uyainah
+                    </p>
                 </div>
             </div>
         </div>
@@ -147,7 +147,8 @@
             <div class="row gx-5 align-items-center">
                 <div class="col-lg-8 order-lg-1 mb-5 mb-lg-0">
                     <div class="container-fluid px-5">
-                        <div class="row gx-5">
+                        <iframe src="https://maps.google.com/maps?q=-6.878794,107.828998&z=15&output=embed" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+                        {{-- <div class="row gx-5">
                             <div class="col-md-6 mb-5">
                                 <!-- Feature item-->
                                 <div class="text-center">
@@ -186,7 +187,7 @@
                                         commercially!</p>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
                 <div class="col-lg-4 order-lg-0">
@@ -217,8 +218,8 @@
                                     <!-- * * This can be a video, image, or just about anything else.-->
                                     <!-- * * Set the max width of your media to 100% and the height to-->
                                     <!-- * * 100% like the demo example below.-->
-                                    <video muted="muted" autoplay="" loop="" style="max-width: 100%; height: 100%">
-                                        <source src="assets/img/demo-screen.mp4" type="video/mp4" /></video>
+                                    <video muted="muted" autoplay="" loop="" style="width: 100%; height: 100%; object-fit: cover">
+                                        <source src="{{ asset('assets/img/female-kid.mp4') }}" type="video/mp4" /></video>
                                 </div>
                             </div>
                         </div>
@@ -228,7 +229,7 @@
         </div>
     </section>
     <!-- Basic features section-->
-    <section class="bg-light">
+    {{-- <section class="bg-light">
         <div class="container px-5">
             <div class="row gx-5 align-items-center justify-content-center justify-content-lg-between">
                 <div class="col-12 col-lg-5">
@@ -239,12 +240,12 @@
                 </div>
                 <div class="col-sm-8 col-md-6">
                     <div class="px-5 px-sm-0"><img class="img-fluid rounded-circle"
-                            src="https://source.unsplash.com/u8Jn2rzYIps/900x900" alt="..." /></div>
+                            src="{{ asset('assets/img/room.jpg') }}" alt="..." /></div>
                 </div>
             </div>
         </div>
-    </section>
-    <!-- Call to action section-->
+    </section> --}}
+    {{-- <!-- Call to action section-->
     <section class="cta">
         <div class="cta-content">
             <div class="container px-5">
@@ -253,11 +254,11 @@
                     <br />
                     Start building.
                 </h2>
-                <a class="btn btn-outline-light py-3 px-4 rounded-pill" href="https://startbootstrap.com/theme/new-age"
-                    target="_blank">Download for free</a>
+                <a class="btn btn-outline-light py-3 px-4 rounded-pill" href=""
+                    target="">Download for free</a>
             </div>
         </div>
-    </section>
+    </section> --}}
     <!-- App badge section-->
     <section class="bg-gradient-primary-to-secondary" id="download">
         <div class="container px-5">

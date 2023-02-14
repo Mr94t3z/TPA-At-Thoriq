@@ -14,7 +14,7 @@
 {{-- <div class="modal fade" id="feedbackModal" tabindex="-1" aria-labelledby="feedbackModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
-            <div class="modal-header bg-gradient-primary-to-secondary p-4">
+            <div class="modal-header bg-gradient-primary-to-green p-4">
                 <h5 class="modal-title font-alt text-white" id="feedbackModalLabel">Send feedback</h5>
                 <button class="btn-close btn-close-white" type="button" data-bs-dismiss="modal"
                     aria-label="Close"></button>
