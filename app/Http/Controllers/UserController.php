@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
@@ -37,12 +38,39 @@ class UserController extends Controller
     // Fungsi Halaman Login
     public function login()
     {
+        if (Auth::check()) {
+            return redirect('dashboard');
+        }
         return view('backend/login');
     }
 
     // Fungsi Auth Login
-    public function authLogin()
+    public function authLogin(Request $request)
     {
-        return redirect('dashboad')->with('success', 'Login berhasil!');
+        $request->validate([
+            'email' => 'required',
+            'password' => 'required',
+        ]);
+
+        $credentials = [
+            'email' => $request->email,
+            'password' => $request->password
+        ];
+
+        if (Auth::attempt($credentials)) {
+            $request->session()->regenerate();
+            return redirect('dashboard')->with('success', 'Login berhasil!');
+        }
+
+        return back('login')->withErrors('password', 'Email atau Password Anda salah!');
+    }
+
+    // Fungsi Logout
+    public function logout(Request $request)
+    {
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        return redirect('/');
     }
 }

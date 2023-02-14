@@ -9,53 +9,59 @@
     </a>
 
     <!-- Divider -->
-    <hr class="sidebar-divider my-0">
+    <hr class="sidebar-divider">
+
+    <!-- For User -->
+    <div class="sidebar-heading">
+        User
+    </div>
 
     <!-- Nav Item - Dashboard -->
-    <li class="nav-item active">
-        <a class="nav-link" href="index.html">
+    <li class="nav-item {{ Request::is('dashboard') ? 'active' : '' }}">
+        <a class="nav-link" href="{{ url('dashboard') }}">
             <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>Dashboard</span></a>
+            <span>Dashboard</span>
+        </a>
     </li>
 
     <!-- Divider -->
     <hr class="sidebar-divider">
 
-    <!-- Heading -->
+    <!-- For Administrator -->
     <div class="sidebar-heading">
-        Administrator
+        Admin
     </div>
 
     <!-- Nav Item - Identitas Lembaga -->
-    <li class="nav-item">
-        <a class="nav-link" href="charts.html">
+    <li class="nav-item {{ Request::is('lembaga') ? 'active' : '' }}">
+        <a class="nav-link" href="{{ url('lembaga') }}">
             <i class="fas fa-fw fa-chart-area"></i>
-            <span>Identitas Lembaga</span></a>
+            <span>Identitas Lembaga</span>
+        </a>
     </li>
 
     <!-- Nav Item - Manajemen User -->
-    <li class="nav-item">
+    <li class="nav-item {{ request()->is('users', 'kepala-pendidikan', 'guru', 'siswa') ? 'active' : '' }}">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
             aria-expanded="true" aria-controls="collapseUtilities">
             <i class="fas fa-fw fa-wrench"></i>
-            <span>Data User</span>
+            <span>Data Pengguna</span>
         </a>
-        <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
-            data-parent="#accordionSidebar">
+        <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Manajemen:</h6>
-                <a class="collapse-item" href="utilities-color.html">Admin</a>
-                <a class="collapse-item" href="utilities-other.html">Kepala Pendidikan</a>
-                <a class="collapse-item" href="utilities-border.html">Guru</a>
-                <a class="collapse-item" href="utilities-animation.html">Siswa/Santri Aktif</a>
+                <a class="collapse-item" href="{{ url('users') }}">Users</a>
+                <a class="collapse-item" href="{{ url('kepala-pendidikan') }}">Kepala Pendidikan</a>
+                <a class="collapse-item" href="{{ url('guru') }}">Guru</a>
+                <a class="collapse-item" href="{{ url('siswa') }}">Siswa/Santri Aktif</a>
             </div>
         </div>
-    </li>
+    </li>    
 
     <!-- Nav Item - Sarana dan Prasarana -->
     <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
-            aria-expanded="true" aria-controls="collapsePages">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true"
+            aria-controls="collapsePages">
             <i class="fas fa-fw fa-table"></i>
             <span>Sarana dan Prasarana</span>
         </a>

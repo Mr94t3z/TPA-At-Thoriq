@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\SessionController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -20,19 +19,36 @@ Route::get('/', function () {
     return view('frontend/website');
 });
 
-Route::get('/profile', function () {
+Route::get('profile', function () {
     return view('frontend/profile');
 });
 
 // Backend Route
-Route::get('/login', [UserController::class, 'login'])->name('login');
+Route::get('login', [UserController::class, 'login'])->name('login');
 
-Route::post('/login', [UserController::class, 'authLogin'])->name('auth.login');
+Route::post('login', [UserController::class, 'authLogin'])->name('auth.login');
 
-Route::get('/registrasi', [UserController::class, 'register'])->name('register');
+Route::get('registrasi', [UserController::class, 'register'])->name('register');
 
-Route::post('/registrasi', [UserController::class, 'registerAction'])->name('register.action');
+Route::post('registrasi', [UserController::class, 'registerAction'])->name('register.action');
 
-Route::get('/dashboard', function () {
-    return view('backend/dashboard');
+Route::get('logout', [UserController::class, 'logout'])->name('logout');
+
+// Route::get('dashboard', function () {
+//     return view('backend/dashboard');
+// });
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/dashboard', function () {
+        // only authenticated users can access this route
+        return view('backend/dashboard');
+    });
+    Route::get('/lembaga', function () {
+        // only authenticated users can access this route
+        return view('backend/lembaga');
+    });
+    Route::get('/users', function () {
+        // only authenticated users can access this route
+        return view('backend/users');
+    });
 });
