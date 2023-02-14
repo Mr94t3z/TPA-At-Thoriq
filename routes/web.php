@@ -13,14 +13,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
+// Frontend Route
 Route::get('/', function () {
-    return view('website');
+    return view('frontend/website');
 });
 
 Route::get('/profile', function () {
-    return view('profile');
+    return view('frontend/profile');
+});
+
+// Backend Route
+Route::get('/login', function () {
+    return view('backend/login');
+});
+
+Route::get('/dashboard', function () {
+    return view('backend/dashboard');
 });
