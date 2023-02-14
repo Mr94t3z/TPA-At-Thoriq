@@ -13,14 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('roles', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->boolean('value')->default(1);
+        Schema::create('tbl_users', function (Blueprint $table) {
+            $table->id('id')->autoIncrement();
+            $table->string('nama');
+            $table->string('email');
+            $table->string('password');
+            $table->boolean('roles');
             $table->timestamps();
         });
     }
-
 
     /**
      * Reverse the migrations.
@@ -29,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('roles');
+        Schema::dropIfExists('tbl_users');
     }
 };

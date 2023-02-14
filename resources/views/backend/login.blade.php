@@ -40,23 +40,30 @@
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">Silahkan Login!</h1>
                                     </div>
-                                    <form class="user">
+
+                                    <!-- Waring Message -->
+                                    {{-- <div class="my-2 mt-3">
+                                    <button class="btn btn-warning btn-icon-split">
+                                        <span class="icon text-white-50">
+                                            <i class="fas fa-exclamation-triangle"></i>
+                                        </span>
+                                        <span class="text"></span>
+                                    </button>
+                                    </div> --}}
+
+                                    <form action="{{ route('auth.login') }}" method="POST" class="user">
+                                        @csrf
                                         <div class="form-group">
                                             <input type="text" class="form-control form-control-user"
-                                                id="email"placeholder="Email">
+                                                name="email" value="{{ old('email') }}" placeholder="Email">
                                         </div>
                                         <div class="form-group">
                                             <input type="password" class="form-control form-control-user"
-                                                id="password" placeholder="Password">
+                                                name="password" placeholder="Password">
                                         </div>
-                                        <div class="form-group">
-                                            <div class="custom-control custom-checkbox small">
-                                                <input type="checkbox" class="custom-control-input" id="customCheck">
-                                            </div>
-                                        </div>
-                                        <a href="index.html" class="btn btn-primary btn-user btn-block">
+                                        <button type="submit" class="btn btn-primary btn-user btn-block">
                                             Login
-                                        </a>
+                                        </button>
                                         
                                     </form>
                                     <hr>

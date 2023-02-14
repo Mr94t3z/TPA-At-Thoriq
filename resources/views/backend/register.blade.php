@@ -40,27 +40,25 @@
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">Silahkan Registrasi!</h1>
                                     </div>
-                                    <form class="user">
+                                    <form action="{{ route('register.action') }}" method="POST" class="user">
+                                        @csrf
+
                                         <div class="form-group">
                                             <input type="text" class="form-control form-control-user"
-                                                id="nama"placeholder="Nama">
+                                                name="nama" value="{{ old('nama') }}" placeholder="Nama">
                                         </div>
                                         <div class="form-group">
                                             <input type="text" class="form-control form-control-user"
-                                                id="email"placeholder="Email">
+                                                name="email" value="{{ old('email') }}"  placeholder="Email">
                                         </div>
                                         <div class="form-group">
                                             <input type="password" class="form-control form-control-user"
-                                                id="password" placeholder="Password">
+                                                name="password" 
+                                                 placeholder="Password">
                                         </div>
-                                        <div class="form-group">
-                                            <div class="custom-control custom-checkbox small">
-                                                <input type="checkbox" class="custom-control-input" id="customCheck">
-                                            </div>
-                                        </div>
-                                        <a href="index.html" class="btn btn-primary btn-user btn-block">
+                                        <button type="submit" class="btn btn-primary btn-user btn-block">
                                             Register
-                                        </a>
+                                        </button>
                                         
                                     </form>
                                     <hr>

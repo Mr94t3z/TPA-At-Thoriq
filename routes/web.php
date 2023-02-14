@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\SessionController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,13 +25,13 @@ Route::get('/profile', function () {
 });
 
 // Backend Route
-Route::get('/login', function () {
-    return view('backend/login');
-});
+Route::get('/login', [UserController::class, 'login'])->name('login');
 
-Route::get('/registrasi', function () {
-    return view('backend/register');
-});
+Route::post('/login', [UserController::class, 'authLogin'])->name('auth.login');
+
+Route::get('/registrasi', [UserController::class, 'register'])->name('register');
+
+Route::post('/registrasi', [UserController::class, 'registerAction'])->name('register.action');
 
 Route::get('/dashboard', function () {
     return view('backend/dashboard');
