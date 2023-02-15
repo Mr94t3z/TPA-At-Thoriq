@@ -79,13 +79,13 @@
                                                     <i class="far fa-edit"></i>
                                                 </a>
 
-                                                <div class="modal fade" id="exampleModalToggle" aria-hidden="true"
-                                                    aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+                                                <div class="modal fade" id="exampleModalToggle{{ $guru->id }}" aria-hidden="true"
+                                                    aria-labelledby="exampleModalToggleLabel{{ $guru->id }}" tabindex="-1">
                                                     <div class="modal-dialog modal-dialog-centered">
                                                         <div class="modal-content">
                                                             <div class="modal-header">
                                                                 <h5 class="modal-title fs-5"
-                                                                    id="exampleModalToggleLabel">Apakah anda yakin?</h1>
+                                                                    id="exampleModalToggleLabel{{ $guru->id }}">Apakah anda yakin?</h5>
                                                                     <button class="close" type="button"
                                                                         data-dismiss="modal" aria-label="Close">
                                                                         <span aria-hidden="true">×</span>
@@ -111,7 +111,7 @@
                                                 </div>
 
                                                 <button type="submit" class="btn btn-danger btn-circle btn-sm"
-                                                    data-target="#exampleModalToggle" data-toggle="modal">
+                                                    data-target="#exampleModalToggle{{ $guru->id }}" data-toggle="modal">
                                                     <i class="fas fa-trash"></i>
                                                 </button>
 

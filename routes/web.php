@@ -3,6 +3,7 @@
 use App\Http\Controllers\GuruController;
 use App\Http\Controllers\IdentitasLembagaController;
 use App\Http\Controllers\KepalaPendidikanController;
+use App\Http\Controllers\SiswaController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -72,4 +73,13 @@ Route::middleware(['auth', 'roles:1'])->group(function () {
     Route::put('/guru/{guru}', [GuruController::class, 'update'])->name('guru.update');
 
     Route::delete('/guru/{id}', [GuruController::class, 'delete'])->name('guru.destroy');
+
+    // [SISWA ROUTE]
+    Route::get('siswa', [SiswaController::class, 'siswa'])->name('siswa');
+
+    Route::get('/siswa/{siswa}', [SiswaController::class, 'editSiswa'])->name('edit-siswa');
+
+    Route::put('/siswa/{siswa}', [SiswaController::class, 'update'])->name('siswa.update');
+
+    Route::delete('/siswa/{id}', [SiswaController::class, 'delete'])->name('siswa.destroy');
 });
