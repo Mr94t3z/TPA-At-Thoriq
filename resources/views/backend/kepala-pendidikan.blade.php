@@ -58,6 +58,8 @@
                                             <th>Nama</th>
                                             <th>Status Kepegawaian</th>
                                             <th>Pendidikan Terakhir</th>
+                                            <th>Created At</th>
+                                            <th>Updated At</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -67,14 +69,16 @@
                                             <td>{{ $kp->nama}}</td>
                                             <td>{{ $kp->status_kepegawaian}}</td>
                                             <td>{{ $kp->pendidikan_terakhir}}</td>
+                                            <td>{{ $kp->created_at}}</td>
+                                            <td>{{ $kp->updated_at}}</td>
                                             <td>
-                                                <a href=""
-                                                    class="btn btn-warning btn-circle btn-sm">
+                                                <a href="{{ route('edit-kp', ['kp' => $kp]) }}"
+                                                    class="btn btn-warning btn-circle btn-sm mb-2">
                                                     <i class="far fa-edit"></i>
                                                 </a>
-                                                <a href="#" class="btn btn-danger btn-circle btn-sm">
+                                                {{-- <a href="#" class="btn btn-danger btn-circle btn-sm">
                                                     <i class="fas fa-trash"></i>
-                                                </a>
+                                                </a> --}}
                                             </td>
                                         </tr>
                                         @endforeach

@@ -122,13 +122,4 @@ class UserController extends Controller
 
         return redirect()->back()->with('success', 'User berhasil dihapus!');
     }
-
-    // Fungsi Halaman Kepala Pendidikan
-    public function kepalaPendidikan(Request $request)
-    {
-        $data['q'] = $request->get('q');
-        $data['tbl_kepala_pendidikan'] = KepalaPendidikan::where('nama', 'like', '%' . $data['q'] . '%')->get();
-
-        return view('backend/kepala-pendidikan', $data);
-    }
 }

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\IdentitasLembagaController;
+use App\Http\Controllers\KepalaPendidikanController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -52,5 +53,11 @@ Route::middleware(['auth', 'roles:1'])->group(function () {
 
     Route::delete('/users/{id}', [UserController::class, 'delete'])->name('users.destroy');
 
-    Route::get('kepala-pendidikan', [UserController::class, 'kepalaPendidikan'])->name('kepala-pendidikan');
+    Route::get('kepala-pendidikan', [
+        KepalaPendidikanController::class, 'kepalaPendidikan'
+    ])->name('kepala-pendidikan');
+
+    Route::get('/kepala-pendidikan/{kp}', [KepalaPendidikanController::class, 'editKepalaPendidikan'])->name('edit-kp');
+
+    Route::put('/kepala-pendidikan/{kp}', [KepalaPendidikanController::class, 'update'])->name('kp.update');
 });

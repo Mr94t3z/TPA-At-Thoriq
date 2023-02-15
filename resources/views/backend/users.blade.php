@@ -81,7 +81,7 @@
                                             <td>{{ $user->updated_at}}</td>
                                             <td>
                                                 <a href="{{ route('edit-user', ['user' => $user]) }}"
-                                                    class="btn btn-warning btn-circle btn-sm">
+                                                    class="btn btn-warning btn-circle btn-sm mb-2">
                                                     <i class="far fa-edit"></i>
                                                 </a>
 
@@ -89,8 +89,7 @@
                                                     @csrf
                                                     @method('DELETE')
 
-                                                    <button type="submit" class="btn btn-danger btn-circle btn-sm"
-                                                    style="margin-top: 10px;">
+                                                    <button type="submit" class="btn btn-danger btn-circle btn-sm">
                                                     <i class="fas fa-trash"></i></button>
                                                 </form>
                                             </td>
