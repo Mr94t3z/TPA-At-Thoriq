@@ -38,7 +38,7 @@
     <!-- Nav Item - Identitas Lembaga -->
     <li class="nav-item {{ Request::is('lembaga') ? 'active' : '' }}">
         <a class="nav-link" href="{{ url('lembaga') }}">
-            <i class="fas fa-fw fa-chart-area"></i>
+            <i class="fas fa-school"></i>
             <span>Identitas Lembaga</span>
         </a>
     </li>
@@ -47,8 +47,8 @@
     <li class="nav-item {{ request()->is('users', 'kepala-pendidikan', 'guru', 'siswa') ? 'active' : '' }}">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
             aria-expanded="true" aria-controls="collapseUtilities">
-            <i class="fas fa-fw fa-wrench"></i>
-            <span>Data Pengguna</span>
+            <i class="fas fa-users-cog"></i>
+            <span>Kelola Pengguna</span>
         </a>
         <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
@@ -65,7 +65,7 @@
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true"
             aria-controls="collapsePages">
-            <i class="fas fa-fw fa-table"></i>
+            <i class="fas fa-route"></i>
             <span>Sarana dan Prasarana</span>
         </a>
         <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">

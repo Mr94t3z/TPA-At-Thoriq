@@ -116,7 +116,7 @@
                                             <td>{{ $lembaga-> akreditasi }}</td>
                                             <td>
                                                 <a href="#" class="btn btn-warning btn-circle btn-sm">
-                                                    <i class="far fa-edit"></i>
+                                                    <i class="fas fa-pen"></i>
                                                 </a>
                                                 {{-- <a href="#" class="btn btn-danger btn-circle" style="margin-top: 10px;">
                                                     <i class="fas fa-trash"></i>

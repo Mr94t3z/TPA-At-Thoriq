@@ -36,6 +36,8 @@
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
                         <h1 class="h3 mb-0 text-gray-800">Informasi Guru/Ustadz</h1>
+                        <a href="{{ url('create-guru') }}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+                            class="fas fa-plus fa-sm text-white-50"></i> Tambah Data </a>
                     </div>
 
                     <!-- Content Row -->
@@ -76,7 +78,7 @@
                                             <td>
                                                 <a href="{{ route('edit-guru', ['guru' => $guru]) }}"
                                                     class="btn btn-warning btn-circle btn-sm">
-                                                    <i class="far fa-edit"></i>
+                                                    <i class="fas fa-pen"></i>
                                                 </a>
 
                                                 <div class="modal fade" id="exampleModalToggle{{ $guru->id }}" aria-hidden="true"

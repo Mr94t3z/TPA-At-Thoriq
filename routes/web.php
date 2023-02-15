@@ -68,7 +68,11 @@ Route::middleware(['auth', 'roles:1'])->group(function () {
     // [GURU ROUTE]
     Route::get('guru', [GuruController::class, 'guru'])->name('guru');
 
-    Route::get('/guru/{guru}', [GuruController::class, 'editGuru'])->name('edit-guru');
+    Route::get('create-guru', [GuruController::class, 'create'])->name('create-guru');
+
+    Route::post('create-guru', [GuruController::class, 'createAction'])->name('guru.action');
+
+    Route::get('/edit-guru/{guru}', [GuruController::class, 'editGuru'])->name('edit-guru');
 
     Route::put('/guru/{guru}', [GuruController::class, 'update'])->name('guru.update');
 
@@ -77,7 +81,11 @@ Route::middleware(['auth', 'roles:1'])->group(function () {
     // [SISWA ROUTE]
     Route::get('siswa', [SiswaController::class, 'siswa'])->name('siswa');
 
-    Route::get('/siswa/{siswa}', [SiswaController::class, 'editSiswa'])->name('edit-siswa');
+    Route::get('create-siswa', [SiswaController::class, 'create'])->name('create-siswa');
+
+    Route::post('create-siswa', [SiswaController::class, 'createAction'])->name('siswa.action');
+
+    Route::get('/edit-siswa/{siswa}', [SiswaController::class, 'editSiswa'])->name('edit-siswa');
 
     Route::put('/siswa/{siswa}', [SiswaController::class, 'update'])->name('siswa.update');
 

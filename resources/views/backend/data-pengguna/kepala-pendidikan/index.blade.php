@@ -74,7 +74,7 @@
                                             <td>
                                                 <a href="{{ route('edit-kp', ['kp' => $kp]) }}"
                                                     class="btn btn-warning btn-circle btn-sm mb-2">
-                                                    <i class="far fa-edit"></i>
+                                                    <i class="fas fa-pen"></i>
                                                 </a>
                                                 {{-- <a href="#" class="btn btn-danger btn-circle btn-sm">
                                                     <i class="fas fa-trash"></i>

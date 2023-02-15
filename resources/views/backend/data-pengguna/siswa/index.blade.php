@@ -36,6 +36,8 @@
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
                         <h1 class="h3 mb-0 text-gray-800">Informasi Siswa/Santri Aktif</h1>
+                         <a href="{{ url('create-siswa') }}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+                                class="fas fa-plus fa-sm text-white-50"></i> Tambah Data </a>
                     </div>
 
                     <!-- Content Row -->
@@ -74,13 +76,13 @@
                                             <td>{{ $siswa->nisn}}</td>
                                             <td>{{ $siswa->nama}}</td>
                                             <td>{{ $siswa->jenis_kelamin}}</td>
-                                            <td>{{ $siswa->kelas}}</td>
+                                            <td>{{ $siswa->kelas == 0 ? 'Tidak ada kelas' : 'Kelas '.$siswa->kelas }}</td>
                                             {{-- <td>{{ $siswa->created_at}}</td>
                                             <td>{{ $siswa->updated_at}}</td> --}}
                                             <td>
                                                 <a href="{{ route('edit-siswa', ['siswa' => $siswa]) }}"
                                                     class="btn btn-warning btn-circle btn-sm">
-                                                    <i class="far fa-edit"></i>
+                                                    <i class="fas fa-pen"></i>
                                                 </a>
 
                                                 
@@ -123,8 +125,6 @@
                                                     data-toggle="modal">
                                                     <i class="fas fa-trash"></i>
                                                 </button>
-                                                
-
 
                                             </td>
                                         </tr>

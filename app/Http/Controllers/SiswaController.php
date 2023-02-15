@@ -7,6 +7,33 @@ use Illuminate\Http\Request;
 
 class SiswaController extends Controller
 {
+    // Fungsi Halaman Create Data Siswa
+    public function create()
+    {
+        return view('backend/data-pengguna/siswa/create');
+    }
+
+    // Fungsi Create Data Siswa
+    public function createAction(Request $request)
+    {
+        $request->validate([
+            'nisn' => 'required',
+            'nama' => 'required',
+            'jenis_kelamin' => 'required',
+            'kelas' => 'required'
+        ]);
+
+        $siswa = new Siswa([
+            'nisn' => $request->nisn,
+            'nama' => $request->nama,
+            'jenis_kelamin' => $request->jenis_kelamin,
+            'kelas' => $request->kelas,
+        ]);
+        $siswa->save();
+
+        return redirect('siswa')->with('success', 'Data siswa berhasil ditambahkan!');
+    }
+
     // Fungsi Halaman Data Siswa
     public function siswa(Request $request)
     {
@@ -20,6 +47,11 @@ class SiswaController extends Controller
     public function editSiswa($id)
     {
         $siswa = Siswa::find($id);
+
+        if (!$siswa) {
+            return redirect()->back()->with('error', 'Data siswa tidak ditemukan!');
+        }
+
         return view('backend/data-pengguna/siswa/edit', compact('siswa'));
     }
 
@@ -40,7 +72,7 @@ class SiswaController extends Controller
 
         $siswa->save();
 
-        return redirect()->route('siswa')->with('success', 'Siswa berhasil diupdate!');
+        return redirect()->route('siswa')->with('success', 'Data siswa berhasil diupdate!');
     }
 
     // Fungsi Delete Siswa
@@ -49,11 +81,11 @@ class SiswaController extends Controller
         $siswa = Siswa::find($id);
 
         if (!$siswa) {
-            return redirect()->back()->with('error', 'Siswa tidak ditemukan!');
+            return redirect()->back()->with('error', 'Data siswa tidak ditemukan!');
         }
 
         $siswa->delete();
 
-        return redirect()->back()->with('success', 'Siswa berhasil dihapus!');
+        return redirect()->back()->with('success', 'Data siswa berhasil dihapus!');
     }
 }

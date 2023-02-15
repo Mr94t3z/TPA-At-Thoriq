@@ -87,6 +87,11 @@ class UserController extends Controller
     public function editUser($id)
     {
         $user = User::find($id);
+
+        if (!$user) {
+            return redirect()->back()->with('error', 'Data user tidak ditemukan!');
+        }
+
         return view('backend/data-pengguna/users/edit', compact('user'));
     }
 

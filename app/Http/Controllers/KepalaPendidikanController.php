@@ -20,6 +20,11 @@ class KepalaPendidikanController extends Controller
     public function editKepalaPendidikan($id)
     {
         $kp = KepalaPendidikan::find($id);
+
+        if (!$kp) {
+            return redirect()->back()->with('error', 'Data kepala pendidikan tidak ditemukan!');
+        }
+
         return view('backend/data-pengguna/kepala-pendidikan/edit', compact('kp'));
     }
 
