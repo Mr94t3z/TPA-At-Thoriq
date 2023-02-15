@@ -35,7 +35,7 @@
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Manajemen Users</h1>
+                        <h1 class="h3 mb-0 text-gray-800">Manajemen Kepala Pendidikan</h1>
                     </div>
 
                     <!-- Content Row -->
@@ -55,46 +55,27 @@
                                 <table class="table table-bordered text-center" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th>#</th>
                                             <th>Nama</th>
-                                            <th>Email</th>
-                                            <th>Roles</th>
-                                            <th>Created At</th>
-                                            <th>Updated At</th>
+                                            <th>Status Kepegawaian</th>
+                                            <th>Pendidikan Terakhir</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <?php $no = 1 ?>
-                                        @foreach ($tbl_users as $user)
+                                        @foreach ($tbl_kepala_pendidikan as $kp)
                                         <tr>
-                                            <td>{{ $no++ }}</td>
-                                            <td>{{ $user->nama}}</td>
-                                            <td>{{ $user->email}}</td>
+                                            <td>{{ $kp->nama}}</td>
+                                            <td>{{ $kp->status_kepegawaian}}</td>
+                                            <td>{{ $kp->pendidikan_terakhir}}</td>
                                             <td>
-                                                <button
-                                                    class="{{ $user->roles == 1 ? 'btn btn-primary btn-sm' : 'btn btn-success btn-sm' }}">
-                                                    {{ $user->roles == 1 ? 'Administrator' : 'Pengguna' }}
-                                                </button>
-                                            </td>
-                                            <td>{{ $user->created_at}}</td>
-                                            <td>{{ $user->updated_at}}</td>
-                                            <td>
-                                                <a href="{{ route('edit-user', ['user' => $user]) }}"
+                                                <a href=""
                                                     class="btn btn-warning btn-circle btn-sm">
                                                     <i class="far fa-edit"></i>
                                                 </a>
-
-                                                <form action="{{ route('users.destroy', $user->id) }}" method="POST">
-                                                    @csrf
-                                                    @method('DELETE')
-
-                                                    <button type="submit" class="btn btn-danger btn-circle btn-sm"
-                                                    style="margin-top: 10px;">
-                                                    <i class="fas fa-trash"></i></button>
-                                                </form>
+                                                <a href="#" class="btn btn-danger btn-circle btn-sm">
+                                                    <i class="fas fa-trash"></i>
+                                                </a>
                                             </td>
-
                                         </tr>
                                         @endforeach
                                     </tbody>

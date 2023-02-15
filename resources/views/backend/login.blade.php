@@ -41,21 +41,25 @@
                                         <h1 class="h4 text-gray-900 mb-4">Silahkan Login!</h1>
                                     </div>
 
-                                    <!-- Waring Message -->
-                                    {{-- <div class="my-2 mt-3">
-                                    <button class="btn btn-warning btn-icon-split">
-                                        <span class="icon text-white-50">
-                                            <i class="fas fa-exclamation-triangle"></i>
-                                        </span>
-                                        <span class="text"></span>
-                                    </button>
-                                    </div> --}}
+                                    @if (session('success'))
+                                    <div class="alert alert-success" role="alert">
+                                        {{ session('success') }}
+                                    </div>
+                                    @elseif ($errors->has('email'))
+                                    <div class="alert alert-danger" role="alert">
+                                        {{ $errors->first('email') }}
+                                    </div>
+                                    @elseif ($errors->has('password'))
+                                    <div class="alert alert-danger" role="alert">
+                                        {{ $errors->first('password') }}
+                                    </div>
+                                    @endif
 
                                     <form action="{{ route('auth.login') }}" method="POST" class="user">
                                         @csrf
                                         <div class="form-group">
-                                            <input type="text" class="form-control form-control-user"
-                                                name="email" value="{{ old('email') }}" placeholder="Email">
+                                            <input type="text" class="form-control form-control-user" name="email"
+                                                value="{{ old('email') }}" placeholder="Email">
                                         </div>
                                         <div class="form-group">
                                             <input type="password" class="form-control form-control-user"
@@ -64,11 +68,12 @@
                                         <button type="submit" class="btn btn-primary btn-user btn-block">
                                             Login
                                         </button>
-                                        
+
                                     </form>
                                     <hr>
                                     <div class="text-center">
-                                        <a class="small" href="{{ url('registrasi') }}">Belum punya akun? Silahkan registrasi!</a>
+                                        <a class="small" href="{{ url('registrasi') }}">Belum punya akun? Silahkan
+                                            registrasi!</a>
                                     </div>
                                 </div>
                             </div>

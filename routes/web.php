@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\IdentitasLembagaController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -40,12 +41,16 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'roles:0,1']);
 
 Route::middleware(['auth', 'roles:1'])->group(function () {
-    Route::get('/lembaga', function () {
-        // only authenticated users with roles=1 can access this route
-        return view('backend/lembaga');
-    });
-    Route::get('/users', function () {
-        // only authenticated users with roles=1 can access this route
-        return view('backend/users');
-    });
+    // only authenticated users with roles=1 can access this route
+    Route::get('lembaga', [IdentitasLembagaController::class, 'lembaga'])->name('lembaga');
+
+    Route::get('users', [UserController::class, 'users'])->name('users');
+
+    Route::get('/edit-user/{user}', [UserController::class, 'editUser'])->name('edit-user');
+
+    Route::put('/edit-user/{user}', [UserController::class, 'update'])->name('user.update');
+
+    Route::delete('/users/{id}', [UserController::class, 'delete'])->name('users.destroy');
+
+    Route::get('kepala-pendidikan', [UserController::class, 'kepalaPendidikan'])->name('kepala-pendidikan');
 });

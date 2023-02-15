@@ -41,57 +41,91 @@
                     <!-- Content Row -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">Keterangan Data</h6>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <table class="table table-bordered text-center" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th>Name</th>
-                                            <th>Position</th>
-                                            <th>Office</th>
-                                            <th>Age</th>
-                                            <th>Start date</th>
-                                            <th>Salary</th>
+                                            <th>Jenis Lembaga</th>
+                                            <th>Nomor Statistik Lembaga</th>
+                                            <th>Nama Lembaga</th>
+                                            <th>No. SK Ijin Operasional</th>
+                                            <th>Tanggal SK Ijin Operasional</th>
+                                            <th>No. Akta Pendirian</th>
+                                            <th>Tanggal Akta Pendirian</th>
+                                            <th>Alamat</th>
+                                            <th>Kecamatan</th>
+                                            <th>Kabupaten/Kota</th>
+                                            <th>Provinsi</th>
+                                            <th>Kode Pos</th>
+                                            <th>Nomor Telp</th>
+                                            <th>Nomor Fax</th>
+                                            <th>Email</th>
+                                            <th>Website</th>
+                                            <th>Titik Koordinat</th>
+                                            <th>Akreditasi</th>
+                                            <th>Action</th>
                                         </tr>
                                     </thead>
-                                    <tfoot>
+                                    {{-- <tfoot>
                                         <tr>
-                                            <th>Name</th>
-                                            <th>Position</th>
-                                            <th>Office</th>
-                                            <th>Age</th>
-                                            <th>Start date</th>
-                                            <th>Salary</th>
+                                            <th>Jenis Lembaga</th>
+                                            <th>Nomor Statistik Lembaga</th>
+                                            <th>Nama Lembaga</th>
+                                            <th>No. SK Ijin Operasional</th>
+                                            <th>Tanggal SK Ijin Operasional</th>
+                                            <th>No. Akta Pendirian</th>
+                                            <th>Tanggal Akta Pendirian</th>
+                                            <th>Alamat</th>
+                                            <th>Kecamatan</th>
+                                            <th>Kabupaten/Kota</th>
+                                            <th>Provinsi</th>
+                                            <th>Kode Pos</th>
+                                            <th>Nomor Telp</th>
+                                            <th>Nomor Fax</th>
+                                            <th>Email</th>
+                                            <th>Website</th>
+                                            <th>Titik Koordinat</th>
+                                            <th>Akreditasi</th>
+                                            <th>Action</th>
                                         </tr>
-                                    </tfoot>
+                                    </tfoot>   --}}
                                     <tbody>
+                                    @foreach($tbl_identitas_lembaga as $lembaga)
                                         <tr>
-                                            <td>Tiger Nixon</td>
-                                            <td>System Architect</td>
-                                            <td>Edinburgh</td>
-                                            <td>61</td>
-                                            <td>2011/04/25</td>
-                                            <td>$320,800</td>
+                                            <td>{{ $lembaga-> jenis_lembaga }}</td>
+                                            <td>{{ $lembaga-> nomor_statistik_lembaga }}</td>
+                                            <td>{{ $lembaga-> nama_lembaga }}</td>
+                                            <td>{{ $lembaga-> no_sk }}</td>
+                                            <td>{{ $lembaga-> tgl_sk }}</td>
+                                            <td>{{ $lembaga-> no_akta_pendirian }}</td>
+                                            <td>{{ $lembaga-> tgl_akta_pendirian }}</td>
+                                            <td>{{ $lembaga-> alamat }}</td>
+                                            <td>{{ $lembaga-> kecamatan }}</td>
+                                            <td>{{ $lembaga-> kabupaten }}</td>
+                                            <td>{{ $lembaga-> provinsi }}</td>
+                                            <td>{{ $lembaga-> kode_pos }}</td>
+
+                                            <td>{{ $lembaga-> no_telp }}</td>
+                                            <td>{{ $lembaga-> no_fax }}</td>
+                                            <td>{{ $lembaga-> email }}</td>
+                                            <td>{{ $lembaga-> website }}</td>
+                                            <td>{{ $lembaga-> titik_koordinat }}</td>
+                                            <td>{{ $lembaga-> akreditasi }}</td>
+                                            <td>
+                                                <a href="#" class="btn btn-warning btn-circle btn-sm">
+                                                    <i class="far fa-edit"></i>
+                                                </a>
+                                                {{-- <a href="#" class="btn btn-danger btn-circle" style="margin-top: 10px;">
+                                                    <i class="fas fa-trash"></i>
+                                                </a> --}}
+                                            </td>
                                         </tr>
-                                        <tr>
-                                            <td>Garrett Winters</td>
-                                            <td>Accountant</td>
-                                            <td>Tokyo</td>
-                                            <td>63</td>
-                                            <td>2011/07/25</td>
-                                            <td>$170,750</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Donna Snider</td>
-                                            <td>Customer Support</td>
-                                            <td>New York</td>
-                                            <td>27</td>
-                                            <td>2011/01/25</td>
-                                            <td>$112,000</td>
-                                        </tr>
+                                    @endforeach
                                     </tbody>
+                                    
                                 </table>
                             </div>
                         </div>
@@ -105,58 +139,10 @@
 
             <!-- Footer -->
 
-            @inlcude('backend/static/footer')
+            @include('backend/static/footer')
 
             <!-- End of Footer -->
-
-        </div>
-        <!-- End of Content Wrapper -->
-
-    </div>
-    <!-- End of Page Wrapper -->
-
-    <!-- Scroll to Top Button-->
-    <a class="scroll-to-top rounded" href="#page-top">
-        <i class="fas fa-angle-up"></i>
-    </a>
-
-    <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Apakah Anda yakin ingin keluar?</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">Pilih "Logout" jika Anda ingin melanjutkannya.</div>
-                <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="{{ route('logout') }}">Logout</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Bootstrap core JavaScript-->
-    <script src="{{ asset('backend/vendor/jquery/jquery.min.js') }}"></script>
-    <script src="{{ asset('backend/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-
-    <!-- Core plugin JavaScript-->
-    <script src="{{ asset('backend/vendor/jquery-easing/jquery.easing.min.js') }}"></script>
-
-    <!-- Custom scripts for all pages-->
-    <script src="{{ asset('backend/js/sb-admin-2.min.js') }}"></script>
-
-    <!-- Page level plugins -->
-    <script src="{{ asset('backend/vendor/chart.js/Chart.min.js') }}"></script>
-
-    <!-- Page level custom scripts -->
-    <script src="{{ asset('backend/js/demo/chart-area-demo.js') }}"></script>
-    <script src="{{ asset('backend/js/demo/chart-pie-demo.js') }}"></script>
-
+            
 </body>
 
 </html>
