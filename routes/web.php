@@ -34,21 +34,18 @@ Route::post('registrasi', [UserController::class, 'registerAction'])->name('regi
 
 Route::get('logout', [UserController::class, 'logout'])->name('logout');
 
-// Route::get('dashboard', function () {
-//     return view('backend/dashboard');
-// });
+Route::get('/dashboard', function () {
+    // only authenticated users with roles 0 or 1 can access this route
+    return view('backend/dashboard');
+})->middleware(['auth', 'roles:0,1']);
 
-Route::middleware(['auth'])->group(function () {
-    Route::get('/dashboard', function () {
-        // only authenticated users can access this route
-        return view('backend/dashboard');
-    });
+Route::middleware(['auth', 'roles:1'])->group(function () {
     Route::get('/lembaga', function () {
-        // only authenticated users can access this route
+        // only authenticated users with roles=1 can access this route
         return view('backend/lembaga');
     });
     Route::get('/users', function () {
-        // only authenticated users can access this route
+        // only authenticated users with roles=1 can access this route
         return view('backend/users');
     });
 });

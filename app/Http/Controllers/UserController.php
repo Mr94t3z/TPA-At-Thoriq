@@ -62,7 +62,7 @@ class UserController extends Controller
             return redirect('dashboard')->with('success', 'Login berhasil!');
         }
 
-        return back('login')->withErrors('password', 'Email atau Password Anda salah!');
+        return redirect('login')->withErrors('password', 'Email atau Password Anda salah!');
     }
 
     // Fungsi Logout

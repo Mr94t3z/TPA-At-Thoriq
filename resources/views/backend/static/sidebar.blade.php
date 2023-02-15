@@ -1,11 +1,11 @@
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
     <!-- Sidebar - Brand -->
-    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
         <div class="sidebar-brand-icon rotate-n-15">
-            {{-- <i class="fas fa-laugh-wink"></i> --}}
+            <img src="{{ asset('assets/img/logo.png') }}" alt="" style="height: 50px; margin-right: 5px;">
         </div>
-        <div class="sidebar-brand-text mx-3">TPA At-Thoriq</div>
+        <div class="sidebar-brand-text">TPA At-Thoriq</div>
     </a>
 
     <!-- Divider -->
@@ -24,10 +24,13 @@
         </a>
     </li>
 
+    {{-- If user-> roles == 1 --}}
+    @if(Auth::user()->roles == 1)
     <!-- Divider -->
     <hr class="sidebar-divider">
 
     <!-- For Administrator -->
+    
     <div class="sidebar-heading">
         Admin
     </div>
@@ -50,10 +53,10 @@
         <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Manajemen:</h6>
-                <a class="collapse-item" href="{{ url('users') }}">Users</a>
-                <a class="collapse-item" href="{{ url('kepala-pendidikan') }}">Kepala Pendidikan</a>
-                <a class="collapse-item" href="{{ url('guru') }}">Guru</a>
-                <a class="collapse-item" href="{{ url('siswa') }}">Siswa/Santri Aktif</a>
+                <a class="collapse-item" href="{{ url('users') }}">Data Users</a>
+                <a class="collapse-item" href="{{ url('kepala-pendidikan') }}">Data Kepala Pendidikan</a>
+                <a class="collapse-item" href="{{ url('guru') }}">Data Guru</a>
+                <a class="collapse-item" href="{{ url('siswa') }}">Data Siswa/Santri Aktif</a>
             </div>
         </div>
     </li>    
@@ -76,12 +79,8 @@
         </div>
     </li>
 
-    {{-- <!-- Nav Item - Guru -->
-    <li class="nav-item">
-        <a class="nav-link" href="tables.html">
-            <i class="fas fa-fw fa-table"></i>
-            <span>Manajemen Guru</span></a>
-    </li> --}}
+    @endif
+    <!-- End For Administrator -->
 
     <!-- Divider -->
     <hr class="sidebar-divider d-none d-md-block">
