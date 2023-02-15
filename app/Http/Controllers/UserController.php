@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\KepalaPendidikan;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
@@ -81,14 +80,14 @@ class UserController extends Controller
         $data['q'] = $request->get('q');
         $data['tbl_users'] = User::where('nama', 'like', '%' . $data['q'] . '%')->get();
 
-        return view('backend/users', $data);
+        return view('backend/data-pengguna/users/index', $data);
     }
 
     // Fungsi Halaman Edit User
     public function editUser($id)
     {
         $user = User::find($id);
-        return view('backend.edit-user', compact('user'));
+        return view('backend/data-pengguna/users/edit', compact('user'));
     }
 
     // Fungsi Edit Users

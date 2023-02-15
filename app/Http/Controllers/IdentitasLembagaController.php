@@ -13,6 +13,6 @@ class IdentitasLembagaController extends Controller
         $data['q'] = $request->get('q');
         $data['tbl_identitas_lembaga'] = IdentitasLembaga::where('jenis_lembaga', 'like', '%' . $data['q'] . '%')->get();
 
-        return view('backend/lembaga', $data);
+        return view('backend/identitas-lembaga/index', $data);
     }
 }

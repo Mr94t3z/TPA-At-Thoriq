@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\GuruController;
 use App\Http\Controllers\IdentitasLembagaController;
 use App\Http\Controllers\KepalaPendidikanController;
 use App\Http\Controllers\UserController;
@@ -38,13 +39,16 @@ Route::get('logout', [UserController::class, 'logout'])->name('logout');
 
 Route::get('/dashboard', function () {
     // only authenticated users with roles 0 or 1 can access this route
-    return view('backend/dashboard');
+    return view('backend/dashboard/index');
 })->middleware(['auth', 'roles:0,1']);
 
 Route::middleware(['auth', 'roles:1'])->group(function () {
     // only authenticated users with roles=1 can access this route
+
+    // [IDENTITAS LEMBAGA ROUTE]
     Route::get('lembaga', [IdentitasLembagaController::class, 'lembaga'])->name('lembaga');
 
+    // [USERS ROUTE]
     Route::get('users', [UserController::class, 'users'])->name('users');
 
     Route::get('/edit-user/{user}', [UserController::class, 'editUser'])->name('edit-user');
@@ -53,11 +57,19 @@ Route::middleware(['auth', 'roles:1'])->group(function () {
 
     Route::delete('/users/{id}', [UserController::class, 'delete'])->name('users.destroy');
 
-    Route::get('kepala-pendidikan', [
-        KepalaPendidikanController::class, 'kepalaPendidikan'
-    ])->name('kepala-pendidikan');
+    // [KEPALA PENDIDIKAN ROUTE]
+    Route::get('kepala-pendidikan', [KepalaPendidikanController::class, 'kepalaPendidikan'])->name('kepala-pendidikan');
 
     Route::get('/kepala-pendidikan/{kp}', [KepalaPendidikanController::class, 'editKepalaPendidikan'])->name('edit-kp');
 
     Route::put('/kepala-pendidikan/{kp}', [KepalaPendidikanController::class, 'update'])->name('kp.update');
+
+    // [GURU ROUTE]
+    Route::get('guru', [GuruController::class, 'guru'])->name('guru');
+
+    Route::get('/guru/{guru}', [GuruController::class, 'editGuru'])->name('edit-guru');
+
+    Route::put('/guru/{guru}', [GuruController::class, 'update'])->name('guru.update');
+
+    Route::delete('/guru/{id}', [GuruController::class, 'delete'])->name('guru.destroy');
 });

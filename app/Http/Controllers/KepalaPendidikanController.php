@@ -13,14 +13,14 @@ class KepalaPendidikanController extends Controller
         $data['q'] = $request->get('q');
         $data['tbl_kepala_pendidikan'] = KepalaPendidikan::where('nama', 'like', '%' . $data['q'] . '%')->get();
 
-        return view('backend/kepala-pendidikan', $data);
+        return view('backend/data-pengguna/kepala-pendidikan/index', $data);
     }
 
     // Fungsi Halaman Edit Kepala Pendidikan
     public function editKepalaPendidikan($id)
     {
         $kp = KepalaPendidikan::find($id);
-        return view('backend/edit-kp', compact('kp'));
+        return view('backend/data-pengguna/kepala-pendidikan/edit', compact('kp'));
     }
 
     // Fungsi Edit Kepala Pendidikan

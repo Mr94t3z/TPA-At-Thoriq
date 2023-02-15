@@ -35,7 +35,7 @@
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Manajemen Users</h1>
+                        <h1 class="h3 mb-0 text-gray-800">Informasi Users</h1>
                     </div>
 
                     <!-- Content Row -->
@@ -85,13 +85,40 @@
                                                     <i class="far fa-edit"></i>
                                                 </a>
 
-                                                <form action="{{ route('users.destroy', $user->id) }}" method="POST">
-                                                    @csrf
-                                                    @method('DELETE')
+                                                <div class="modal fade" id="exampleModalToggle" aria-hidden="true"
+                                                    aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+                                                    <div class="modal-dialog modal-dialog-centered">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title fs-5"
+                                                                    id="exampleModalToggleLabel">Apakah anda yakin?</h1>
+                                                                    <button class="close" type="button"
+                                                                        data-dismiss="modal" aria-label="Close">
+                                                                        <span aria-hidden="true">×</span>
+                                                                    </button>
 
-                                                    <button type="submit" class="btn btn-danger btn-circle btn-sm">
-                                                    <i class="fas fa-trash"></i></button>
-                                                </form>
+                                                            </div>
+                                                            <div class="modal-body text-justify">
+                                                                Data user dengan email: <b> {{ $user->email }} </b> akan
+                                                                dihapus.
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <form action="{{ route('users.destroy', $user->id) }}" method="POST">
+                                                                    @csrf
+                                                                    @method('DELETE')
+                
+                                                                    <button type="submit"
+                                                                        class="btn btn-primary">Submit</button>
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <button type="submit" class="btn btn-danger btn-circle btn-sm"
+                                                    data-target="#exampleModalToggle" data-toggle="modal">
+                                                    <i class="fas fa-trash"></i>
+                                                </button>
                                             </td>
 
                                         </tr>

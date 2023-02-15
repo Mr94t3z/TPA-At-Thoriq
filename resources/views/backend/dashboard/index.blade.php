@@ -3,7 +3,7 @@
 
 <head>
 
-    @include('backend/static/header')
+    @include('/backend/static/header')
 
 </head>
 
