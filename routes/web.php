@@ -3,6 +3,7 @@
 use App\Http\Controllers\GuruController;
 use App\Http\Controllers\IdentitasLembagaController;
 use App\Http\Controllers\KepalaPendidikanController;
+use App\Http\Controllers\ListrikDanInternetController;
 use App\Http\Controllers\LuasTanahController;
 use App\Http\Controllers\PendukungController;
 use App\Http\Controllers\PenggunaanLahanController;
@@ -51,6 +52,10 @@ Route::middleware(['auth', 'roles:1'])->group(function () {
 
     // [IDENTITAS LEMBAGA ROUTE]
     Route::get('lembaga', [IdentitasLembagaController::class, 'lembaga'])->name('lembaga');
+
+    Route::get('/lembaga/edit/{lembaga}', [IdentitasLembagaController::class, 'editLembaga'])->name('edit-lembaga');
+
+    Route::put('/lembaga/put/{lembaga}', [IdentitasLembagaController::class, 'update'])->name('lembaga.update');
 
     // [USERS ROUTE]
     Route::get('users', [UserController::class, 'users'])->name('users');
@@ -132,4 +137,11 @@ Route::middleware(['auth', 'roles:1'])->group(function () {
     Route::put('/pendukung/put/{pendukung}', [PendukungController::class, 'update'])->name('pendukung.update');
 
     Route::delete('/pendukung/delete/{id}', [PendukungController::class, 'delete'])->name('pendukung.destroy');
+
+    // [LISTRIK DAN INTERNET ROUTE]
+    Route::get('listrik-dan-internet', [ListrikDanInternetController::class, 'listrikDanInternet'])->name('listrik-dan-internet');
+
+    Route::get('/listrik-dan-internet/edit/{lni}', [ListrikDanInternetController::class, 'editlistrikDanInternet'])->name('edit-lni');
+
+    Route::put('/listrik-dan-internet/put/{lni}', [ListrikDanInternetController::class, 'update'])->name('lni.update');
 });

@@ -52,41 +52,49 @@
                             </div>
                             @endif
 
-                            <div class="table-responsive">
-                                <table class="table table-bordered text-center" id="dataTable" width="100%"
-                                    cellspacing="0">
-                                    <thead>
-                                        <tr>
-                                            <th>Nama</th>
-                                            <th>Status Kepegawaian</th>
-                                            <th>Pendidikan Terakhir</th>
-                                            <th>Created At</th>
-                                            <th>Updated At</th>
-                                            <th>Action</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @foreach ($tbl_kepala_pendidikan as $kp)
-                                        <tr>
-                                            <td>{{ $kp->nama}}</td>
-                                            <td>{{ $kp->status_kepegawaian}}</td>
-                                            <td>{{ $kp->pendidikan_terakhir}}</td>
-                                            <td>{{ $kp->created_at}}</td>
-                                            <td>{{ $kp->updated_at}}</td>
-                                            <td>
-                                                <a href="{{ route('edit-kp', ['kp' => $kp]) }}"
-                                                    class="btn btn-warning btn-circle btn-sm mb-2">
-                                                    <i class="fas fa-pen"></i>
-                                                </a>
-                                                {{-- <a href="#" class="btn btn-danger btn-circle btn-sm">
-                                                    <i class="fas fa-trash"></i>
-                                                </a> --}}
-                                            </td>
-                                        </tr>
-                                        @endforeach
-                                    </tbody>
-                                </table>
+                            @foreach ($tbl_kepala_pendidikan as $kp)
+
+                            <div class="mb-3 row">
+                                <label class="col-sm-3 col-form-label">Nama Lengkap :</label>
+                                <div class="col-sm-5">
+                                    <input type="text" readonly class="form-control" value="{{ $kp->nama }}">
+                                </div>
                             </div>
+
+                            <div class="mb-3 row">
+                                <label class="col-sm-3 col-form-label">Status Kepegawaian :</label>
+                                <div class="col-sm-5">
+                                    <input type="text" readonly class="form-control"
+                                        value="{{ $kp->status_kepegawaian }}">
+                                </div>
+                            </div>
+
+                            <div class="mb-3 row">
+                                <label class="col-sm-3 col-form-label">Pendidikan Terakhir :</label>
+                                <div class="col-sm-5">
+                                    <input type="text" readonly class="form-control"
+                                        value="{{ $kp->pendidikan_terakhir }}">
+                                </div>
+                            </div>
+
+                            <div class="mb-3 row">
+                                <label class="col-sm-3 col-form-label">Dibuat pada :</label>
+                                <div class="col-sm-5">
+                                    <input type="text" readonly class="form-control" value="{{ $kp->created_at }}">
+                                </div>
+                            </div>
+
+                            <div class="mb-3 row">
+                                <label class="col-sm-3 col-form-label">Terakhir diperbaharui :</label>
+                                <div class="col-sm-5">
+                                    <input type="text" readonly class="form-control" value="{{ $kp->updated_at }}">
+                                </div>
+                            </div>
+
+                            <a href="{{ route('edit-kp', ['kp' => $kp]) }}" class="btn btn-success">Update</a>
+
+                            @endforeach
+
                         </div>
                     </div>
 

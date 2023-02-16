@@ -35,7 +35,7 @@
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Edit Sarpras Pendukung</h1>
+                        <h1 class="h3 mb-0 text-gray-800">Edit Sarpras Listrik dan Internet</h1>
                     </div>
 
                     <!-- Content Row -->
@@ -56,38 +56,33 @@
                          <!-- End Of Error Message -->
 
                         <div class="card-body">
-                            <form action="{{ route('pendukung.update', ['pendukung' => $pendukung]) }}" method="POST" class="user">
+                            <form action="{{ route('lni.update', ['lni' => $lni]) }}" method="POST" class="user">
                                 @csrf
                                 @method('PUT')
 
                                 <div class="mb-3">
-                                    <label for="exampleInputKeterangan" class="form-label">Keterangan</label>
-                                    <input type="text" class="form-control" name="keterangan"
-                                        value="{{ old('keterangan', $pendukung->keterangan) }}">
+                                    <label for="exampleInputDayaListrik" class="form-label">Daya Listrik</label>
+                                    <input type="text" class="form-control" name="listrik_daya"
+                                        value="{{ old('listrik_daya', $lni->listrik_daya) }}">
                                 </div>
 
                                 <div class="mb-3">
-                                    <label for="exampleInputMilik" class="form-label">Milik</label>
-                                    <input type="text" class="form-control" name="milik" value="{{ old('milik', $pendukung->milik) }}">
+                                    <label for="exampleInputSumberListrik" class="form-label">Sumber Listrik</label>
+                                    <input type="text" class="form-control" name="listrik_sumber" value="{{ old('listrik_sumber', $lni->listrik_sumber) }}">
                                 </div>
 
                                 <div class="mb-3">
-                                    <label for="exampleInputPenggunaan" class="form-label">Penggunaan</label>
-                                    <input type="text" class="form-control" name="penggunaan" value="{{ old('penggunaan', $pendukung->penggunaan) }}">
+                                    <label for="exampleInputInternetProvider" class="form-label">Internet Provider</label>
+                                    <input type="text" class="form-control" name="internet_provider" value="{{ old('internet_provider', $lni->internet_provider) }}">
                                 </div>
 
                                 <div class="mb-3">
-                                    <label for="exampleInputKondisiBaik" class="form-label">Kondisi Baik</label>
-                                    <input type="text" class="form-control" name="baik" value="{{ old('baik', $pendukung->baik) }}">
-                                </div>
-
-                                <div class="mb-3">
-                                    <label for="exampleInputKondisiRusak" class="form-label">Kondisi Rusak</label>
-                                    <input type="text" class="form-control" name="rusak" value="{{ old('rusak', $pendukung->rusak) }}">
+                                    <label for="exampleInputInternetKualitas" class="form-label">Internet Kualitas</label>
+                                    <input type="text" class="form-control" name="internet_kualitas" value="{{ old('internet_kualitas', $lni->internet_kualitas) }}">
                                 </div>
 
                                 <button type="submit" class="btn btn-primary">Submit</button>
-                                <a href="{{ url('pendukung') }}" class="btn btn-warning">Cancel</a>
+                                <a href="{{ url('listrik-dan-internet') }}" class="btn btn-warning">Cancel</a>
                             </form>
 
                         </div>

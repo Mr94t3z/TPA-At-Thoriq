@@ -35,7 +35,7 @@
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Identitas Lembaga</h1>
+                        <h1 class="h3 mb-0 text-gray-800">Informasi Identitas Lembaga</h1>
                     </div>
 
                     <!-- Content Row -->
@@ -44,90 +44,141 @@
                             <h6 class="m-0 font-weight-bold text-primary">Keterangan Data</h6>
                         </div>
                         <div class="card-body">
-                            <div class="table-responsive">
-                                <table class="table table-bordered text-center" id="dataTable" width="100%" cellspacing="0">
-                                    <thead>
-                                        <tr>
-                                            <th>Jenis Lembaga</th>
-                                            <th>Nomor Statistik Lembaga</th>
-                                            <th>Nama Lembaga</th>
-                                            <th>No. SK Ijin Operasional</th>
-                                            <th>Tanggal SK Ijin Operasional</th>
-                                            <th>No. Akta Pendirian</th>
-                                            <th>Tanggal Akta Pendirian</th>
-                                            <th>Alamat</th>
-                                            <th>Kecamatan</th>
-                                            <th>Kabupaten/Kota</th>
-                                            <th>Provinsi</th>
-                                            <th>Kode Pos</th>
-                                            <th>Nomor Telp</th>
-                                            <th>Nomor Fax</th>
-                                            <th>Email</th>
-                                            <th>Website</th>
-                                            <th>Titik Koordinat</th>
-                                            <th>Akreditasi</th>
-                                            <th>Action</th>
-                                        </tr>
-                                    </thead>
-                                    {{-- <tfoot>
-                                        <tr>
-                                            <th>Jenis Lembaga</th>
-                                            <th>Nomor Statistik Lembaga</th>
-                                            <th>Nama Lembaga</th>
-                                            <th>No. SK Ijin Operasional</th>
-                                            <th>Tanggal SK Ijin Operasional</th>
-                                            <th>No. Akta Pendirian</th>
-                                            <th>Tanggal Akta Pendirian</th>
-                                            <th>Alamat</th>
-                                            <th>Kecamatan</th>
-                                            <th>Kabupaten/Kota</th>
-                                            <th>Provinsi</th>
-                                            <th>Kode Pos</th>
-                                            <th>Nomor Telp</th>
-                                            <th>Nomor Fax</th>
-                                            <th>Email</th>
-                                            <th>Website</th>
-                                            <th>Titik Koordinat</th>
-                                            <th>Akreditasi</th>
-                                            <th>Action</th>
-                                        </tr>
-                                    </tfoot>   --}}
-                                    <tbody>
-                                    @foreach($tbl_identitas_lembaga as $lembaga)
-                                        <tr>
-                                            <td>{{ $lembaga-> jenis_lembaga }}</td>
-                                            <td>{{ $lembaga-> nomor_statistik_lembaga }}</td>
-                                            <td>{{ $lembaga-> nama_lembaga }}</td>
-                                            <td>{{ $lembaga-> no_sk }}</td>
-                                            <td>{{ $lembaga-> tgl_sk }}</td>
-                                            <td>{{ $lembaga-> no_akta_pendirian }}</td>
-                                            <td>{{ $lembaga-> tgl_akta_pendirian }}</td>
-                                            <td>{{ $lembaga-> alamat }}</td>
-                                            <td>{{ $lembaga-> kecamatan }}</td>
-                                            <td>{{ $lembaga-> kabupaten }}</td>
-                                            <td>{{ $lembaga-> provinsi }}</td>
-                                            <td>{{ $lembaga-> kode_pos }}</td>
 
-                                            <td>{{ $lembaga-> no_telp }}</td>
-                                            <td>{{ $lembaga-> no_fax }}</td>
-                                            <td>{{ $lembaga-> email }}</td>
-                                            <td>{{ $lembaga-> website }}</td>
-                                            <td>{{ $lembaga-> titik_koordinat }}</td>
-                                            <td>{{ $lembaga-> akreditasi }}</td>
-                                            <td>
-                                                <a href="#" class="btn btn-warning btn-circle btn-sm">
-                                                    <i class="fas fa-pen"></i>
-                                                </a>
-                                                {{-- <a href="#" class="btn btn-danger btn-circle" style="margin-top: 10px;">
-                                                    <i class="fas fa-trash"></i>
-                                                </a> --}}
-                                            </td>
-                                        </tr>
-                                    @endforeach
-                                    </tbody>
-                                    
-                                </table>
+                            @if (session('success'))
+                            <div class="alert alert-success" role="alert">
+                                {{ session('success') }}
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">x</button>
                             </div>
+                            @endif
+
+                            @foreach($tbl_identitas_lembaga as $lembaga)
+
+                            <div class="mb-3 mr-3 ml-3">
+                                <label class="form-label">Jenis Lembaga :</label>
+                                <input class="form-control" type="text" value="{{  $lembaga->jenis_lembaga }}"
+                                    aria-label="Disabled input example" disabled readonly>
+                            </div>
+
+                            <div class="mb-3 mr-3 ml-3">
+                                <label class="form-label">Nomor Statistik Lembaga :</label>
+                                <input class="form-control" type="text" value="{{  $lembaga->nomor_statistik_lembaga }}"
+                                    aria-label="Disabled input example" disabled readonly>
+                            </div>
+
+                            <div class="mb-3 mr-3 ml-3">
+                                <label class="form-label">Nama Lembaga :</label>
+                                <input class="form-control" type="text" value="{{  $lembaga->nama_lembaga }}"
+                                    aria-label="Disabled input example" disabled readonly>
+                            </div>
+
+                            <div class="mb-3 mr-3 ml-3">
+                                <label class="form-label">No. SK Ijin Operasional :</label>
+                                <input class="form-control" type="text" value="{{  $lembaga->no_sk }}"
+                                    aria-label="Disabled input example" disabled readonly>
+                            </div>
+
+                            <div class="mb-3 mr-3 ml-3">
+                                <label class="form-label">Tanggal SK Ijin Operasional :</label>
+                                <input class="form-control" type="text" value="{{  $lembaga->tgl_sk }}"
+                                    aria-label="Disabled input example" disabled readonly>
+                            </div>
+
+                            <div class="mb-3 mr-3 ml-3">
+                                <label class="form-label">No. Akta Pendirian :</label>
+                                <input class="form-control" type="text" value="{{  $lembaga->no_akta_pendirian }}"
+                                    aria-label="Disabled input example" disabled readonly>
+                            </div>
+
+                            <div class="mb-3 mr-3 ml-3">
+                                <label class="form-label">Tanggal Akta Pendirian :</label>
+                                <input class="form-control" type="text" value="{{  $lembaga->tgl_akta_pendirian }}"
+                                    aria-label="Disabled input example" disabled readonly>
+                            </div>
+
+                            <div class="mb-3 mr-3 ml-3">
+                                <label class="form-label">Alamat :</label>
+                                <input class="form-control" type="text" value="{{  $lembaga->alamat }}"
+                                    aria-label="Disabled input example" disabled readonly>
+                            </div>
+
+                            <div class="mb-3 mr-3 ml-3">
+                                <label class="form-label">Kecamatan :</label>
+                                <input class="form-control" type="text" value="{{  $lembaga->kecamatan }}"
+                                    aria-label="Disabled input example" disabled readonly>
+                            </div>
+
+                            <div class="mb-3 mr-3 ml-3">
+                                <label class="form-label">Kabupaten/Kota :</label>
+                                <input class="form-control" type="text" value="{{  $lembaga->kabupaten }}"
+                                    aria-label="Disabled input example" disabled readonly>
+                            </div>
+
+                            <div class="mb-3 mr-3 ml-3">
+                                <label class="form-label">Provinsi :</label>
+                                <input class="form-control" type="text" value="{{  $lembaga->provinsi }}"
+                                    aria-label="Disabled input example" disabled readonly>
+                            </div>
+
+                            <div class="mb-3 mr-3 ml-3">
+                                <label class="form-label">Kode Pos :</label>
+                                <input class="form-control" type="text" value="{{  $lembaga->kode_pos }}"
+                                    aria-label="Disabled input example" disabled readonly>
+                            </div>
+
+                            <div class="mb-3 mr-3 ml-3">
+                                <label class="form-label">Nomor Telpon :</label>
+                                <input class="form-control" type="text" value="{{  $lembaga->no_telp }}"
+                                    aria-label="Disabled input example" disabled readonly>
+                            </div>
+
+                            <div class="mb-3 mr-3 ml-3">
+                                <label class="form-label">Nomor Fax :</label>
+                                <input class="form-control" type="text" value="{{  $lembaga->no_fax }}"
+                                    aria-label="Disabled input example" disabled readonly>
+                            </div>
+
+                            <div class="mb-3 mr-3 ml-3">
+                                <label class="form-label">Email :</label>
+                                <input class="form-control" type="text" value="{{  $lembaga->email }}"
+                                    aria-label="Disabled input example" disabled readonly>
+                            </div>
+
+                            <div class="mb-3 mr-3 ml-3">
+                                <label class="form-label">Website :</label>
+                                <input class="form-control" type="text" value="{{  $lembaga->website }}"
+                                    aria-label="Disabled input example" disabled readonly>
+                            </div>
+
+                            <div class="mb-3 mr-3 ml-3">
+                                <label class="form-label">Titik Koordinat :</label>
+                                <input class="form-control" type="text" value="{{  $lembaga->titik_koordinat }}"
+                                    aria-label="Disabled input example" disabled readonly>
+                            </div>
+
+                            <div class="mb-3 mr-3 ml-3">
+                                <label class="form-label">Akreditasi :</label>
+                                <input class="form-control" type="text" value="{{  $lembaga->akreditasi }}"
+                                    aria-label="Disabled input example" disabled readonly>
+                            </div>
+
+                            <div class="mb-3 mr-3 ml-3">
+                                <label class="form-label">Dibuat pada :</label>
+                                <input class="form-control" type="text" value="{{  $lembaga->created_at }}"
+                                    aria-label="Disabled input example" disabled readonly>
+                            </div>
+
+                            <div class="mb-3 mr-3 ml-3">
+                                <label class="form-label">Terakhir diperbaharui :</label>
+                                <input class="form-control" type="text" value="{{  $lembaga->updated_at }}"
+                                    aria-label="Disabled input example" disabled readonly>
+                            </div>
+
+                            <a href="{{ route('edit-lembaga', ['lembaga' => $lembaga]) }}"
+                                class="btn btn-success mb-3 mt-3 mr-3 ml-3">Update</a>
+
+                            @endforeach
+                            
                         </div>
                     </div>
 
@@ -142,7 +193,7 @@
             @include('backend/static/footer')
 
             <!-- End of Footer -->
-            
+
 </body>
 
 </html>

@@ -47,6 +47,6 @@ class KepalaPendidikanController extends Controller
 
         $kp->save();
 
-        return redirect()->route('kepala-pendidikan')->with('success', 'Data Kepala Pendidikan berhasil diupdate!');
+        return redirect()->route('kepala-pendidikan')->with('success', 'Data kepala pendidikan berhasil diupdate!');
     }
 }
