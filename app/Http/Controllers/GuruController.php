@@ -10,7 +10,7 @@ class GuruController extends Controller
     // Fungsi Halaman Create Data Guru
     public function create()
     {
-        return view('backend/data-pengguna/guru/create');
+        return view('backend/kelola-pengguna/guru/create');
     }
 
     // Fungsi Create Data Guru
@@ -36,7 +36,7 @@ class GuruController extends Controller
         $data['q'] = $request->get('q');
         $data['tbl_guru'] = Guru::where('nama', 'like', '%' . $data['q'] . '%')->get();
 
-        return view('backend/data-pengguna/guru/index', $data);
+        return view('backend/kelola-pengguna/guru/index', $data);
     }
 
     // Fungsi Halaman Edit Guru
@@ -48,7 +48,7 @@ class GuruController extends Controller
             return redirect()->back()->with('error', 'Data guru tidak ditemukan!');
         }
 
-        return view('backend/data-pengguna/guru/edit', compact('guru'));
+        return view('backend/kelola-pengguna/guru/edit', compact('guru'));
     }
 
 

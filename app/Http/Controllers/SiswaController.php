@@ -10,7 +10,7 @@ class SiswaController extends Controller
     // Fungsi Halaman Create Data Siswa
     public function create()
     {
-        return view('backend/data-pengguna/siswa/create');
+        return view('backend/kelola-pengguna/siswa/create');
     }
 
     // Fungsi Create Data Siswa
@@ -40,7 +40,7 @@ class SiswaController extends Controller
         $data['q'] = $request->get('q');
         $data['tbl_siswa_aktif'] = Siswa::where('nama', 'like', '%' . $data['q'] . '%')->get();
 
-        return view('backend/data-pengguna/siswa/index', $data);
+        return view('backend/kelola-pengguna/siswa/index', $data);
     }
 
     // Fungsi Halaman Edit Siswa
@@ -52,7 +52,7 @@ class SiswaController extends Controller
             return redirect()->back()->with('error', 'Data siswa tidak ditemukan!');
         }
 
-        return view('backend/data-pengguna/siswa/edit', compact('siswa'));
+        return view('backend/kelola-pengguna/siswa/edit', compact('siswa'));
     }
 
     // Fungsi Edit Siswa

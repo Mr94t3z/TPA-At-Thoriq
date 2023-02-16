@@ -80,7 +80,7 @@ class UserController extends Controller
         $data['q'] = $request->get('q');
         $data['tbl_users'] = User::where('nama', 'like', '%' . $data['q'] . '%')->get();
 
-        return view('backend/data-pengguna/users/index', $data);
+        return view('backend/kelola-pengguna/users/index', $data);
     }
 
     // Fungsi Halaman Edit User
@@ -92,7 +92,7 @@ class UserController extends Controller
             return redirect()->back()->with('error', 'Data user tidak ditemukan!');
         }
 
-        return view('backend/data-pengguna/users/edit', compact('user'));
+        return view('backend/kelola-pengguna/users/edit', compact('user'));
     }
 
     // Fungsi Edit Users

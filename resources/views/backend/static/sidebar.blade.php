@@ -71,10 +71,10 @@
         <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Manajemen:</h6>
-                <a class="collapse-item" href="utilities-color.html">Luas Tanah</a>
-                <a class="collapse-item" href="utilities-other.html">Penggunaan Lahan</a>
-                <a class="collapse-item" href="utilities-border.html">Sarpras Pendukung</a>
-                <a class="collapse-item" href="utilities-animation.html">Listrik dan Internet</a>
+                <a class="collapse-item" href="{{ url('luas-tanah') }}">Luas Tanah</a>
+                <a class="collapse-item" href="{{ url('penggunaan-lahan') }}">Penggunaan Lahan</a>
+                <a class="collapse-item" href="{{ url('sarpras-pendukung') }}">Sarpras Pendukung</a>
+                <a class="collapse-item" href="{{ url('listrik-dan-internet') }}">Listrik dan Internet</a>
             </div>
         </div>
     </li>
