@@ -22,6 +22,10 @@ class UserController extends Controller
             'nama' => 'required',
             'email' => 'required',
             'password' => 'required',
+        ], [
+            'nama.required' => 'Nama harus diisi!',
+            'email.required' => 'Email harus diisi!',
+            'password.required' => 'Password harus diisi!',
         ]);
 
         $user = new User([
@@ -50,6 +54,9 @@ class UserController extends Controller
         $request->validate([
             'email' => 'required',
             'password' => 'required',
+        ], [
+            'email.required' => 'Email harus diisi!',
+            'password.required' => 'Password harus diisi!',
         ]);
 
         $credentials = [
@@ -62,7 +69,7 @@ class UserController extends Controller
             return redirect('dashboard')->with('success', 'Login berhasil!');
         }
 
-        return redirect('login')->withErrors('password', 'Email atau Password Anda salah!');
+        return back()->withErrors(['Email atau Password anda salah!']);
     }
 
     // Fungsi Logout
@@ -101,7 +108,11 @@ class UserController extends Controller
         $validatedData = $request->validate([
             'nama' => 'required',
             'email' => 'required',
-            'roles' => 'required'
+            'roles' => 'required',
+        ], [
+            'nama.required' => 'Nama harus diisi!',
+            'email.required' => 'Email harus diisi!',
+            'roles.required' => 'Roles harus diisi!',
         ]);
 
         $user->nama = $validatedData['nama'];
@@ -110,7 +121,7 @@ class UserController extends Controller
 
         $user->save();
 
-        return redirect()->route('users')->with('success', 'User berhasil diupdate!');
+        return redirect()->route('users')->with('success', 'Data user berhasil diupdate!');
     }
 
     // Fungsi Delete User
@@ -119,11 +130,11 @@ class UserController extends Controller
         $user = User::find($id);
 
         if (!$user) {
-            return redirect()->back()->with('error', 'User tidak ditemukan!');
+            return redirect()->back()->with('error', 'Data user tidak ditemukan!');
         }
 
         $user->delete();
 
-        return redirect()->back()->with('success', 'User berhasil dihapus!');
+        return redirect()->back()->with('success', 'Data user berhasil dihapus!');
     }
 }

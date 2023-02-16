@@ -41,19 +41,29 @@
                                         <h1 class="h4 text-gray-900 mb-4">Silahkan Login!</h1>
                                     </div>
 
+                                    <!-- Success Message -->
                                     @if (session('success'))
                                     <div class="alert alert-success" role="alert">
                                         {{ session('success') }}
-                                    </div>
-                                    @elseif ($errors->has('email'))
-                                    <div class="alert alert-danger" role="alert">
-                                        {{ $errors->first('email') }}
-                                    </div>
-                                    @elseif ($errors->has('password'))
-                                    <div class="alert alert-danger" role="alert">
-                                        {{ $errors->first('password') }}
+                                        <button type="button" class="close" data-dismiss="alert"
+                                            aria-label="Close">x</button>
                                     </div>
                                     @endif
+                                    <!-- End Of Success Message -->
+
+                                    <!-- Error Message -->
+                                    @if ($errors->any())
+                                    @foreach ($errors->all() as $error)
+                                    <div class="alert alert-danger alert-dismissible fade show mr-3 ml-3 mt-3"
+                                        role="alert">
+                                        {{ $error }}
+                                        <button type="button" class="close" data-dismiss="alert"
+                                            aria-label="Close">x</button>
+                                    </div>
+                                    @endforeach
+                                    @endif
+                                    <!-- End Of Error Message -->
+
 
                                     <form action="{{ route('auth.login') }}" method="POST" class="user">
                                         @csrf

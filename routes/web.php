@@ -53,18 +53,18 @@ Route::middleware(['auth', 'roles:1'])->group(function () {
     // [USERS ROUTE]
     Route::get('users', [UserController::class, 'users'])->name('users');
 
-    Route::get('/edit-user/{user}', [UserController::class, 'editUser'])->name('edit-user');
+    Route::get('/users/edit/{user}', [UserController::class, 'editUser'])->name('edit-user');
 
-    Route::put('/edit-user/{user}', [UserController::class, 'update'])->name('user.update');
+    Route::put('/users/put/{user}', [UserController::class, 'update'])->name('user.update');
 
-    Route::delete('/users/{id}', [UserController::class, 'delete'])->name('users.destroy');
+    Route::delete('/users/delete/{id}', [UserController::class, 'delete'])->name('users.destroy');
 
     // [KEPALA PENDIDIKAN ROUTE]
     Route::get('kepala-pendidikan', [KepalaPendidikanController::class, 'kepalaPendidikan'])->name('kepala-pendidikan');
 
-    Route::get('/kepala-pendidikan/{kp}', [KepalaPendidikanController::class, 'editKepalaPendidikan'])->name('edit-kp');
+    Route::get('/kepala-pendidikan/edit/{kp}', [KepalaPendidikanController::class, 'editKepalaPendidikan'])->name('edit-kp');
 
-    Route::put('/kepala-pendidikan/{kp}', [KepalaPendidikanController::class, 'update'])->name('kp.update');
+    Route::put('/kepala-pendidikan/put/{kp}', [KepalaPendidikanController::class, 'update'])->name('kp.update');
 
     // [GURU ROUTE]
     Route::get('guru', [GuruController::class, 'guru'])->name('guru');

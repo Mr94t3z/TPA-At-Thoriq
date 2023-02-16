@@ -35,6 +35,10 @@ class KepalaPendidikanController extends Controller
             'nama' => 'required',
             'status_kepegawaian' => 'required',
             'pendidikan_terakhir' => 'required'
+        ], [
+            'nama.required' => 'Nama harus diisi!',
+            'status_kepegawaian.required' => 'Status Kepegawaian harus diisi!',
+            'pendidikan_terakhir.required' => 'Pendidikan Terakhir harus diisi!',
         ]);
 
         $kp->nama = $validatedData['nama'];
@@ -43,6 +47,6 @@ class KepalaPendidikanController extends Controller
 
         $kp->save();
 
-        return redirect()->route('kepala-pendidikan')->with('success', 'Kepala Pendidikan berhasil diupdate!');
+        return redirect()->route('kepala-pendidikan')->with('success', 'Data Kepala Pendidikan berhasil diupdate!');
     }
 }

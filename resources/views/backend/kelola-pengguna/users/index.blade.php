@@ -48,11 +48,13 @@
                             @if (session('success'))
                             <div class="alert alert-success" role="alert">
                                 {{ session('success') }}
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">x</button>
                             </div>
                             @endif
 
                             <div class="table-responsive">
-                                <table class="table table-bordered text-center" id="dataTable" width="100%" cellspacing="0">
+                                <table class="table table-bordered text-center" id="dataTable" width="100%"
+                                    cellspacing="0">
                                     <thead>
                                         <tr>
                                             <th>#</th>
@@ -85,17 +87,20 @@
                                                     <i class="fas fa-pen"></i>
                                                 </a>
 
-                                                <div class="modal fade" id="exampleModalToggle{{ $user->id }}" aria-hidden="true"
-                                                    aria-labelledby="exampleModalToggleLabel{{ $user->id }}" tabindex="-1">
+                                                <div class="modal fade" id="exampleModalToggle{{ $user->id }}"
+                                                    aria-hidden="true"
+                                                    aria-labelledby="exampleModalToggleLabel{{ $user->id }}"
+                                                    tabindex="-1">
                                                     <div class="modal-dialog modal-dialog-centered">
                                                         <div class="modal-content">
                                                             <div class="modal-header">
                                                                 <h5 class="modal-title fs-5"
-                                                                    id="exampleModalToggleLabel{{ $user->id }}">Apakah anda yakin?</h5>
-                                                                    <button class="close" type="button"
-                                                                        data-dismiss="modal" aria-label="Close">
-                                                                        <span aria-hidden="true">×</span>
-                                                                    </button>
+                                                                    id="exampleModalToggleLabel{{ $user->id }}">Apakah
+                                                                    anda yakin?</h5>
+                                                                <button class="close" type="button" data-dismiss="modal"
+                                                                    aria-label="Close">
+                                                                    <span aria-hidden="true">×</span>
+                                                                </button>
 
                                                             </div>
                                                             <div class="modal-body text-justify">
@@ -103,10 +108,11 @@
                                                                 dihapus.
                                                             </div>
                                                             <div class="modal-footer">
-                                                                <form action="{{ route('users.destroy', $user->id) }}" method="POST">
+                                                                <form action="{{ route('users.destroy', $user->id) }}"
+                                                                    method="POST">
                                                                     @csrf
                                                                     @method('DELETE')
-                
+
                                                                     <button type="submit"
                                                                         class="btn btn-primary">Submit</button>
                                                                 </form>
@@ -116,7 +122,8 @@
                                                 </div>
 
                                                 <button type="submit" class="btn btn-danger btn-circle btn-sm"
-                                                    data-target="#exampleModalToggle{{ $user->id }}" data-toggle="modal">
+                                                    data-target="#exampleModalToggle{{ $user->id }}"
+                                                    data-toggle="modal">
                                                     <i class="fas fa-trash"></i>
                                                 </button>
                                             </td>

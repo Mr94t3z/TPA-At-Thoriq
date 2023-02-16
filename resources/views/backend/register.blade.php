@@ -40,26 +40,39 @@
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">Silahkan Registrasi!</h1>
                                     </div>
+
+                                    <!-- Error Message -->
+                                    @if ($errors->any())
+                                    @foreach ($errors->all() as $error)
+                                    <div class="alert alert-danger alert-dismissible fade show mr-3 ml-3 mt-3"
+                                        role="alert">
+                                        {{ $error }}
+                                        <button type="button" class="close" data-dismiss="alert"
+                                            aria-label="Close">x</button>
+                                    </div>
+                                    @endforeach
+                                    @endif
+                                    <!-- End Of Error Message -->
+
                                     <form action="{{ route('register.action') }}" method="POST" class="user">
                                         @csrf
 
                                         <div class="form-group">
-                                            <input type="text" class="form-control form-control-user"
-                                                name="nama" value="{{ old('nama') }}" placeholder="Nama">
+                                            <input type="text" class="form-control form-control-user" name="nama"
+                                                value="{{ old('nama') }}" placeholder="Nama">
                                         </div>
                                         <div class="form-group">
-                                            <input type="text" class="form-control form-control-user"
-                                                name="email" value="{{ old('email') }}"  placeholder="Email">
+                                            <input type="text" class="form-control form-control-user" name="email"
+                                                value="{{ old('email') }}" placeholder="Email">
                                         </div>
                                         <div class="form-group">
                                             <input type="password" class="form-control form-control-user"
-                                                name="password" 
-                                                 placeholder="Password">
+                                                name="password" placeholder="Password">
                                         </div>
                                         <button type="submit" class="btn btn-primary btn-user btn-block">
                                             Register
                                         </button>
-                                        
+
                                     </form>
                                     <hr>
                                     <div class="text-center">

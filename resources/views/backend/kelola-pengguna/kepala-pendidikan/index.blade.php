@@ -48,11 +48,13 @@
                             @if (session('success'))
                             <div class="alert alert-success" role="alert">
                                 {{ session('success') }}
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">x</button>
                             </div>
                             @endif
 
                             <div class="table-responsive">
-                                <table class="table table-bordered text-center" id="dataTable" width="100%" cellspacing="0">
+                                <table class="table table-bordered text-center" id="dataTable" width="100%"
+                                    cellspacing="0">
                                     <thead>
                                         <tr>
                                             <th>Nama</th>
