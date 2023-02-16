@@ -4,6 +4,7 @@ use App\Http\Controllers\GuruController;
 use App\Http\Controllers\IdentitasLembagaController;
 use App\Http\Controllers\KepalaPendidikanController;
 use App\Http\Controllers\LuasTanahController;
+use App\Http\Controllers\PendukungController;
 use App\Http\Controllers\PenggunaanLahanController;
 use App\Http\Controllers\SiswaController;
 use App\Http\Controllers\UserController;
@@ -118,4 +119,17 @@ Route::middleware(['auth', 'roles:1'])->group(function () {
     Route::put('/penggunaan-lahan/put/{pl}', [PenggunaanLahanController::class, 'update'])->name('pl.update');
 
     Route::delete('/penggunaan-lahan/delete/{id}', [PenggunaanLahanController::class, 'delete'])->name('pl.destroy');
+
+    // [PENDUKUNG ROUTE]
+    Route::get('pendukung', [PendukungController::class, 'pendukung'])->name('pendukung');
+
+    Route::get('pendukung/create', [PendukungController::class, 'create'])->name('create-pendukung');
+
+    Route::post('pendukung/post', [PendukungController::class, 'createAction'])->name('pendukung.action');
+
+    Route::get('/pendukung/edit/{pendukung}', [PendukungController::class, 'editPendukung'])->name('edit-pendukung');
+
+    Route::put('/pendukung/put/{pendukung}', [PendukungController::class, 'update'])->name('pendukung.update');
+
+    Route::delete('/pendukung/delete/{id}', [PendukungController::class, 'delete'])->name('pendukung.destroy');
 });
