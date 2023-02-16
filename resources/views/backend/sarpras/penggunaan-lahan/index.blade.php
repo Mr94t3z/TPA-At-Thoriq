@@ -35,8 +35,8 @@
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Informasi Siswa/Santri Aktif</h1>
-                        <a href="{{ route('create-siswa') }}"
+                        <h1 class="h3 mb-0 text-gray-800">Informasi Penggunaan Lahan</h1>
+                        <a href="{{ route('create-pl') }}"
                             class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
                                 class="fas fa-plus fa-sm text-white-50"></i> Tambah Data </a>
                     </div>
@@ -61,44 +61,44 @@
                                     <thead>
                                         <tr>
                                             <th>No</th>
-                                            <th>NISN</th>
-                                            <th>Nama</th>
-                                            <th>Jenis Kelamin</th>
-                                            <th>Kelas</th>
-                                            {{-- <th>Created At</th>
-                                            <th>Updated At</th> --}}
+                                            <th>Keterangan</th>
+                                            <th>Milik</th>
+                                            <th>Penggunaan</th>
+                                            <th>Bersertifikat</th>
+                                            <th>Belum Bersertifikat</th>
+                                            <th>Created At</th>
+                                            <th>Updated At</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <?php $no = 1 ?>
-                                        @foreach ($tbl_siswa_aktif as $siswa)
+                                        @foreach ($tbl_sarpras_penggunaan_lahan as $pl)
                                         <tr>
                                             <td>{{ $no++ }}</td>
-                                            <td>{{ $siswa->nisn}}</td>
-                                            <td>{{ $siswa->nama}}</td>
-                                            <td>{{ $siswa->jenis_kelamin}}</td>
-                                            <td>{{ $siswa->kelas == 0 ? 'Tidak ada kelas' : 'Kelas '.$siswa->kelas }}
-                                            </td>
-                                            {{-- <td>{{ $siswa->created_at}}</td>
-                                            <td>{{ $siswa->updated_at}}</td> --}}
+                                            <td>{{ $pl->keterangan}}</td>
+                                            <td>{{ $pl->milik}}</td>
+                                            <td>{{ $pl->penggunaan}}</td>
+                                            <td>{{ $pl->bersertifikat}} m<sup>2</sup></td>
+                                            <td>{{ $pl->belum_sertifikat}} m<sup>2</sup></td>
+                                            <td>{{ $pl->created_at}}</td>
+                                            <td>{{ $pl->updated_at}}</td>
                                             <td>
-                                                <a href="{{ route('edit-siswa', ['siswa' => $siswa]) }}"
-                                                    class="btn btn-warning btn-circle btn-sm">
+                                                <a href="{{ route('edit-pl', ['pl' => $pl]) }}"
+                                                    class="btn btn-warning btn-circle btn-sm mb-2">
                                                     <i class="fas fa-pen"></i>
                                                 </a>
 
-
-                                                <!-- create a unique modal for each siswa using the siswa's id as the modal's id -->
-                                                <div class="modal fade" id="exampleModalToggle{{ $siswa->id }}"
+                                                <!-- create a unique modal for each penggunaan lahan using the penggunaan lahan's id as the modal's id -->
+                                                <div class="modal fade" id="exampleModalToggle{{ $pl->id }}"
                                                     aria-hidden="true"
-                                                    aria-labelledby="exampleModalToggleLabel{{ $siswa->id }}"
+                                                    aria-labelledby="exampleModalToggleLabel{{ $pl->id }}"
                                                     tabindex="-1">
                                                     <div class="modal-dialog modal-dialog-centered">
                                                         <div class="modal-content">
                                                             <div class="modal-header">
                                                                 <h5 class="modal-title fs-5"
-                                                                    id="exampleModalToggleLabel{{ $siswa->id }}">Apakah
+                                                                    id="exampleModalToggleLabel{{ $pl->id }}">Apakah
                                                                     anda yakin?</h1>
                                                                     <button class="close" type="button"
                                                                         data-dismiss="modal" aria-label="Close">
@@ -106,11 +106,12 @@
                                                                     </button>
                                                             </div>
                                                             <div class="modal-body text-justify">
-                                                                Data siswa dengan nama: <b>{{ $siswa->nama }}</b> akan
+                                                                Data luas tanah dengan keterangan:
+                                                                <b>{{ $pl->keterangan }}</b> akan
                                                                 dihapus.
                                                             </div>
                                                             <div class="modal-footer">
-                                                                <form action="{{ route('siswa.destroy', $siswa->id) }}"
+                                                                <form action="{{ route('pl.destroy', $pl->id) }}"
                                                                     method="POST">
                                                                     @csrf
                                                                     @method('DELETE')
@@ -124,8 +125,7 @@
                                                 <!-- end of unique modal -->
 
                                                 <button type="submit" class="btn btn-danger btn-circle btn-sm"
-                                                    data-target="#exampleModalToggle{{ $siswa->id }}"
-                                                    data-toggle="modal">
+                                                    data-target="#exampleModalToggle{{ $pl->id }}" data-toggle="modal">
                                                     <i class="fas fa-trash"></i>
                                                 </button>
 

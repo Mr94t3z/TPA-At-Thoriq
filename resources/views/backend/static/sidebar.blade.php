@@ -56,7 +56,7 @@
                 <a class="collapse-item" href="{{ url('users') }}">Data Users</a>
                 <a class="collapse-item" href="{{ url('kepala-pendidikan') }}">Data Kepala Pendidikan</a>
                 <a class="collapse-item" href="{{ url('guru') }}">Data Guru</a>
-                <a class="collapse-item" href="{{ url('siswa') }}">Data Siswa/Santri Aktif</a>
+                <a class="collapse-item" href="{{ url('siswa') }}">Data Siswa Aktif</a>
             </div>
         </div>
     </li>    
@@ -73,7 +73,7 @@
                 <h6 class="collapse-header">Manajemen:</h6>
                 <a class="collapse-item" href="{{ url('luas-tanah') }}">Luas Tanah</a>
                 <a class="collapse-item" href="{{ url('penggunaan-lahan') }}">Penggunaan Lahan</a>
-                <a class="collapse-item" href="{{ url('sarpras-pendukung') }}">Sarpras Pendukung</a>
+                <a class="collapse-item" href="{{ url('pendukung') }}">Pendukung</a>
                 <a class="collapse-item" href="{{ url('listrik-dan-internet') }}">Listrik dan Internet</a>
             </div>
         </div>

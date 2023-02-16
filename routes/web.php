@@ -4,6 +4,7 @@ use App\Http\Controllers\GuruController;
 use App\Http\Controllers\IdentitasLembagaController;
 use App\Http\Controllers\KepalaPendidikanController;
 use App\Http\Controllers\LuasTanahController;
+use App\Http\Controllers\PenggunaanLahanController;
 use App\Http\Controllers\SiswaController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -69,28 +70,28 @@ Route::middleware(['auth', 'roles:1'])->group(function () {
     // [GURU ROUTE]
     Route::get('guru', [GuruController::class, 'guru'])->name('guru');
 
-    Route::get('create-guru', [GuruController::class, 'create'])->name('create-guru');
+    Route::get('guru/create', [GuruController::class, 'create'])->name('create-guru');
 
-    Route::post('create-guru', [GuruController::class, 'createAction'])->name('guru.action');
+    Route::post('guru/post', [GuruController::class, 'createAction'])->name('guru.action');
 
-    Route::get('/edit-guru/{guru}', [GuruController::class, 'editGuru'])->name('edit-guru');
+    Route::get('/guru/edit/{guru}', [GuruController::class, 'editGuru'])->name('edit-guru');
 
-    Route::put('/guru/{guru}', [GuruController::class, 'update'])->name('guru.update');
+    Route::put('/guru/put/{guru}', [GuruController::class, 'update'])->name('guru.update');
 
-    Route::delete('/guru/{id}', [GuruController::class, 'delete'])->name('guru.destroy');
+    Route::delete('/guru/delete/{id}', [GuruController::class, 'delete'])->name('guru.destroy');
 
     // [SISWA ROUTE]
     Route::get('siswa', [SiswaController::class, 'siswa'])->name('siswa');
 
-    Route::get('create-siswa', [SiswaController::class, 'create'])->name('create-siswa');
+    Route::get('siswa/create', [SiswaController::class, 'create'])->name('create-siswa');
 
-    Route::post('create-siswa', [SiswaController::class, 'createAction'])->name('siswa.action');
+    Route::post('siswa/post', [SiswaController::class, 'createAction'])->name('siswa.action');
 
-    Route::get('/edit-siswa/{siswa}', [SiswaController::class, 'editSiswa'])->name('edit-siswa');
+    Route::get('/siswa/edit/{siswa}', [SiswaController::class, 'editSiswa'])->name('edit-siswa');
 
-    Route::put('/siswa/{siswa}', [SiswaController::class, 'update'])->name('siswa.update');
+    Route::put('/siswa/put/{siswa}', [SiswaController::class, 'update'])->name('siswa.update');
 
-    Route::delete('/siswa/{id}', [SiswaController::class, 'delete'])->name('siswa.destroy');
+    Route::delete('/siswa/delete/{id}', [SiswaController::class, 'delete'])->name('siswa.destroy');
 
     // [LUAS TANAH ROUTE]
     Route::get('luas-tanah', [LuasTanahController::class, 'luasTanah'])->name('luas-tanah');
@@ -104,4 +105,17 @@ Route::middleware(['auth', 'roles:1'])->group(function () {
     Route::put('/luas-tanah/put/{lt}', [LuasTanahController::class, 'update'])->name('lt.update');
 
     Route::delete('/luas-tanah/delete/{id}', [LuasTanahController::class, 'delete'])->name('lt.destroy');
+
+    // [PENGGUNAAN LAHAN ROUTE]
+    Route::get('penggunaan-lahan', [PenggunaanLahanController::class, 'penggunaanLahan'])->name('penggunaan-lahan');
+
+    Route::get('penggunaan-lahan/create', [PenggunaanLahanController::class, 'create'])->name('create-pl');
+
+    Route::post('penggunaan-lahan/post', [PenggunaanLahanController::class, 'createAction'])->name('pl.action');
+
+    Route::get('/penggunaan-lahan/edit/{pl}', [PenggunaanLahanController::class, 'editPenggunaanLahan'])->name('edit-pl');
+
+    Route::put('/penggunaan-lahan/put/{pl}', [PenggunaanLahanController::class, 'update'])->name('pl.update');
+
+    Route::delete('/penggunaan-lahan/delete/{id}', [PenggunaanLahanController::class, 'delete'])->name('pl.destroy');
 });

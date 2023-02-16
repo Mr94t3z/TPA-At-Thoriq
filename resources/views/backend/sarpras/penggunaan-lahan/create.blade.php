@@ -35,7 +35,7 @@
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Tambah Data Luas Tanah</h1>
+                        <h1 class="h3 mb-0 text-gray-800">Tambah Data Penggunaan Lahan</h1>
                     </div>
 
                     <!-- Content Row -->
@@ -56,7 +56,7 @@
                         <!-- End Of Error Message -->
 
                         <div class="card-body">
-                            <form action="{{ route('lt.action') }}" method="POST" class="user">
+                            <form action="{{ route('pl.action') }}" method="POST" class="user">
                                 @csrf
 
                                 <div class="mb-3">
@@ -66,12 +66,27 @@
                                 </div>
 
                                 <div class="mb-3">
-                                    <label for="exampleInputLuas" class="form-label">Luas m<sup>2</sup></label>
-                                    <input type="text" class="form-control" name="luas" value="{{ old('luas') }}">
+                                    <label for="exampleInputMilik" class="form-label">Milik</label>
+                                    <input type="text" class="form-control" name="milik" value="{{ old('milik') }}">
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="exampleInputPenggunaan" class="form-label">Penggunaan</label>
+                                    <input type="text" class="form-control" name="penggunaan" value="{{ old('penggunaan') }}">
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="exampleInputBersertifikat" class="form-label">Bersertifikat (Luas m<sup>2</sup>)</label>
+                                    <input type="text" class="form-control" name="bersertifikat" value="{{ old('bersertifikat') }}">
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="exampleInputBelumBersertifikat" class="form-label">Belum Bersertifikat (Luas m<sup>2</sup>)</label>
+                                    <input type="text" class="form-control" name="belum_sertifikat" value="{{ old('belum_sertifikat') }}">
                                 </div>
 
                                 <button type="submit" class="btn btn-primary">Submit</button>
-                                <a href="{{ url('luas-tanah') }}" class="btn btn-warning">Cancel</a>
+                                <a href="{{ url('penggunaan-lahan') }}" class="btn btn-warning">Cancel</a>
                             </form>
 
                         </div>
