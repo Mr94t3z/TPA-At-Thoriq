@@ -43,6 +43,18 @@
                         <div class="card-header py-3">
                             <h6 class="m-0 font-weight-bold text-primary">Input Data</h6>
                         </div>
+
+                        <!-- Error Message -->
+                        @if ($errors->any())
+                        @foreach ($errors->all() as $error)
+                        <div class="alert alert-danger alert-dismissible fade show mr-3 ml-3 mt-3" role="alert">
+                            {{ $error }}
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">x</button>
+                        </div>
+                        @endforeach
+                        @endif
+                        <!-- End Of Error Message -->
+
                         <div class="card-body">
                             <form action="{{ route('guru.action') }}" method="POST" class="user">
                                 @csrf

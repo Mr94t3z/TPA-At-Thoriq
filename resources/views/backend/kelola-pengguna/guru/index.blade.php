@@ -36,8 +36,9 @@
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
                         <h1 class="h3 mb-0 text-gray-800">Informasi Guru/Ustadz</h1>
-                        <a href="{{ url('create-guru') }}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                            class="fas fa-plus fa-sm text-white-50"></i> Tambah Data </a>
+                        <a href="{{ url('create-guru') }}"
+                            class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+                                class="fas fa-plus fa-sm text-white-50"></i> Tambah Data </a>
                     </div>
 
                     <!-- Content Row -->
@@ -50,6 +51,7 @@
                             @if (session('success'))
                             <div class="alert alert-success" role="alert">
                                 {{ session('success') }}
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">x</button>
                             </div>
                             @endif
 
@@ -81,17 +83,20 @@
                                                     <i class="fas fa-pen"></i>
                                                 </a>
 
-                                                <div class="modal fade" id="exampleModalToggle{{ $guru->id }}" aria-hidden="true"
-                                                    aria-labelledby="exampleModalToggleLabel{{ $guru->id }}" tabindex="-1">
+                                                <div class="modal fade" id="exampleModalToggle{{ $guru->id }}"
+                                                    aria-hidden="true"
+                                                    aria-labelledby="exampleModalToggleLabel{{ $guru->id }}"
+                                                    tabindex="-1">
                                                     <div class="modal-dialog modal-dialog-centered">
                                                         <div class="modal-content">
                                                             <div class="modal-header">
                                                                 <h5 class="modal-title fs-5"
-                                                                    id="exampleModalToggleLabel{{ $guru->id }}">Apakah anda yakin?</h5>
-                                                                    <button class="close" type="button"
-                                                                        data-dismiss="modal" aria-label="Close">
-                                                                        <span aria-hidden="true">×</span>
-                                                                    </button>
+                                                                    id="exampleModalToggleLabel{{ $guru->id }}">Apakah
+                                                                    anda yakin?</h5>
+                                                                <button class="close" type="button" data-dismiss="modal"
+                                                                    aria-label="Close">
+                                                                    <span aria-hidden="true">×</span>
+                                                                </button>
 
                                                             </div>
                                                             <div class="modal-body text-justify">
@@ -103,7 +108,7 @@
                                                                     method="POST">
                                                                     @csrf
                                                                     @method('DELETE')
-                                                                    
+
                                                                     <button type="submit"
                                                                         class="btn btn-primary">Submit</button>
                                                                 </form>
@@ -113,7 +118,8 @@
                                                 </div>
 
                                                 <button type="submit" class="btn btn-danger btn-circle btn-sm"
-                                                    data-target="#exampleModalToggle{{ $guru->id }}" data-toggle="modal">
+                                                    data-target="#exampleModalToggle{{ $guru->id }}"
+                                                    data-toggle="modal">
                                                     <i class="fas fa-trash"></i>
                                                 </button>
 

@@ -21,6 +21,11 @@ class SiswaController extends Controller
             'nama' => 'required',
             'jenis_kelamin' => 'required',
             'kelas' => 'required'
+        ], [
+            'nisn.required' => 'NISN harus diisi!',
+            'nama.required' => 'Nama harus diisi!',
+            'jenis_kelamin.required' => 'Jenis Kelamin harus diisi!',
+            'kelas.required' => 'Kelas harus diisi!',
         ]);
 
         $siswa = new Siswa([
@@ -63,6 +68,11 @@ class SiswaController extends Controller
             'nama' => 'required',
             'jenis_kelamin' => 'required',
             'kelas' => 'required'
+        ], [
+            'nisn.required' => 'NISN harus diisi!',
+            'nama.required' => 'Nama harus diisi!',
+            'jenis_kelamin.required' => 'Jenis Kelamin harus diisi!',
+            'kelas.required' => 'Kelas harus diisi!',
         ]);
 
         $siswa->nisn = $validatedData['nisn'];

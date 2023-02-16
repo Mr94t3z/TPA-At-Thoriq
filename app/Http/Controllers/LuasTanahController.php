@@ -20,8 +20,8 @@ class LuasTanahController extends Controller
             'keterangan' => 'required',
             'luas' => 'required',
         ], [
-            'keterangan.required' => 'Keterangan harus diisi.',
-            'luas.required' => 'Luas harus diisi.',
+            'keterangan.required' => 'Keterangan harus diisi!',
+            'luas.required' => 'Luas harus diisi!',
         ]);
 
         $lt = new LuasTanah([
@@ -62,8 +62,8 @@ class LuasTanahController extends Controller
             'keterangan' => 'required',
             'luas' => 'required',
         ], [
-            'keterangan.required' => 'Keterangan harus diisi.',
-            'luas.required' => 'Luas harus diisi.',
+            'keterangan.required' => 'Keterangan harus diisi!',
+            'luas.required' => 'Luas harus diisi!',
         ]);
 
         $lt->keterangan = $validatedData['keterangan'];

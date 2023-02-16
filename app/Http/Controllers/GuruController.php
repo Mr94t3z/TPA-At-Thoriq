@@ -19,6 +19,9 @@ class GuruController extends Controller
         $request->validate([
             'nama' => 'required',
             'jenjang_pendidikan' => 'required',
+        ], [
+            'nama.required' => 'Nama harus diisi!',
+            'jenjang_pendidikan.required' => 'Jenjang Pendidikan harus diisi!',
         ]);
 
         $guru = new Guru([
@@ -58,6 +61,9 @@ class GuruController extends Controller
         $validatedData = $request->validate([
             'nama' => 'required',
             'jenjang_pendidikan' => 'required',
+        ], [
+            'nama.required' => 'Nama harus diisi!',
+            'jenjang_pendidikan.required' => 'Jenjang Pendidikan harus diisi!',
         ]);
 
         $guru->nama = $validatedData['nama'];
