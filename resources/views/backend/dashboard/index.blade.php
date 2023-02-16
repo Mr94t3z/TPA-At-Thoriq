@@ -51,7 +51,7 @@
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                                 Total Pengguna</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">40,000</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $totalUser }}</div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-users fa-2x text-gray-300"></i>
@@ -69,7 +69,7 @@
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
                                                 Total Guru</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">215,000</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $totalGuru }}</div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-user-tie fa-2x text-gray-300"></i>
@@ -87,7 +87,7 @@
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
                                                 Total Siswa</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">115,000</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $totalSiswa }}</div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-user-graduate fa-2x text-gray-300"></i>
@@ -167,7 +167,7 @@
                                             <i class="fas fa-circle text-success"></i> Lahan
                                         </span>
                                         <span class="mr-2">
-                                            <i class="fas fa-circle text-info"></i> Pendukung 
+                                            <i class="fas fa-circle text-info"></i> Pendukung
                                         </span>
                                     </div>
                                 </div>
@@ -175,7 +175,7 @@
                         </div>
                     </div>
 
-                   
+
 
                 </div>
                 <!-- /.container-fluid -->
@@ -188,6 +188,12 @@
             @include('backend/static/footer')
 
             <!-- End of Footer -->
+
+            <!-- myAreaChartStatistikSiswa -->
+
+            @include('backend/dashboard/chart')
+
+             <!-- End Of myAreaChartStatistikSiswa -->
 
 </body>
 

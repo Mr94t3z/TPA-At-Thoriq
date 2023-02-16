@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\GuruController;
 use App\Http\Controllers\IdentitasLembagaController;
 use App\Http\Controllers\KepalaPendidikanController;
@@ -42,10 +43,8 @@ Route::post('registrasi', [UserController::class, 'registerAction'])->name('regi
 
 Route::get('logout', [UserController::class, 'logout'])->name('logout');
 
-Route::get('/dashboard', function () {
-    // only authenticated users with roles 0 or 1 can access this route
-    return view('backend/dashboard/index');
-})->middleware(['auth', 'roles:0,1']);
+Route::get('dashboard', [DashboardController::class, 'countData'])
+    ->middleware(['auth', 'roles:0,1']);
 
 Route::middleware(['auth', 'roles:1'])->group(function () {
     // only authenticated users with roles=1 can access this route
