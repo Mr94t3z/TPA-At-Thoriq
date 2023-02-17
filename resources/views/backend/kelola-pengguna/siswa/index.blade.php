@@ -65,8 +65,8 @@
                                             <th>Nama</th>
                                             <th>Jenis Kelamin</th>
                                             <th>Kelas</th>
-                                            {{-- <th>Created At</th>
-                                            <th>Updated At</th> --}}
+                                            <th>Dibuat Pada</th>
+                                            <th>Terakhir Diperbaharui</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -80,11 +80,11 @@
                                             <td>{{ $siswa->jenis_kelamin}}</td>
                                             <td>{{ $siswa->kelas == 0 ? 'Tidak ada kelas' : 'Kelas '.$siswa->kelas }}
                                             </td>
-                                            {{-- <td>{{ $siswa->created_at}}</td>
-                                            <td>{{ $siswa->updated_at}}</td> --}}
+                                            <td>{{ $siswa->created_at}}</td>
+                                            <td>{{ $siswa->updated_at}}</td>
                                             <td>
                                                 <a href="{{ route('edit-siswa', ['siswa' => $siswa]) }}"
-                                                    class="btn btn-warning btn-circle btn-sm">
+                                                    class="btn btn-warning btn-circle btn-sm mb-3">
                                                     <i class="fas fa-pen"></i>
                                                 </a>
 

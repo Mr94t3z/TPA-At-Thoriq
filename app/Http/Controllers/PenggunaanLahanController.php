@@ -18,16 +18,20 @@ class PenggunaanLahanController extends Controller
     {
         $request->validate([
             'keterangan' => 'required',
-            'milik' => 'required',
-            'penggunaan' => 'required',
-            'bersertifikat' => 'required',
-            'belum_sertifikat' => 'required',
+            'milik' => 'required|numeric',
+            'penggunaan' => 'required|numeric',
+            'bersertifikat' => 'required|numeric',
+            'belum_sertifikat' => 'required|numeric',
         ], [
             'keterangan.required' => 'Keterangan harus diisi!',
             'milik.required' => 'Milik harus diisi!',
             'penggunaan.required' => 'Penggunaan harus diisi!',
             'bersertifikat.required' => 'Bersertifikat harus diisi!',
             'belum_sertifikat.required' => 'Belum Bersertifikat harus diisi!',
+            'milik.numeric' => 'Milik harus berupa angka!',
+            'penggunaan.numeric' => 'Penggunaan harus berupa angka!',
+            'bersertifikat.numeric' => 'Bersertifikat harus berupa angka!',
+            'belum_sertifikat.numeric' => 'Belum Bersertifikat harus berupa angka!',
         ]);
 
         $pl = new PenggunaanLahan([
@@ -69,16 +73,20 @@ class PenggunaanLahanController extends Controller
     {
         $validatedData = $request->validate([
             'keterangan' => 'required',
-            'milik' => 'required',
-            'penggunaan' => 'required',
-            'bersertifikat' => 'required',
-            'belum_sertifikat' => 'required',
+            'milik' => 'required|numeric',
+            'penggunaan' => 'required|numeric',
+            'bersertifikat' => 'required|numeric',
+            'belum_sertifikat' => 'required|numeric',
         ], [
             'keterangan.required' => 'Keterangan harus diisi!',
             'milik.required' => 'Milik harus diisi!',
             'penggunaan.required' => 'Penggunaan harus diisi!',
             'bersertifikat.required' => 'Bersertifikat harus diisi!',
             'belum_sertifikat.required' => 'Belum Bersertifikat harus diisi!',
+            'milik.numeric' => 'Milik harus berupa angka!',
+            'penggunaan.numeric' => 'Penggunaan harus berupa angka!',
+            'bersertifikat.numeric' => 'Bersertifikat harus berupa angka!',
+            'belum_sertifikat.numeric' => 'Belum Bersertifikat harus berupa angka!',
         ]);
 
         $pl->keterangan = $validatedData['keterangan'];

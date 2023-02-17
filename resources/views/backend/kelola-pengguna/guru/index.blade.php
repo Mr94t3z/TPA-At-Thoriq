@@ -63,8 +63,8 @@
                                             <th>No</th>
                                             <th>Nama</th>
                                             <th>Jenjang Pendidikan</th>
-                                            <th>Created At</th>
-                                            <th>Updated At</th>
+                                            <th>Dibuat Pada</th>
+                                            <th>Terakhir Diperbaharui</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>

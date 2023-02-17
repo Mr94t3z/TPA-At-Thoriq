@@ -61,8 +61,8 @@
                                             <th>Nama</th>
                                             <th>Email</th>
                                             <th>Roles</th>
-                                            <th>Created At</th>
-                                            <th>Updated At</th>
+                                            <th>Dibuat Pada</th>
+                                            <th>Terakhir Diperbaharui</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>

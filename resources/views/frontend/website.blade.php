@@ -22,44 +22,13 @@
                             sehari-hari, hal ini akan menghasilkan generasi yang memahami Al-Qur'an dan memiliki akhlak
                             yang baik.</p>
                         <div class="d-flex flex-column flex-lg-row align-items-center">
-                            <button class="btn bg-gradient-primary-to-secondary rounded-pill px-3 mb-2 mb-lg-0" data-bs-toggle="modal"
-                                data-bs-target="#">
+                            <a href="{{ url('profile') }}" class="btn bg-gradient-primary-to-secondary rounded-pill px-3 mb-2 mb-lg-0">
                                 <span class="d-flex align-items-center">
                                     <i class="bi bi-arrow-down-right-circle me-2 text-white"></i>
                                     <span class="small text-white">Selengkapnya</span>
                                 </span>
-                            </button>
+                            </a>
                         </div>
-                        {{-- <table class="table">
-                            <thead>
-                                <tr>
-                                    <th scope="col">#</th>
-                                    <th scope="col">First</th>
-                                    <th scope="col">Last</th>
-                                    <th scope="col">Handle</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
-                                    <td>@mdo</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">2</th>
-                                    <td>Jacob</td>
-                                    <td>Thornton</td>
-                                    <td>@fat</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">3</th>
-                                    <td>Larry</td>
-                                    <td>the Bird</td>
-                                    <td>@twitter</td>
-                                </tr>
-                            </tbody>
-                        </table> --}}
                     </div>
                 </div>
                 <div class="col-lg-6">
@@ -90,7 +59,8 @@
                                     <!-- * * This can be a video, image, or just about anything else.-->
                                     <!-- * * Set the max width of your media to 100% and the height to-->
                                     <!-- * * 100% like the demo example below.-->
-                                    <video muted="muted" autoplay="" loop="" style="width: 100%; height: 100%; object-fit: cover">
+                                    <video muted="muted" autoplay="" loop=""
+                                        style="width: 100%; height: 100%; object-fit: cover">
                                         <source src="{{ asset('assets/img/male-kid.mp4') }}" type="video/mp4" /></video>
                                 </div>
                             </div>
@@ -105,7 +75,9 @@
         <div class="container px-5">
             <div class="row gx-5 justify-content-center">
                 <div class="col-xl-8">
-                    <div class="h2 fs-1 text-white mb-4">"Tahapan pertama dalam mencari ilmu adalah mendengarkan, kemudian diam dan menyimak dengan penuh perhatian, lalu menjaganya, lalu mengamalkannya dan kemudian menyebarkannya"</div>
+                    <div class="h2 fs-1 text-white mb-4">"Tahapan pertama dalam mencari ilmu adalah mendengarkan,
+                        kemudian diam dan menyimak dengan penuh perhatian, lalu menjaganya, lalu mengamalkannya dan
+                        kemudian menyebarkannya"</div>
                     <p class="lead fw-normal text-white mb-5">– Sufyan bin Uyainah
                     </p>
                 </div>
@@ -118,47 +90,8 @@
             <div class="row gx-5 align-items-center">
                 <div class="col-lg-8 order-lg-1 mb-5 mb-lg-0">
                     <div class="container-fluid px-5">
-                        <iframe src="https://maps.google.com/maps?q=-6.878794,107.828998&z=15&output=embed" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
-                        {{-- <div class="row gx-5">
-                            <div class="col-md-6 mb-5">
-                                <!-- Feature item-->
-                                <div class="text-center">
-                                    <i class="bi-phone icon-feature text-gradient d-block mb-3"></i>
-                                    <h3 class="font-alt">Device Mockups</h3>
-                                    <p class="text-muted mb-0">Ready to use HTML/CSS device mockups, no Photoshop
-                                        required!</p>
-                                </div>
-                            </div>
-                            <div class="col-md-6 mb-5">
-                                <!-- Feature item-->
-                                <div class="text-center">
-                                    <i class="bi-camera icon-feature text-gradient d-block mb-3"></i>
-                                    <h3 class="font-alt">Flexible Use</h3>
-                                    <p class="text-muted mb-0">Put an image, video, animation, or anything else in the
-                                        screen!</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6 mb-5 mb-md-0">
-                                <!-- Feature item-->
-                                <div class="text-center">
-                                    <i class="bi-gift icon-feature text-gradient d-block mb-3"></i>
-                                    <h3 class="font-alt">Free to Use</h3>
-                                    <p class="text-muted mb-0">As always, this theme is free to download and use for any
-                                        purpose!</p>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <!-- Feature item-->
-                                <div class="text-center">
-                                    <i class="bi-patch-check icon-feature text-gradient d-block mb-3"></i>
-                                    <h3 class="font-alt">Open Source</h3>
-                                    <p class="text-muted mb-0">Since this theme is MIT licensed, you can use it
-                                        commercially!</p>
-                                </div>
-                            </div>
-                        </div> --}}
+                        <iframe src="https://maps.google.com/maps?q=-6.878794,107.828998&z=15&output=embed" width="600"
+                            height="450" frameborder="0" style="border:0;" allowfullscreen="">Lokasi</iframe>
                     </div>
                 </div>
                 <div class="col-lg-4 order-lg-0">
@@ -189,8 +122,10 @@
                                     <!-- * * This can be a video, image, or just about anything else.-->
                                     <!-- * * Set the max width of your media to 100% and the height to-->
                                     <!-- * * 100% like the demo example below.-->
-                                    <video muted="muted" autoplay="" loop="" style="width: 100%; height: 100%; object-fit: cover">
-                                        <source src="{{ asset('assets/img/female-kid.mp4') }}" type="video/mp4" /></video>
+                                    <video muted="muted" autoplay="" loop=""
+                                        style="width: 100%; height: 100%; object-fit: cover">
+                                        <source src="{{ asset('assets/img/female-kid.mp4') }}" type="video/mp4" />
+                                        </video>
                                 </div>
                             </div>
                         </div>
@@ -212,9 +147,9 @@
                 <div class="col-sm-8 col-md-6">
                     <div class="px-5 px-sm-0"><img class="img-fluid rounded-circle"
                             src="{{ asset('assets/img/room.jpg') }}" alt="..." /></div>
-                </div>
-            </div>
-        </div>
+    </div>
+    </div>
+    </div>
     </section> --}}
     {{-- <!-- Call to action section-->
     <section class="cta">
@@ -230,19 +165,13 @@
             </div>
         </div>
     </section> --}}
-    <!-- App badge section-->
-    <section class="bg-gradient-primary-to-secondary" id="download">
-        <div class="container px-5">
-            <h2 class="text-center text-white font-alt mb-4">Get the app now!</h2>
-            <div class="d-flex flex-column flex-lg-row align-items-center justify-content-center">
-                <a class="me-lg-3 mb-4 mb-lg-0" href="#!"><img class="app-badge" src="assets/img/google-play-badge.svg"
-                        alt="..." /></a>
-                <a href="#!"><img class="app-badge" src="assets/img/app-store-badge.svg" alt="..." /></a>
-            </div>
-        </div>
-    </section>
+
     <!-- Footer-->
+
     @include('frontend/static/footer')
+
+    <!-- End Of Footer-->
+
 </body>
 
 </html>

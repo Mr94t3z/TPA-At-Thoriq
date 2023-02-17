@@ -1,3 +1,19 @@
+<!-- Profile -->
+<section class="bg-gradient-primary-to-secondary" id="profile">
+    <div class="card mb-3" style="width: 18rem; margin-left:50px; background-color:#eee7ff;">
+        <div class="card-body ">
+            <img src="{{ asset('assets/img/logo.png') }}" alt="" style="height: 70px; margin-right: 7px;" class="mb-4">
+            <h5 class="card-title">TPA At-Thoriq</h5>
+            <p class="mb-lg-0" style="font-size:14px">{{ $profileData->alamat }}</p>
+
+            <h5 class="card-title" style="margin-top: 0.8cm;">Kontak Kami</h5>
+
+            <p class="mb-lg-0" style="font-size:14px">Email: {{ $profileData->email }}</p>
+            <p class="mb-lg-0" style="font-size:14px">No Telp: {{ $profileData->no_telp }}</p>
+        </div>
+    </div>
+</section>
+
 <footer class="bg-black text-center py-5">
     <div class="container px-5">
         <div class="text-white-50 small">
@@ -97,3 +113,10 @@
 <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
 <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+
+<!-- Page level plugins -->
+<script src="{{ asset('backend/vendor/chart.js/Chart.min.js') }}"></script>
+
+<!-- Page level custom scripts -->
+<script src="{{ asset('backend/js/demo/chart-area-demo.js') }}"></script>
+

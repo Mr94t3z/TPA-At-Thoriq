@@ -78,14 +78,14 @@
                             </div>
 
                             <div class="mb-3 row">
-                                <label class="col-sm-3 col-form-label">Dibuat pada :</label>
+                                <label class="col-sm-3 col-form-label">Dibuat Pada :</label>
                                 <div class="col-sm-5">
                                     <input type="text" readonly class="form-control" value="{{ $kp->created_at }}">
                                 </div>
                             </div>
 
                             <div class="mb-3 row">
-                                <label class="col-sm-3 col-form-label">Terakhir diperbaharui :</label>
+                                <label class="col-sm-3 col-form-label">Terakhir Diperbaharui :</label>
                                 <div class="col-sm-5">
                                     <input type="text" readonly class="form-control" value="{{ $kp->updated_at }}">
                                 </div>

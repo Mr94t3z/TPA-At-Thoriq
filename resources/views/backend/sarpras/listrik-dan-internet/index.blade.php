@@ -61,8 +61,8 @@
                                             <th>Sumber Listrik</th>
                                             <th>Internet Provider</th>
                                             <th>Kualitas Internet</th>
-                                            <th>Created At</th>
-                                            <th>Updated At</th>
+                                            <th>Dibuat Pada</th>
+                                            <th>Terakhir Diperbaharui</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>

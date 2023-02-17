@@ -67,8 +67,8 @@
                                             <th>Baik</th>
                                             <th>Rusak</th>
                                             <th>Jumlah</th>
-                                            <th>Created At</th>
-                                            <th>Updated At</th>
+                                            <th>Dibuat Pada</th>
+                                            <th>Terakhir Diperbaharui</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>

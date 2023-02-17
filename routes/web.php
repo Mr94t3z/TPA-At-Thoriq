@@ -10,6 +10,7 @@ use App\Http\Controllers\PendukungController;
 use App\Http\Controllers\PenggunaanLahanController;
 use App\Http\Controllers\SiswaController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\WebsiteController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,16 +24,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Frontend Route
-Route::get('/', function () {
-    return view('frontend/website');
-});
+// [--Frontend Route--]
+Route::get('/', [WebsiteController::class, 'home']);
 
-Route::get('profile', function () {
-    return view('frontend/profile');
-});
+Route::get('profile', [WebsiteController::class, 'profile']);
 
-// Backend Route
+Route::get('fasilitas', [WebsiteController::class, 'fasilitas']);
+
+
+// [--Backend Route--]
 Route::get('login', [UserController::class, 'login'])->name('login');
 
 Route::post('login', [UserController::class, 'authLogin'])->name('auth.login');

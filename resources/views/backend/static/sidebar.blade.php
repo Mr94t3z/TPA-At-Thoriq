@@ -3,9 +3,11 @@
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ url('dashboard') }}">
         <div class="sidebar-brand-icon rotate-n-15">
-            <img src="{{ asset('assets/img/logo.png') }}" alt="" style="height: 50px; margin-right: 5px;">
+            <!-- Bagian Ubah Logo -->
+            {{-- <img src="{{ asset('assets/img/logo.png') }}" alt="" style="height: 50px; margin-right: 5px;"> --}}
+            <i class="fas fa-graduation-cap"></i>
         </div>
-        <div class="sidebar-brand-text">TPA At-Thoriq</div>
+        <div class="sidebar-brand-text mx-3">At-Thoriq</div>
     </a>
 
     <!-- Divider -->

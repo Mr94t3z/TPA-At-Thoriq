@@ -193,7 +193,13 @@
 
             @include('backend/dashboard/chart')
 
-             <!-- End Of myAreaChartStatistikSiswa -->
+            <!-- End Of myAreaChartStatistikSiswa -->
+
+            <!-- myPieChartSarpras -->
+
+            @include('backend/dashboard/piechart')
+
+            <!-- End Of myPieChartSarpras -->
 
 </body>
 
