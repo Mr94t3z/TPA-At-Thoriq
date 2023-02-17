@@ -46,7 +46,17 @@
                         <div class="card-header py-3">
                             <h6 class="m-0 font-weight-bold text-primary">Keterangan Data</h6>
                         </div>
+
                         <div class="card-body">
+
+                            <div class="mb-3 row justify-content-md-end">
+                                <label class="col-sm-1 col-form-label">Search:</label>
+                                <div class="col-sm-3 text-right">
+                                    <input type="search" class="form-control form-control-sm" placeholder=""
+                                        aria-controls="dataTable">
+                                </div>
+                            </div>
+
 
                             @if (session('success'))
                             <div class="alert alert-success" role="alert">
@@ -55,7 +65,10 @@
                             </div>
                             @endif
 
+
+
                             <div class="table-responsive">
+
                                 <table class="table table-bordered text-center" id="dataTable" width="100%"
                                     cellspacing="0">
                                     <thead>
@@ -134,6 +147,9 @@
                                         @endforeach
                                     </tbody>
                                 </table>
+                               
+                                {{ $tbl_siswa_aktif->links() }}
+
                             </div>
                         </div>
                     </div>

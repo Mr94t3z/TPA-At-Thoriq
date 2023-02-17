@@ -55,6 +55,7 @@
         </div>
     </header>
 
+    <!-- Statistik Siswa/Santri Aktif -->
     <section class="bg-light">
         <div class="container px-5">
             <div class="row gx-5 align-items-center justify-content-center justify-content-lg-between">

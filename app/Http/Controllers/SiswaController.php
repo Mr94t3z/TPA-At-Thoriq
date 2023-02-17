@@ -43,10 +43,11 @@ class SiswaController extends Controller
     public function siswa(Request $request)
     {
         $data['q'] = $request->get('q');
-        $data['tbl_siswa_aktif'] = Siswa::where('nama', 'like', '%' . $data['q'] . '%')->get();
+        $data['tbl_siswa_aktif'] = Siswa::where('nama', 'like', '%' . $data['q'] . '%')->paginate(5);
 
         return view('backend/kelola-pengguna/siswa/index', $data);
     }
+
 
     // Fungsi Halaman Edit Siswa
     public function editSiswa($id)

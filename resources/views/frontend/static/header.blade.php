@@ -16,3 +16,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,400;1,400&amp;display=swap" rel="stylesheet" />
 <!-- Core theme CSS (includes Bootstrap)-->
 <link href="{{ asset('css/styles.css') }}" rel="stylesheet" />
+
+<!-- Custom fonts for this template-->
+<link href="{{ asset('backend/vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">

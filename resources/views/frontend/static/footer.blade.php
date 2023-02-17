@@ -117,6 +117,3 @@
 <!-- Page level plugins -->
 <script src="{{ asset('backend/vendor/chart.js/Chart.min.js') }}"></script>
 
-<!-- Page level custom scripts -->
-<script src="{{ asset('backend/js/demo/chart-area-demo.js') }}"></script>
-
