@@ -49,13 +49,17 @@
 
                         <div class="card-body">
 
-                            <div class="mb-3 row justify-content-md-end">
-                                <label class="col-sm-1 col-form-label">Search:</label>
-                                <div class="col-sm-3 text-right">
-                                    <input type="search" class="form-control form-control-sm" placeholder=""
-                                        aria-controls="dataTable">
+                            <!-- Search Siswa -->
+                            <form>
+                                <div class="mb-3 row justify-content-md-end">
+                                    <label class="col-sm-1 col-form-label">Search:</label>
+                                    <div class="col-sm-3 text-right">
+                                        <input type="text" name="q" value="{{ $q }}"
+                                            class="form-control form-control-sm" placeholder=""
+                                            aria-controls="dataTable">
+                                    </div>
                                 </div>
-                            </div>
+                            </form>
 
 
                             @if (session('success'))
@@ -147,7 +151,7 @@
                                         @endforeach
                                     </tbody>
                                 </table>
-                               
+
                                 {{ $tbl_siswa_aktif->links() }}
 
                             </div>

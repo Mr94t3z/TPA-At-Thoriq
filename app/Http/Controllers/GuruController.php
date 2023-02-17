@@ -37,7 +37,7 @@ class GuruController extends Controller
     public function guru(Request $request)
     {
         $data['q'] = $request->get('q');
-        $data['tbl_guru'] = Guru::where('nama', 'like', '%' . $data['q'] . '%')->get();
+        $data['tbl_guru'] = Guru::where('nama', 'like', '%' . $data['q'] . '%')->paginate(5);
 
         return view('backend/kelola-pengguna/guru/index', $data);
     }

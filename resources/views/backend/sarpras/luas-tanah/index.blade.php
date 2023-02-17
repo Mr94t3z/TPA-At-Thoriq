@@ -128,6 +128,9 @@
                                         @endforeach
                                     </tbody>
                                 </table>
+
+                                {{ $tbl_sarpras_luas_tanah->links() }}
+
                             </div>
                         </div>
                     </div>

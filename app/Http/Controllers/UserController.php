@@ -20,11 +20,12 @@ class UserController extends Controller
     {
         $request->validate([
             'nama' => 'required',
-            'email' => 'required',
+            'email' => 'required|email',
             'password' => 'required',
         ], [
             'nama.required' => 'Nama harus diisi!',
             'email.required' => 'Email harus diisi!',
+            'email.email' => 'Format email anda salah!',
             'password.required' => 'Password harus diisi!',
         ]);
 
@@ -52,10 +53,11 @@ class UserController extends Controller
     public function authLogin(Request $request)
     {
         $request->validate([
-            'email' => 'required',
+            'email' => 'required|email',
             'password' => 'required',
         ], [
             'email.required' => 'Email harus diisi!',
+            'email.email' => 'Format email anda salah!',
             'password.required' => 'Password harus diisi!',
         ]);
 
@@ -85,7 +87,7 @@ class UserController extends Controller
     public function users(Request $request)
     {
         $data['q'] = $request->get('q');
-        $data['tbl_users'] = User::where('nama', 'like', '%' . $data['q'] . '%')->get();
+        $data['tbl_users'] = User::where('nama', 'like', '%' . $data['q'] . '%')->paginate(5);
 
         return view('backend/kelola-pengguna/users/index', $data);
     }
@@ -107,11 +109,12 @@ class UserController extends Controller
     {
         $validatedData = $request->validate([
             'nama' => 'required',
-            'email' => 'required',
+            'email' => 'required|email',
             'roles' => 'required',
         ], [
             'nama.required' => 'Nama harus diisi!',
             'email.required' => 'Email harus diisi!',
+            'email.email' => 'Format email anda salah!',
             'roles.required' => 'Roles harus diisi!',
         ]);
 

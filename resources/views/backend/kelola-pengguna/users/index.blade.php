@@ -83,7 +83,7 @@
                                             <td>{{ $user->updated_at}}</td>
                                             <td>
                                                 <a href="{{ route('edit-user', ['user' => $user]) }}"
-                                                    class="btn btn-warning btn-circle btn-sm mb-2">
+                                                    class="btn btn-warning btn-circle btn-sm">
                                                     <i class="fas fa-pen"></i>
                                                 </a>
 
@@ -132,6 +132,9 @@
                                         @endforeach
                                     </tbody>
                                 </table>
+
+                                {{ $tbl_users->links() }}
+
                             </div>
                         </div>
                     </div>

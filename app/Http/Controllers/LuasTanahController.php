@@ -38,7 +38,7 @@ class LuasTanahController extends Controller
     public function luasTanah(Request $request)
     {
         $data['q'] = $request->get('q');
-        $data['tbl_sarpras_luas_tanah'] = LuasTanah::where('keterangan', 'like', '%' . $data['q'] . '%')->get();
+        $data['tbl_sarpras_luas_tanah'] = LuasTanah::where('keterangan', 'like', '%' . $data['q'] . '%')->paginate(5);
 
         return view('backend/sarpras/luas-tanah/index', $data);
     }

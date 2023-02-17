@@ -128,6 +128,9 @@
                                         @endforeach
                                     </tbody>
                                 </table>
+
+                                {{ $tbl_guru->links() }}
+                                
                             </div>
                         </div>
                     </div>
