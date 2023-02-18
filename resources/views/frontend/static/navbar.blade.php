@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light fixed-top shadow-sm" id="mainNav">
     <div class="container px-5">
-        <img src="{{ asset('assets/img/logo.png') }}" alt="" style="margin-right: 7px; margin-bottom: 7px;">
+        <img src="{{ asset('assets/img/logo.png') }}" alt="" style="margin-right: 7px; margin-bottom: 7px; width: min(50vw, 90px);">
         <a class="navbar-brand fw-bold" href="#page-top">
             <span style="font-size: 12px;">Taman Pendidikan Al-Quran</span>
             <br>
