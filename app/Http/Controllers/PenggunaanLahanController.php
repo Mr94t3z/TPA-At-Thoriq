@@ -51,7 +51,7 @@ class PenggunaanLahanController extends Controller
     public function penggunaanLahan(Request $request)
     {
         $data['q'] = $request->get('q');
-        $data['tbl_sarpras_penggunaan_lahan'] = PenggunaanLahan::where('keterangan', 'like', '%' . $data['q'] . '%')->get();
+        $data['tbl_sarpras_penggunaan_lahan'] = PenggunaanLahan::where('keterangan', 'like', '%' . $data['q'] . '%')->paginate(5);
 
         return view('backend/sarpras/penggunaan-lahan/index', $data);
     }

@@ -48,6 +48,18 @@
                         </div>
                         <div class="card-body">
 
+                            <!-- Search Siswa -->
+                            <form>
+                                <div class="mb-3 row justify-content-md-end">
+                                    <label class="col-sm-1 col-form-label">Search:</label>
+                                    <div class="col-sm-3 text-right">
+                                        <input type="text" name="q" value="{{ $q }}"
+                                            class="form-control form-control-sm" placeholder=""
+                                            aria-controls="dataTable">
+                                    </div>
+                                </div>
+                            </form>
+
                             @if (session('success'))
                             <div class="alert alert-success" role="alert">
                                 {{ session('success') }}
@@ -69,10 +81,9 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <?php $no = 1 ?>
-                                        @foreach ($tbl_guru as $guru)
+                                        @foreach ($tbl_guru as $key => $guru)
                                         <tr>
-                                            <td>{{ $no++ }}</td>
+                                            <td>{{ $tbl_guru->firstItem() + $key }}</td>
                                             <td>{{ $guru->nama}}</td>
                                             <td>{{ $guru->jenjang_pendidikan}}</td>
                                             <td>{{ $guru->created_at}}</td>

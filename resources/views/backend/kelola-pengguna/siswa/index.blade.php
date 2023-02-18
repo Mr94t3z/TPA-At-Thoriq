@@ -88,10 +88,9 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <?php $no = 1 ?>
-                                        @foreach ($tbl_siswa_aktif as $siswa)
+                                        @foreach ($tbl_siswa_aktif as $key => $siswa)
                                         <tr>
-                                            <td>{{ $no++ }}</td>
+                                            <td>{{ $tbl_siswa_aktif->firstItem() + $key }}</td>
                                             <td>{{ $siswa->nisn}}</td>
                                             <td>{{ $siswa->nama}}</td>
                                             <td>{{ $siswa->jenis_kelamin}}</td>

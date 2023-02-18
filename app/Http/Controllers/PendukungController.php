@@ -51,7 +51,7 @@ class PendukungController extends Controller
     public function pendukung(Request $request)
     {
         $data['q'] = $request->get('q');
-        $data['tbl_sarpras_pendukung'] = Pendukung::where('keterangan', 'like', '%' . $data['q'] . '%')->get();
+        $data['tbl_sarpras_pendukung'] = Pendukung::where('keterangan', 'like', '%' . $data['q'] . '%')->paginate(5);
 
         return view('backend/sarpras/pendukung/index', $data);
     }

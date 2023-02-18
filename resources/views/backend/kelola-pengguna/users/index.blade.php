@@ -45,6 +45,18 @@
                         </div>
                         <div class="card-body">
 
+                            <!-- Search Siswa -->
+                            <form>
+                                <div class="mb-3 row justify-content-md-end">
+                                    <label class="col-sm-1 col-form-label">Search:</label>
+                                    <div class="col-sm-3 text-right">
+                                        <input type="text" name="q" value="{{ $q }}"
+                                            class="form-control form-control-sm" placeholder=""
+                                            aria-controls="dataTable">
+                                    </div>
+                                </div>
+                            </form>
+
                             @if (session('success'))
                             <div class="alert alert-success" role="alert">
                                 {{ session('success') }}
@@ -57,7 +69,7 @@
                                     cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th>#</th>
+                                            <th>No</th>
                                             <th>Nama</th>
                                             <th>Email</th>
                                             <th>Roles</th>
@@ -67,10 +79,9 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <?php $no = 1 ?>
-                                        @foreach ($tbl_users as $user)
+                                        @foreach ($tbl_users as $key => $user)
                                         <tr>
-                                            <td>{{ $no++ }}</td>
+                                            <td>{{ $tbl_users->firstItem() + $key }}</td>
                                             <td>{{ $user->nama}}</td>
                                             <td>{{ $user->email}}</td>
                                             <td>

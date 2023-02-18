@@ -48,6 +48,18 @@
                         </div>
                         <div class="card-body">
 
+                            <!-- Search Siswa -->
+                            <form>
+                                <div class="mb-3 row justify-content-md-end">
+                                    <label class="col-sm-1 col-form-label">Search:</label>
+                                    <div class="col-sm-3 text-right">
+                                        <input type="text" name="q" value="{{ $q }}"
+                                            class="form-control form-control-sm" placeholder=""
+                                            aria-controls="dataTable">
+                                    </div>
+                                </div>
+                            </form>
+
                             @if (session('success'))
                             <div class="alert alert-success" role="alert">
                                 {{ session('success') }}
@@ -73,10 +85,9 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <?php $no = 1 ?>
-                                        @foreach ($tbl_sarpras_pendukung as $pendukung)
+                                        @foreach ($tbl_sarpras_pendukung as $key => $pendukung)
                                         <tr>
-                                            <td>{{ $no++ }}</td>
+                                            <td>{{ $tbl_sarpras_pendukung->firstItem() + $key }}</td>
                                             <td>{{ $pendukung->keterangan}}</td>
                                             <td>{{ $pendukung->milik}}</td>
                                             <td>{{ $pendukung->penggunaan}}</td>
@@ -87,7 +98,7 @@
                                             <td>{{ $pendukung->updated_at}}</td>
                                             <td>
                                                 <a href="{{ route('edit-pendukung', ['pendukung' => $pendukung]) }}"
-                                                    class="btn btn-warning btn-circle btn-sm mb-2">
+                                                    class="btn btn-warning btn-circle btn-sm">
                                                     <i class="fas fa-pen"></i>
                                                 </a>
 
