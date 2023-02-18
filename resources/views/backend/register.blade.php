@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>TPQ At-Thoriq - Registrasi</title>
+    <title>TPA At-Thoriq - Registrasi</title>
     <link rel="icon" type="image/x-icon" href="{{ asset('assets/img/logo.png') }}" />
     <!-- Custom fonts for this template-->
     <link href="{{ asset('backend/vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">

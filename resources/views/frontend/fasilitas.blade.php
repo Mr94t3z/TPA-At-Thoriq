@@ -54,7 +54,7 @@
             <div class="row gx-5 align-items-center justify-content-center justify-content-lg-between">
                 <div class="col-12 col-lg-5">
 
-                    <h2 class="display-10 lh-1 mb-4">Fasilitas TPQ At-Thoriq</h2>
+                    <h2 class="display-10 lh-1 mb-4">Fasilitas TPA At-Thoriq</h2>
                     @foreach ($fasilitasData as $total => $keterangan)
                     <p class="lead fw-normal text-muted mb-5 mb-lg-0">{{ $no++ }}. Memiliki {{ $keterangan }} dengan
                         luas {{ $total }} m<sup>2</sup>.</p>

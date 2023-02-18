@@ -14,7 +14,7 @@
         <div class="container px-5">
             <div class="row gx-5 align-items-center justify-content-center justify-content-lg-between">
                 <div class="col-12 col-lg-5">
-                    <h2 class="display-10 lh-1 mb-4">Kepala TPQ At-Thoriq</h2>
+                    <h2 class="display-10 lh-1 mb-4">Kepala TPA At-Thoriq</h2>
                     {{-- <div class="mb-3 row">
                         <label class="form-label display-10 lh-1">Nama Lengkap :</label>
                         <div class="col-sm-10">
@@ -95,7 +95,7 @@
                 <div class="col-lg-6">
                     <!-- Visi -->
                     <div class="mb-5 mb-lg-0 text-center text-lg-start">
-                        <h1 class="display-10 lh-1 mb-3">Visi TPQ At-Thoriq</h1>
+                        <h1 class="display-10 lh-1 mb-3">Visi TPA At-Thoriq</h1>
                         <p class="lead fw-normal text-muted mb-5">Menjadi lembaga pendidikan Islam yang unggul dan
                             berkualitas dalam membentuk generasi Qur'ani dan Berakhlakul Karimah.</p>
                     </div>
@@ -146,7 +146,7 @@
                 <div class="col-lg-8 order-lg-1 mb-5 mb-lg-0">
                     <div class="container-fluid px-5">
                         <div class="mb-5 mb-lg-0 text-center text-lg-start">
-                            <h1 class="display-10 lh-1 mb-3">Misi TPQ At-Thoriq</h1>
+                            <h1 class="display-10 lh-1 mb-3">Misi TPA At-Thoriq</h1>
                             <p class="lead fw-normal text-muted mb-5">
                                 1. Menyediakan program pembelajaran Al-Qur'an dan Pendidikan Agama Islam yang
                                 berkualitas dan inovatif.

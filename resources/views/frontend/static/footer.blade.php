@@ -3,7 +3,7 @@
     <div class="card mb-3" style="width: 18rem; margin-left:50px; background-color:#eee7ff;">
         <div class="card-body ">
             <img src="{{ asset('assets/img/logo.png') }}" alt="" style="height: 70px; margin-right: 7px;" class="mb-4">
-            <h5 class="card-title">TPQ At-Thoriq</h5>
+            <h5 class="card-title">TPA At-Thoriq</h5>
             <p class="mb-lg-0" style="font-size:14px">{{ $profileData->alamat }}</p>
 
             <h5 class="card-title" style="margin-top: 0.8cm;">Kontak Kami</h5>
@@ -17,7 +17,7 @@
 <footer class="bg-black text-center py-5">
     <div class="container px-5">
         <div class="text-white-50 small">
-            <div class="mb-2">&copy; TPQ At-Thoriq 2023. All Rights Reserved.</div>
+            <div class="mb-2">&copy; TPA At-Thoriq 2023. All Rights Reserved.</div>
             <a href="#visi">Visi</a>
             <span class="mx-1">&middot;</span>
             <a href="#misi">Misi</a>
