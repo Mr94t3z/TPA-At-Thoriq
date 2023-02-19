@@ -136,6 +136,31 @@ class UserController extends Controller
         return view('backend/my-profile/password', $data);
     }
 
+    public function updatePassword(Request $request, User $user)
+    {
+        $validatedData = $request->validate([
+            'old_password' => 'required|current_password',
+            'new_password' => 'required',
+            'confirm_password' => 'required|same:new_password',
+        ], [
+            'old_password.required' => 'Password lama harus diisi!',
+            'old_password.current_password' => 'Password lama anda salah!',
+            'new_password.required' => 'Password baru harus diisi!',
+            'confirm_password.required' => 'Konfirmasi password harus diisi!',
+            'confirm_password.same' => 'Konfirmasi password tidak sama!',
+        ]);
+
+        $user = User::find(Auth::id());
+        if (Hash::check($validatedData['old_password'], $user->password)) {
+            $user->password = Hash::make($validatedData['new_password']);
+            $user->save();
+
+            return redirect()->route('my-profile')->with('success', 'Password anda berhasil diupdate!');
+        } else {
+            return redirect()->route('change-password')->with('error', 'Password anda salah!');
+        }
+    }
+
     // Fungsi Logout
     public function logout(Request $request)
     {

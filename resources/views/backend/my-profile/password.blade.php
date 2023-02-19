@@ -56,24 +56,27 @@
                         <!-- End Of Error Message -->
 
                         <div class="card-body">
-                            <form action="{{ route('myprofile.update') }}" method="POST" class="user">
+                            <form action="{{ route('password.update') }}" method="POST" class="user">
                                 @csrf
                                 @method('PUT')
 
                                 <div class="mb-3">
                                     <label for="exampleInputPL" class="form-label">Password Lama</label>
-                                    <input type="text" class="form-control" name="old_password"
-                                        value="{{ old('nama', $tbl_users->nama) }}">
+                                    <input type="password" class="form-control" name="old_password">
                                 </div>
 
                                 <div class="mb-3">
                                     <label for="exampleInputPB" class="form-label">Password Baru</label>
-                                    <input type="text" class="form-control" name="new_password"
-                                        value="{{ old('email', $tbl_users->email) }}">
-                                </div>                                
+                                    <input type="password" class="form-control" name="new_password">
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label for="exampleInputKPB" class="form-label">Konfirmasi Password Baru</label>
+                                    <input type="password" class="form-control" name="confirm_password">
+                                </div> 
 
                                 <button type="submit" class="btn btn-primary">Submit</button>
-                                <a href="{{ url('my-profile') }}" class="btn btn-warning">Cancel</a>
+                                <a href="{{ url('dashboard') }}" class="btn btn-warning">Cancel</a>
                             </form>
 
                         </div>
