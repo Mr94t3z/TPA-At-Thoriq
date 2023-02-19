@@ -100,21 +100,25 @@ class UserController extends Controller
         $validatedData = $request->validate([
             'nama' => 'required',
             'email' => 'required|email',
+            'photo' => 'image|mimes:jpeg,png,jpg,gif,svg|max:1024',
         ], [
             'nama.required' => 'Nama harus diisi!',
             'email.required' => 'Email harus diisi!',
             'email.email' => 'Format email anda salah!',
+            'photo.image' => 'File yang anda upload bukan gambar!',
+            'photo.mimes' => 'Format gambar yang anda upload salah!',
+            'photo.max' => 'Ukuran gambar maksimal 1MB!',
         ]);
 
         $user = User::find(Auth::id());
         $user->nama = $validatedData['nama'];
         $user->email = $validatedData['email'];
+        $user->photo = $request->file('photo')->store('photos');
 
         $user->save();
 
         return redirect()->route('my-profile')->with('success', 'Data anda berhasil diupdate!');
     }
-
 
     // Fungsi Logout
     public function logout(Request $request)

@@ -56,7 +56,8 @@
                         <!-- End Of Error Message -->
 
                         <div class="card-body">
-                            <form action="{{ route('myprofile.update') }}" method="POST" class="user">
+                            <form action="{{ route('myprofile.update') }}" method="POST" enctype="multipart/form-data"
+                                class="user">
                                 @csrf
                                 @method('PUT')
 
@@ -70,6 +71,11 @@
                                     <label for="exampleInputEmail" class="form-label">Email address</label>
                                     <input type="text" class="form-control" name="email"
                                         value="{{ old('email', $tbl_users->email) }}">
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="formFile" class="form-label">Foto profile</label>
+                                    <input class="form-control" type="file" name="photo">
                                 </div>
 
                                 <button type="submit" class="btn btn-primary">Submit</button>

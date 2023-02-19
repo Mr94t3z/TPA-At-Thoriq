@@ -168,7 +168,13 @@
                 @auth
                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ Auth::user()->nama }}</span>
                 @endauth
-                <img class="img-profile rounded-circle" src="{{ asset('backend/img/user.png') }}">
+
+                @if ( Auth::user()->photo != null)
+                    <img class="img-profile rounded-circle" src="{{ asset('storage/' . Auth::user()->photo) }}">
+                @else
+                    <img class="img-profile rounded-circle" src="{{ asset('backend/img/user.png') }}">
+                @endif
+                
             </a>
             <!-- Dropdown - User Information -->
             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">

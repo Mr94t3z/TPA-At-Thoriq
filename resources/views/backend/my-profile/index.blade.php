@@ -56,7 +56,14 @@
                                 <div class="row g-0">
                                     <div class="col-md-4 d-flex justify-content-center align-items-center">
                                         <div class="rounded-circle overflow-hidden bg-white p-2 img-thumbnail mt-4 mb-4" style="width: 250px; height: 250px;">
-                                            <img src="{{ asset('backend/img/user.png') }}" style="max-width:100%; max-height:100%; object-fit: cover; transform: scale(1.2);" alt="...">
+                                            <!-- Jika field photo != null -->
+                                            @if ($tbl_users->photo != null)
+                                                <img src="{{ asset('storage/' . $tbl_users->photo) }}" style="max-width:100%; max-height:100%; object-fit: cover; transform: scale(1.2);" alt="...">
+                                            <!-- Jika field photo = null -->
+                                            @else
+                                                <img src="{{ asset('backend/img/user.png') }}" style="max-width:100%; max-height:100%; object-fit: cover; transform: scale(1.2);" alt="...">
+                                            @endif
+                                            
                                         </div>
                                     </div>
                                                                    
