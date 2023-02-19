@@ -20,12 +20,13 @@ class UserController extends Controller
     {
         $request->validate([
             'nama' => 'required',
-            'email' => 'required|email',
+            'email' => 'required|email|unique:tbl_users,email',
             'password' => 'required',
         ], [
             'nama.required' => 'Nama harus diisi!',
             'email.required' => 'Email harus diisi!',
             'email.email' => 'Format email anda salah!',
+            'email.unique' => 'Email sudah digunakan!',
             'password.required' => 'Password harus diisi!',
         ]);
 
@@ -74,6 +75,47 @@ class UserController extends Controller
         return back()->withErrors(['Email atau Password anda salah!']);
     }
 
+    // Fungsi View My Profile
+    public function myProfile(Request $request)
+    {
+        $request->session()->regenerate();
+        $user = auth()->user();
+        $data['tbl_users'] = User::where('id', $user->id)->first();
+
+        return view('backend/my-profile/index', $data);
+    }
+
+    // Fungsi Halaman Edit My Profile
+    public function editMyProfile()
+    {
+        $user = auth()->user();
+        $data['tbl_users'] = User::where('id', $user->id)->first();
+
+        return view('backend/my-profile/edit', $data);
+    }
+
+    // Fungsi Edit My Profile
+    public function updateMyProfile(Request $request, User $user)
+    {
+        $validatedData = $request->validate([
+            'nama' => 'required',
+            'email' => 'required|email',
+        ], [
+            'nama.required' => 'Nama harus diisi!',
+            'email.required' => 'Email harus diisi!',
+            'email.email' => 'Format email anda salah!',
+        ]);
+
+        $user = User::find(Auth::id());
+        $user->nama = $validatedData['nama'];
+        $user->email = $validatedData['email'];
+
+        $user->save();
+
+        return redirect()->route('my-profile')->with('success', 'Data anda berhasil diupdate!');
+    }
+
+
     // Fungsi Logout
     public function logout(Request $request)
     {
@@ -111,16 +153,19 @@ class UserController extends Controller
             'nama' => 'required',
             'email' => 'required|email',
             'roles' => 'required',
+            'password' => 'required',
         ], [
             'nama.required' => 'Nama harus diisi!',
             'email.required' => 'Email harus diisi!',
             'email.email' => 'Format email anda salah!',
             'roles.required' => 'Roles harus diisi!',
+            'password.required' => 'Password harus diisi!',
         ]);
 
         $user->nama = $validatedData['nama'];
         $user->email = $validatedData['email'];
         $user->roles = $validatedData['roles'];
+        $user->password = Hash::make($request->password);
 
         $user->save();
 

@@ -35,13 +35,13 @@
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Edit User</h1>
+                        <h1 class="h3 mb-0 text-gray-800">Settings</h1>
                     </div>
 
                     <!-- Content Row -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Keterangan Data</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">Update My Profile</h6>
                         </div>
 
                         <!-- Error Message -->
@@ -56,42 +56,24 @@
                         <!-- End Of Error Message -->
 
                         <div class="card-body">
-                            <form action="{{ route('user.update', ['user' => $user]) }}" method="POST" class="user">
+                            <form action="{{ route('myprofile.update') }}" method="POST" class="user">
                                 @csrf
                                 @method('PUT')
 
                                 <div class="mb-3">
                                     <label for="exampleInputNama" class="form-label">Nama lengkap</label>
                                     <input type="text" class="form-control" name="nama"
-                                        value="{{ old('nama', $user->nama) }}">
+                                        value="{{ old('nama', $tbl_users->nama) }}">
                                 </div>
 
                                 <div class="mb-3">
                                     <label for="exampleInputEmail" class="form-label">Email address</label>
                                     <input type="text" class="form-control" name="email"
-                                        value="{{ old('email', $user->email) }}">
-                                </div>
-
-                                <div class="mb-3">
-                                    <label for="exampleInputPassword" class="form-label">Password</label>
-                                    <input type="password" class="form-control" name="password"
-                                        value="">
-                                        <p class="text-danger">Note: Ketika semua data pengguna ini diperbaharui, password juga wajib diperbaharui.</p>
-                                </div>
-
-                                <div class="mb-3">
-                                    <label for="exampleSelectRoles" class="form-label">Roles</label>
-                                    <select class="form-control" name="roles" aria-label="Default select example">
-                                        <option value="">Pilih role</option>
-                                        <option value="1" @if(old('roles', $user->roles) == 1) selected
-                                            @endif>Administrator</option>
-                                        <option value="0" @if(old('roles', $user->roles) == 0) selected @endif>Pengguna
-                                        </option>
-                                    </select>
+                                        value="{{ old('email', $tbl_users->email) }}">
                                 </div>
 
                                 <button type="submit" class="btn btn-primary">Submit</button>
-                                <a href="{{ url('users') }}" class="btn btn-warning">Cancel</a>
+                                <a href="{{ url('my-profile') }}" class="btn btn-warning">Cancel</a>
                             </form>
 
                         </div>

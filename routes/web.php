@@ -43,8 +43,23 @@ Route::post('registrasi', [UserController::class, 'registerAction'])->name('regi
 
 Route::get('logout', [UserController::class, 'logout'])->name('logout');
 
-Route::get('dashboard', [DashboardController::class, 'countData'])
-    ->middleware(['auth', 'roles:0,1']);
+Route::middleware(['auth', 'roles:0,1'])->group(function () {
+
+    // [DASHBOARD ROUTE]
+    Route::get('dashboard', [DashboardController::class, 'countData'])->name('dashboard');
+
+    // [MY PROFILE ROUTE]
+    Route::get('my-profile', [UserController::class, 'myProfile'])->name('my-profile');
+
+    Route::get('/my-profile/edit/', [UserController::class, 'editMyProfile'])->name('edit-my-profile');
+
+    Route::put('/my-profile/edit/', [UserController::class, 'updateMyProfile'])->name('myprofile.update');
+
+    // Route::get('change-password', [UserController::class, 'changePassword'])->name('change-password');
+
+});
+
+
 
 Route::middleware(['auth', 'roles:1'])->group(function () {
     // only authenticated users with roles=1 can access this route
