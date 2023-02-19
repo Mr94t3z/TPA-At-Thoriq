@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
 {
@@ -113,11 +114,26 @@ class UserController extends Controller
         $user = User::find(Auth::id());
         $user->nama = $validatedData['nama'];
         $user->email = $validatedData['email'];
-        $user->photo = $request->file('photo')->store('photos');
+
+        if ($request->file('photo') == "") {
+            $user->photo = $user->photo;
+        } else {
+            Storage::disk('local')->delete('public/' . $user->photo);
+            $user->photo = $request->file('photo')->store('photos');
+        }
 
         $user->save();
 
         return redirect()->route('my-profile')->with('success', 'Data anda berhasil diupdate!');
+    }
+
+    // Fungsi Halaman Change Password
+    public function changePassword()
+    {
+        $user = auth()->user();
+        $data['tbl_users'] = User::where('id', $user->id)->first();
+
+        return view('backend/my-profile/password', $data);
     }
 
     // Fungsi Logout
@@ -181,7 +197,9 @@ class UserController extends Controller
     {
         $user = User::find($id);
 
-        if (!$user) {
+        if ($user->photo !== null) {
+            Storage::delete($user->photo);
+        } else if (!$user) {
             return redirect()->back()->with('error', 'Data user tidak ditemukan!');
         }
 

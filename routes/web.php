@@ -55,8 +55,7 @@ Route::middleware(['auth', 'roles:0,1'])->group(function () {
 
     Route::put('/my-profile/edit/', [UserController::class, 'updateMyProfile'])->name('myprofile.update');
 
-    // Route::get('change-password', [UserController::class, 'changePassword'])->name('change-password');
-
+    Route::get('change-password', [UserController::class, 'changePassword'])->name('change-password');
 });
 
 
@@ -69,14 +68,14 @@ Route::middleware(['auth', 'roles:1'])->group(function () {
 
     Route::get('/lembaga/edit/{lembaga}', [IdentitasLembagaController::class, 'editLembaga'])->name('edit-lembaga');
 
-    Route::put('/lembaga/put/{lembaga}', [IdentitasLembagaController::class, 'update'])->name('lembaga.update');
+    Route::put('/lembaga/edit/{lembaga}', [IdentitasLembagaController::class, 'update'])->name('lembaga.update');
 
     // [USERS ROUTE]
     Route::get('users', [UserController::class, 'users'])->name('users');
 
     Route::get('/users/edit/{user}', [UserController::class, 'editUser'])->name('edit-user');
 
-    Route::put('/users/put/{user}', [UserController::class, 'update'])->name('user.update');
+    Route::put('/users/edit/{user}', [UserController::class, 'update'])->name('user.update');
 
     Route::delete('/users/delete/{id}', [UserController::class, 'delete'])->name('users.destroy');
 
@@ -85,7 +84,7 @@ Route::middleware(['auth', 'roles:1'])->group(function () {
 
     Route::get('/kepala-pendidikan/edit/{kp}', [KepalaPendidikanController::class, 'editKepalaPendidikan'])->name('edit-kp');
 
-    Route::put('/kepala-pendidikan/put/{kp}', [KepalaPendidikanController::class, 'update'])->name('kp.update');
+    Route::put('/kepala-pendidikan/edit/{kp}', [KepalaPendidikanController::class, 'update'])->name('kp.update');
 
     // [GURU ROUTE]
     Route::get('guru', [GuruController::class, 'guru'])->name('guru');
@@ -96,7 +95,7 @@ Route::middleware(['auth', 'roles:1'])->group(function () {
 
     Route::get('/guru/edit/{guru}', [GuruController::class, 'editGuru'])->name('edit-guru');
 
-    Route::put('/guru/put/{guru}', [GuruController::class, 'update'])->name('guru.update');
+    Route::put('/guru/edit/{guru}', [GuruController::class, 'update'])->name('guru.update');
 
     Route::delete('/guru/delete/{id}', [GuruController::class, 'delete'])->name('guru.destroy');
 
@@ -109,7 +108,7 @@ Route::middleware(['auth', 'roles:1'])->group(function () {
 
     Route::get('/siswa/edit/{siswa}', [SiswaController::class, 'editSiswa'])->name('edit-siswa');
 
-    Route::put('/siswa/put/{siswa}', [SiswaController::class, 'update'])->name('siswa.update');
+    Route::put('/siswa/edit/{siswa}', [SiswaController::class, 'update'])->name('siswa.update');
 
     Route::delete('/siswa/delete/{id}', [SiswaController::class, 'delete'])->name('siswa.destroy');
 
@@ -122,7 +121,7 @@ Route::middleware(['auth', 'roles:1'])->group(function () {
 
     Route::get('/luas-tanah/edit/{lt}', [LuasTanahController::class, 'editLuasTanah'])->name('edit-lt');
 
-    Route::put('/luas-tanah/put/{lt}', [LuasTanahController::class, 'update'])->name('lt.update');
+    Route::put('/luas-tanah/edit/{lt}', [LuasTanahController::class, 'update'])->name('lt.update');
 
     Route::delete('/luas-tanah/delete/{id}', [LuasTanahController::class, 'delete'])->name('lt.destroy');
 
@@ -135,7 +134,7 @@ Route::middleware(['auth', 'roles:1'])->group(function () {
 
     Route::get('/penggunaan-lahan/edit/{pl}', [PenggunaanLahanController::class, 'editPenggunaanLahan'])->name('edit-pl');
 
-    Route::put('/penggunaan-lahan/put/{pl}', [PenggunaanLahanController::class, 'update'])->name('pl.update');
+    Route::put('/penggunaan-lahan/edit/{pl}', [PenggunaanLahanController::class, 'update'])->name('pl.update');
 
     Route::delete('/penggunaan-lahan/delete/{id}', [PenggunaanLahanController::class, 'delete'])->name('pl.destroy');
 
@@ -148,7 +147,7 @@ Route::middleware(['auth', 'roles:1'])->group(function () {
 
     Route::get('/pendukung/edit/{pendukung}', [PendukungController::class, 'editPendukung'])->name('edit-pendukung');
 
-    Route::put('/pendukung/put/{pendukung}', [PendukungController::class, 'update'])->name('pendukung.update');
+    Route::put('/pendukung/edit/{pendukung}', [PendukungController::class, 'update'])->name('pendukung.update');
 
     Route::delete('/pendukung/delete/{id}', [PendukungController::class, 'delete'])->name('pendukung.destroy');
 
@@ -157,5 +156,5 @@ Route::middleware(['auth', 'roles:1'])->group(function () {
 
     Route::get('/listrik-dan-internet/edit/{lni}', [ListrikDanInternetController::class, 'editlistrikDanInternet'])->name('edit-lni');
 
-    Route::put('/listrik-dan-internet/put/{lni}', [ListrikDanInternetController::class, 'update'])->name('lni.update');
+    Route::put('/listrik-dan-internet/edit/{lni}', [ListrikDanInternetController::class, 'update'])->name('lni.update');
 });

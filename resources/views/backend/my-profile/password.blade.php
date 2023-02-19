@@ -41,7 +41,7 @@
                     <!-- Content Row -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Update My Profile</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">Change Password</h6>
                         </div>
 
                         <!-- Error Message -->
@@ -56,28 +56,21 @@
                         <!-- End Of Error Message -->
 
                         <div class="card-body">
-                            <form action="{{ route('myprofile.update') }}" method="POST" enctype="multipart/form-data"
-                                class="user">
+                            <form action="{{ route('myprofile.update') }}" method="POST" class="user">
                                 @csrf
                                 @method('PUT')
 
                                 <div class="mb-3">
-                                    <label for="exampleInputNama" class="form-label">Nama lengkap</label>
-                                    <input type="text" class="form-control" name="nama"
+                                    <label for="exampleInputPL" class="form-label">Password Lama</label>
+                                    <input type="text" class="form-control" name="old_password"
                                         value="{{ old('nama', $tbl_users->nama) }}">
                                 </div>
 
                                 <div class="mb-3">
-                                    <label for="exampleInputEmail" class="form-label">Email address</label>
-                                    <input type="text" class="form-control" name="email"
+                                    <label for="exampleInputPB" class="form-label">Password Baru</label>
+                                    <input type="text" class="form-control" name="new_password"
                                         value="{{ old('email', $tbl_users->email) }}">
-                                </div>
-
-                                <div class="mb-3">
-                                    <label for="formFile" class="form-label">Foto profile</label>
-                                    
-                                    <input class="form-control" type="file" name="photo">
-                                </div>
+                                </div>                                
 
                                 <button type="submit" class="btn btn-primary">Submit</button>
                                 <a href="{{ url('my-profile') }}" class="btn btn-warning">Cancel</a>
