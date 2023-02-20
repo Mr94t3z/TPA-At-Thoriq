@@ -4,6 +4,13 @@
 <head>
     @include('frontend/static/header')
 </head>
+    <style>
+        @media (max-width: 767px) {
+            #map-container iframe {
+                width: 100%;
+            }
+        }
+    </style>
 
 <body id="page-top">
     <!-- Navigation-->
@@ -22,7 +29,8 @@
                             sehari-hari, hal ini akan menghasilkan generasi yang memahami Al-Qur'an dan memiliki akhlak
                             yang baik.</p>
                         <div class="d-flex flex-column flex-lg-row align-items-center">
-                            <a href="{{ url('profile') }}" class="btn bg-gradient-primary-to-secondary rounded-pill px-3 mb-2 mb-lg-0">
+                            <a href="{{ url('profile') }}"
+                                class="btn bg-gradient-primary-to-secondary rounded-pill px-3 mb-2 mb-lg-0">
                                 <span class="d-flex align-items-center">
                                     <i class="bi bi-arrow-down-right-circle me-2 text-white"></i>
                                     <span class="small text-white">Selengkapnya</span>
@@ -86,14 +94,14 @@
     </aside>
     <!-- App features section-->
     <section id="features">
-        <div class="container px-5">
+        <div class="container">
             <div class="row gx-5 align-items-center">
                 <div class="col-lg-8 order-lg-1 mb-5 mb-lg-0">
-                    <div class="container-fluid px-5">
-                        <iframe src="https://maps.google.com/maps?q=-6.878794,107.828998&z=15&output=embed" width="600"
-                            height="450" frameborder="0" style="border:0;" allowfullscreen="">Lokasi</iframe>
+                    <div class="container-fluid d-flex justify-content-center">
+                        <iframe src="https://maps.google.com/maps?q=-6.878794,107.828998&z=15&output=embed" width="100%"
+                            height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                     </div>
-                </div>
+                </div>                
                 <div class="col-lg-4 order-lg-0">
                     <!-- Features section device mockup-->
                     <div class="features-device-mockup">
@@ -125,7 +133,7 @@
                                     <video muted="muted" autoplay="" loop=""
                                         style="width: 100%; height: 100%; object-fit: cover">
                                         <source src="{{ asset('assets/img/female-kid.mp4') }}" type="video/mp4" />
-                                        </video>
+                                    </video>
                                 </div>
                             </div>
                         </div>
