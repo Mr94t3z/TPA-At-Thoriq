@@ -56,7 +56,7 @@
                         <!-- End Of Error Message -->
 
                         <div class="card-body">
-                            <form action="{{ route('guru.action') }}" method="POST" class="user">
+                            <form action="{{ route('guru.action') }}" method="POST" enctype="multipart/form-data" class="user">
                                 @csrf
 
                                 <div class="mb-3">
@@ -69,6 +69,12 @@
                                     <label for="exampleInputJP" class="form-label">Jenjang Pendidikan</label>
                                     <input type="text" class="form-control" name="jenjang_pendidikan"
                                         value="{{ old('jenjang_pendidikan') }}">
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="exampleInputFP" class="form-label">Foto Profile</label>
+                                    <input type="file" class="form-control" name="photo"
+                                        value="{{ old('photo') }}">
                                 </div>
 
                                 <button type="submit" class="btn btn-primary">Submit</button>

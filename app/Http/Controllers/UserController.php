@@ -121,7 +121,7 @@ class UserController extends Controller
             // Delete the old photo
             Storage::disk('uploads')->delete($user->photo);
 
-            // Store the new photo in the profile/photos directory
+            // Store the new photo in the uploads/user directory
             $user->photo = $request->file('photo')->store('user', 'uploads');
         }
 

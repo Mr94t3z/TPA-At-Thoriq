@@ -56,7 +56,7 @@ class KepalaPendidikanController extends Controller
             // Delete the old photo
             Storage::disk('uploads')->delete($kp->photo);
 
-            // Store the new photo in the profile/photos directory
+            // Store the new photo in the uplaods/kepala-pendidikan directory
             $kp->photo = $request->file('photo')->store('kepala-pendidikan', 'uploads');
         }
 

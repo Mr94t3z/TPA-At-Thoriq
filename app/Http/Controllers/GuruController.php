@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Guru;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class GuruController extends Controller
 {
@@ -19,15 +20,30 @@ class GuruController extends Controller
         $request->validate([
             'nama' => 'required',
             'jenjang_pendidikan' => 'required',
+            'photo' => 'image|mimes:jpeg,png,jpg,gif,svg|max:1024',
         ], [
             'nama.required' => 'Nama harus diisi!',
             'jenjang_pendidikan.required' => 'Jenjang Pendidikan harus diisi!',
+            'photo.image' => 'File yang anda upload bukan gambar!',
+            'photo.mimes' => 'Format gambar yang anda upload salah!',
+            'photo.max' => 'Ukuran gambar maksimal 1MB!',
         ]);
 
         $guru = new Guru([
             'nama' => $request->nama,
             'jenjang_pendidikan' => $request->jenjang_pendidikan,
         ]);
+
+        if ($request->file('photo') == "") {
+            $guru->photo = $guru->photo;
+        } else {
+            // Delete the old photo
+            Storage::disk('uploads')->delete($guru->photo);
+
+            // Store the new photo in the uplaods/guru directory
+            $guru->photo = $request->file('photo')->store('guru', 'uploads');
+        }
+
         $guru->save();
 
         return redirect('guru')->with('success', 'Data guru berhasil ditambahkan!');
@@ -37,7 +53,7 @@ class GuruController extends Controller
     public function guru(Request $request)
     {
         $data['q'] = $request->get('q');
-        $data['tbl_guru'] = Guru::where('nama', 'like', '%' . $data['q'] . '%')->paginate(5);
+        $data['tbl_guru'] = Guru::where('nama', 'like', '%' . $data['q'] . '%')->orderBy('updated_at', 'DESC')->paginate(5);
 
         return view('backend/kelola-pengguna/guru/index', $data);
     }
@@ -61,13 +77,27 @@ class GuruController extends Controller
         $validatedData = $request->validate([
             'nama' => 'required',
             'jenjang_pendidikan' => 'required',
+            'photo' => 'image|mimes:jpeg,png,jpg,gif,svg|max:1024',
         ], [
             'nama.required' => 'Nama harus diisi!',
             'jenjang_pendidikan.required' => 'Jenjang Pendidikan harus diisi!',
+            'photo.image' => 'File yang anda upload bukan gambar!',
+            'photo.mimes' => 'Format gambar yang anda upload salah!',
+            'photo.max' => 'Ukuran gambar maksimal 1MB!',
         ]);
 
         $guru->nama = $validatedData['nama'];
         $guru->jenjang_pendidikan = $validatedData['jenjang_pendidikan'];
+
+        if ($request->file('photo') == "") {
+            $guru->photo = $guru->photo;
+        } else {
+            // Delete the old photo
+            Storage::disk('uploads')->delete($guru->photo);
+
+            // Store the new photo in the uplaods/guru directory
+            $guru->photo = $request->file('photo')->store('guru', 'uploads');
+        }
 
         $guru->save();
 
@@ -79,7 +109,9 @@ class GuruController extends Controller
     {
         $guru = Guru::find($id);
 
-        if (!$guru) {
+        if ($guru->photo !== null) {
+            Storage::disk('profile')->delete($guru->photo);
+        } else if (!$guru) {
             return redirect()->back()->with('error', 'Data guru tidak ditemukan!');
         }
 

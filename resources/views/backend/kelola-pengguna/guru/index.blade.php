@@ -75,6 +75,7 @@
                                             <th>No</th>
                                             <th>Nama</th>
                                             <th>Jenjang Pendidikan</th>
+                                            <th>Foto</th>
                                             <th>Dibuat Pada</th>
                                             <th>Terakhir Diperbaharui</th>
                                             <th>Action</th>
@@ -86,6 +87,21 @@
                                             <td>{{ $tbl_guru->firstItem() + $key }}</td>
                                             <td>{{ $guru->nama}}</td>
                                             <td>{{ $guru->jenjang_pendidikan}}</td>
+                                            <td>
+                                                @if ( $guru->photo != null)
+                                                <div class="rounded-circle overflow-hidden bg-light img-thumbnail"
+                                                style="width: 80px; height: 80px;">
+                                                <img class="img-profile rounded-circle btn-sm mt-1"
+                                                    src="{{ asset('storage/uploads/' . $guru->photo) }}" style="max-width:100%; max-height:100%; object-fit: cover; transform: scale(1.2);">
+                                                </div>
+                                                @else
+                                                <div class="rounded-circle overflow-hidden bg-light img-thumbnail"
+                                                style="width: 80px; height: 80px;">
+                                                <img class="img-profile rounded-circle btn-sm mt-1"
+                                                    src="{{ asset('backend/img/user.png') }}" style="max-width:100%; max-height:100%; object-fit: cover; transform: scale(1.2);">
+                                                </div>
+                                                @endif
+                                            </td>
                                             <td>{{ $guru->created_at}}</td>
                                             <td>{{ $guru->updated_at}}</td>
                                             <td>
@@ -141,7 +157,7 @@
                                 </table>
 
                                 {{ $tbl_guru->links() }}
-                                
+
                             </div>
                         </div>
                     </div>
