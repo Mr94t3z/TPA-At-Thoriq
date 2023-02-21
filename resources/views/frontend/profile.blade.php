@@ -26,20 +26,25 @@
 
                 </div>
 
-                
+
                 @if ($profileKepalaPendidikan->photo != null)
+
                 <div class="col-sm-8 col-md-6">
                     <div class="px-5 px-sm-0"><img class="img-fluid rounded-circle"
                             src="{{ asset('storage/uploads/' . $profileKepalaPendidikan->photo) }}" alt="..." />
                     </div>
                 </div>
+
                 @else
+
                 <div class="col-sm-8 col-md-6">
                     <div class="px-5 px-sm-0"><img class="img-fluid rounded-circle"
                             src="{{ asset('assets/img/kepala-pendidikan.jpg') }}" alt="..." />
                     </div>
                 </div>
+
                 @endif
+
             </div>
         </div>
     </header>
@@ -85,8 +90,20 @@
                     <!-- Visi -->
                     <div class="mb-5 mb-lg-0 text-center text-lg-start">
                         <h1 class="display-10 lh-1 mb-3">Visi TPA At-Thoriq</h1>
-                        <p class="lead fw-normal text-muted mb-5">Menjadi lembaga pendidikan Islam yang unggul dan
-                            berkualitas dalam membentuk generasi Qur'ani dan Berakhlakul Karimah.</p>
+                        <p class="lead fw-normal text-muted mb-5">
+
+                            @if($websiteData->visi !== null)
+
+                            {{ strip_tags($websiteData->visi) }}
+
+                            @else
+
+                            Menjadi lembaga pendidikan Islam yang unggul dan
+                            berkualitas dalam membentuk generasi Qur'ani dan Berakhlakul Karimah.
+
+                            @endif
+
+                        </p>
                     </div>
                 </div>
                 <div class="col-lg-6">
@@ -119,7 +136,18 @@
                                     <!-- * * 100% like the demo example below.-->
                                     <video muted="muted" autoplay="" loop=""
                                         style="width: 100%; height: 100%; object-fit: cover">
-                                        <source src="{{ asset('assets/img/male-kid.mp4') }}" type="video/mp4" /></video>
+
+                                        @if($websiteData->visi !== null)
+
+                                        <source src="{{ asset('storage/uploads/' . $websiteData->visi) }}" type="video/mp4" />
+
+                                        @else
+
+                                        <source src="{{ asset('assets/img/male-kid.mp4') }}" type="video/mp4" />
+
+                                        @endif
+
+                                    </video>
                                 </div>
                             </div>
                         </div>
@@ -136,6 +164,16 @@
                     <div class="container-fluid px-5">
                         <div class="mb-5 mb-lg-0 text-center text-lg-start">
                             <h1 class="display-10 lh-1 mb-3">Misi TPA At-Thoriq</h1>
+
+                            @if($websiteData->misi !== null)
+
+                            @php
+                                $misiWithClass = str_replace('<ol>', '<ol class="lead fw-normal text-muted mb-5">', $websiteData->misi);
+                                echo html_entity_decode($misiWithClass);
+                            @endphp 
+
+                            @else
+
                             <p class="lead fw-normal text-muted mb-5">
                                 1. Menyediakan program pembelajaran Al-Qur'an dan Pendidikan Agama Islam yang
                                 berkualitas dan inovatif.
@@ -149,7 +187,11 @@
                                 5. Menciptakan lingkungan belajar yang kondusif dan menyenangkan bagi siswa.
                                 <br>
                                 6. Menghasilkan siswa yang memiliki akhlak yang baik dan memahami pentingnya Al-Qur'an
-                                dalam hidup.</p>
+                                dalam hidup.
+
+                                @endif
+
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -183,7 +225,17 @@
                                     <!-- * * 100% like the demo example below.-->
                                     <video muted="muted" autoplay="" loop=""
                                         style="width: 100%; height: 100%; object-fit: cover">
+
+                                        @if($websiteData->misi !== null)
+
+                                        <source src="{{ asset('storage/uploads/' . $websiteData->misi) }}" type="video/mp4" />
+
+                                        @else
+
                                         <source src="{{ asset('assets/img/female-kid.mp4') }}" type="video/mp4" />
+
+                                        @endif
+                                        
                                     </video>
                                 </div>
                             </div>

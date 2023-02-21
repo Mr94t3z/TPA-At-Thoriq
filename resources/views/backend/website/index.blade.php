@@ -103,18 +103,6 @@
                             </div>
 
                             <div class="mb-3 mr-3 ml-3">
-                                <label class="form-label">Misi :</label>
-                                <input class="form-control" type="text" value="{{ $website->misi }}"
-                                    aria-label="Disabled input example" disabled readonly>
-                            </div>
-
-                            <div class="mb-3 mr-3 ml-3">
-                                <label class="form-label">Misi Video :</label>
-                                <input class="form-control" type="text" value="{{ $website->misi_video }}"
-                                    aria-label="Disabled input example" disabled readonly>
-                            </div>
-
-                            <div class="mb-3 mr-3 ml-3">
                                 <label class="form-label">Visi :</label>
                                 <input class="form-control" type="text" value="{{ $website->visi }}"
                                     aria-label="Disabled input example" disabled readonly>
@@ -123,6 +111,18 @@
                             <div class="mb-3 mr-3 ml-3">
                                 <label class="form-label">Visi Video :</label>
                                 <input class="form-control" type="text" value="{{ $website->visi_video }}"
+                                    aria-label="Disabled input example" disabled readonly>
+                            </div>
+
+                            <div class="mb-3 mr-3 ml-3">
+                                <label class="form-label">Misi :</label>
+                                <input class="form-control" type="text" value="{{ $website->misi }}"
+                                    aria-label="Disabled input example" disabled readonly>
+                            </div>
+
+                            <div class="mb-3 mr-3 ml-3">
+                                <label class="form-label">Misi Video :</label>
+                                <input class="form-control" type="text" value="{{ $website->misi_video }}"
                                     aria-label="Disabled input example" disabled readonly>
                             </div>
 

@@ -203,7 +203,17 @@
                                     <!-- * * 100% like the demo example below.-->
                                     <video muted="muted" autoplay="" loop=""
                                         style="width: 100%; height: 100%; object-fit: cover">
+
+                                        @if($websiteData->maps_video !== null)
+
+                                        <source src="{{ asset('storage/uploads/' . $websiteData->maps_video) }}" type="video/mp4" />
+
+                                        @else
+
                                         <source src="{{ asset('assets/img/female-kid.mp4') }}" type="video/mp4" />
+
+                                        @endif
+
                                     </video>
                                 </div>
                             </div>
