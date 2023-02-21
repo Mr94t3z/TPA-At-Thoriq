@@ -29,6 +29,8 @@ Route::get('/', [WebsiteController::class, 'home']);
 
 Route::get('profile', [WebsiteController::class, 'profile']);
 
+Route::get('berita', [WebsiteController::class, 'berita']);
+
 Route::get('fasilitas', [WebsiteController::class, 'fasilitas']);
 
 

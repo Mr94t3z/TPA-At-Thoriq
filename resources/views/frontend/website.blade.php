@@ -4,13 +4,14 @@
 <head>
     @include('frontend/static/header')
 </head>
-    <style>
-        @media (max-width: 767px) {
-            #map-container iframe {
-                width: 100%;
-            }
+<style>
+    @media (max-width: 767px) {
+        #map-container iframe {
+            width: 100%;
         }
-    </style>
+    }
+
+</style>
 
 <body id="page-top">
     <!-- Navigation-->
@@ -78,7 +79,8 @@
             </div>
         </div>
     </header>
-    <!-- Quote/testimonial aside-->
+
+    <!-- Quote aside-->
     <aside class="text-center bg-gradient-primary-to-secondary">
         <div class="container px-5">
             <div class="row gx-5 justify-content-center">
@@ -92,6 +94,47 @@
             </div>
         </div>
     </aside>
+
+    <!-- IF tbl_berita null hiden this -->
+    <section id="features">
+        <div class="container px-5">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="col-md-10">
+                        <!-- Feature item-->
+                        <div class="text-center mb-5">
+                            <img src="{{ asset('assets/img/room-2.jpg') }}" class="icon-feature img-fluid mb-3">
+                            <p class="text-muted mb-0 align-left text-start mb-2">23 Februari 2023</p>
+                            <h3 class="font-alt" style="text-align: justify">Ready to use HTML/CSS device mockups, no Photoshop required!</h3>
+                            <p class="align-left text-start mt-3"><a href="#" class="text-gradient" style="text-decoration:none;">Baca Selengkapnya</a></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="col-md-10">
+                        <!-- Feature item-->
+                        <div class="text-center mb-5">
+                            <img src="{{ asset('assets/img/room-2.jpg') }}" class="icon-feature img-fluid mb-3">
+                            <p class="text-muted mb-0 align-left text-start mb-2">30 Februari 2023</p>
+                            <h3 class="font-alt" style="text-align: justify">Put an image, video, animation, or anything else in the screen!!</h3>
+                            <p class="align-left text-start mt-3"><a href="#" class="text-gradient" style="text-decoration:none;">Baca Selengkapnya</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        <div class="text-center mt-3">
+            <a href="{{ url('berita') }}" class="btn bg-gradient-primary-to-secondary rounded-pill px-3 mb-2 mb-lg-0">
+                <span class="d-flex align-items-center">
+                    <i class="bi bi-newspaper me-2 text-white"></i>
+                    <span class="small text-white">Berita Selengkapnya</span>
+                </span>
+            </a>
+        </div>
+    </section>
+
+
     <!-- App features section-->
     <section id="features">
         <div class="container">
@@ -101,7 +144,7 @@
                         <iframe src="https://maps.google.com/maps?q=-6.878794,107.828998&z=15&output=embed" width="100%"
                             height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                     </div>
-                </div>                
+                </div>
                 <div class="col-lg-4 order-lg-0">
                     <!-- Features section device mockup-->
                     <div class="features-device-mockup">
@@ -142,37 +185,6 @@
             </div>
         </div>
     </section>
-    <!-- Basic features section-->
-    {{-- <section class="bg-light">
-        <div class="container px-5">
-            <div class="row gx-5 align-items-center justify-content-center justify-content-lg-between">
-                <div class="col-12 col-lg-5">
-                    <h2 class="display-4 lh-1 mb-4">Enter a new age of web design</h2>
-                    <p class="lead fw-normal text-muted mb-5 mb-lg-0">This section is perfect for featuring some
-                        information about your application, why it was built, the problem it solves, or anything else!
-                        There's plenty of space for text here, so don't worry about writing too much.</p>
-                </div>
-                <div class="col-sm-8 col-md-6">
-                    <div class="px-5 px-sm-0"><img class="img-fluid rounded-circle"
-                            src="{{ asset('assets/img/room.jpg') }}" alt="..." /></div>
-    </div>
-    </div>
-    </div>
-    </section> --}}
-    {{-- <!-- Call to action section-->
-    <section class="cta">
-        <div class="cta-content">
-            <div class="container px-5">
-                <h2 class="text-white display-1 lh-1 mb-4">
-                    Stop waiting.
-                    <br />
-                    Start building.
-                </h2>
-                <a class="btn btn-outline-light py-3 px-4 rounded-pill" href=""
-                    target="">Download for free</a>
-            </div>
-        </div>
-    </section> --}}
 
     <!-- Footer-->
 

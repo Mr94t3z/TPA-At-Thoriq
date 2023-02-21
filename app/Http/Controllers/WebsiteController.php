@@ -32,6 +32,14 @@ class WebsiteController extends Controller
         return view('frontend/profile', compact('profileKepalaPendidikan', 'profileData', 'countByKelas'));
     }
 
+    // Fungsi Halaman Berita
+    public function berita()
+    {
+        $profileData = IdentitasLembaga::first();
+
+        return view('frontend/berita', compact('profileData'));
+    }
+
     // Fungsi Halaman Fasilitas
     public function fasilitas()
     {

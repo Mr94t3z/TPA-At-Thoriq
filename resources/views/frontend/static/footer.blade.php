@@ -8,8 +8,8 @@
 
             <h5 class="card-title" style="margin-top: 0.8cm;">Kontak Kami</h5>
 
-            <p class="mb-lg-0" style="font-size:14px">Email: {{ $profileData->email }}</p>
-            <p class="mb-lg-0" style="font-size:14px">No Telp: {{ $profileData->no_telp }}</p>
+            <p class="mb-lg-0 mt-0 mb-0" style="font-size:14px">Email: {{ $profileData->email }}</p>
+            <p class="mb-lg-0 mt-0 mb-0" style="font-size:14px">No Telp: {{ $profileData->no_telp }}</p>
         </div>
     </div>
 </section>
