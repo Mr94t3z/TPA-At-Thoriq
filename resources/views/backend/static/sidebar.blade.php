@@ -45,6 +45,22 @@
         </a>
     </li>
 
+    <!-- Nav Item - Kelola Website -->
+    <li class="nav-item {{ Request::is('website') ? 'active' : '' }}">
+        <a class="nav-link" href="{{ url('website') }}">
+            <i class="fas fa-globe"></i>
+            <span>Manajemen Website</span>
+        </a>
+    </li>
+
+    <!-- Nav Item - Kelola Berita -->
+    <li class="nav-item {{ Request::is('post-berita') ? 'active' : '' }}">
+        <a class="nav-link" href="{{ url('post-berita') }}">
+            <i class="fas fa-newspaper"></i>
+            <span>Manajemen Berita</span>
+        </a>
+    </li>
+
     <!-- Nav Item - Manajemen User -->
     <li class="nav-item {{ request()->is('users', 'kepala-pendidikan', 'guru', 'siswa') ? 'active' : '' }}">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"

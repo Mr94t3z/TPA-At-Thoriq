@@ -46,6 +46,7 @@ Route::post('registrasi', [UserController::class, 'registerAction'])->name('regi
 Route::get('logout', [UserController::class, 'logout'])->name('logout');
 
 Route::middleware(['auth', 'roles:0,1'])->group(function () {
+    // only authenticated users with roles=0 or roles=1 can access this route
 
     // [DASHBOARD ROUTE]
     Route::get('dashboard', [DashboardController::class, 'countData'])->name('dashboard');
@@ -73,6 +74,13 @@ Route::middleware(['auth', 'roles:1'])->group(function () {
     Route::get('/lembaga/edit/{lembaga}', [IdentitasLembagaController::class, 'editLembaga'])->name('edit-lembaga');
 
     Route::put('/lembaga/edit/{lembaga}', [IdentitasLembagaController::class, 'update'])->name('lembaga.update');
+
+    // [MANAJEMEN WEBSITE ROUTE]
+    Route::get('website', [WebsiteController::class, 'website'])->name('website');
+
+    Route::get('/website/edit/{website}', [WebsiteController::class, 'editWebsite'])->name('edit-website');
+
+    Route::put('/website/edit/{website}', [WebsiteController::class, 'update'])->name('website.update');
 
     // [USERS ROUTE]
     Route::get('users', [UserController::class, 'users'])->name('users');
