@@ -2,7 +2,18 @@
 <section class="bg-gradient-primary-to-secondary" id="profile">
     <div class="card mb-3" style="width: 18rem; margin-left:50px; background-color:#eee7ff;">
         <div class="card-body ">
+
+            @if($websiteData->logo != null)
+
+            <img src="{{ asset('storage/uploads/' . $websiteData->logo) }}" alt="" style="height: 70px; margin-right: 7px;"
+                class="mb-4">
+
+            @else
+
             <img src="{{ asset('assets/img/logo.png') }}" alt="" style="height: 70px; margin-right: 7px;" class="mb-4">
+
+            @endif
+
             <h5 class="card-title">TPA At-Thoriq</h5>
             <p class="mb-lg-0" style="font-size:14px">{{ $profileData->alamat }}</p>
 

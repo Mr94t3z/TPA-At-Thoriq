@@ -19,7 +19,9 @@ class WebsiteController extends Controller
     {
         $profileData = IdentitasLembaga::first();
 
-        return view('frontend/website', compact('profileData'));
+        $websiteData = Website::first();
+
+        return view('frontend/website', compact('profileData', 'websiteData'));
     }
 
     // Fungsi Halaman Profile
@@ -27,27 +29,30 @@ class WebsiteController extends Controller
     {
         $profileKepalaPendidikan = KepalaPendidikan::first();
         $profileData = IdentitasLembaga::first();
+        $websiteData = Website::first();
 
         // Data untuk Statistik pada My Area Chart
         $countByKelas = Siswa::selectRaw('kelas, count(*) as total')->groupBy('kelas')->get();
 
-        return view('frontend/profile', compact('profileKepalaPendidikan', 'profileData', 'countByKelas'));
+        return view('frontend/profile', compact('profileKepalaPendidikan', 'profileData', 'websiteData', 'countByKelas'));
     }
 
     // Fungsi Halaman Berita
     public function berita()
     {
         $profileData = IdentitasLembaga::first();
+        $websiteData = Website::first();
 
-        return view('frontend/berita', compact('profileData'));
+        return view('frontend/berita', compact('profileData', 'websiteData'));
     }
 
     // Fungsi Halaman Show Berita
     public function indexBerita()
     {
         $profileData = IdentitasLembaga::first();
+        $websiteData = Website::first();
 
-        return view('backend/berita/index', compact('profileData'));
+        return view('backend/berita/index', compact('profileData', 'websiteData'));
     }
 
     // Fungsi Halaman Fasilitas
@@ -55,6 +60,7 @@ class WebsiteController extends Controller
     {
         $fasilitasData = PenggunaanLahan::pluck('keterangan', 'milik');
         $profileData = IdentitasLembaga::first();
+        $websiteData = Website::first();
 
         // Data untuk Statistik pada Pie Chart
         $luasTanah = LuasTanah::count();
@@ -63,7 +69,7 @@ class WebsiteController extends Controller
 
         $no = 1;
 
-        return view('frontend/fasilitas', compact('fasilitasData', 'no', 'profileData', 'luasTanah', 'penggunaanLahan', 'sarprasPendukung'));
+        return view('frontend/fasilitas', compact('fasilitasData', 'no', 'profileData', 'websiteData', 'luasTanah', 'penggunaanLahan', 'sarprasPendukung'));
     }
 
     // Fungsi Halaman Manajemen Website

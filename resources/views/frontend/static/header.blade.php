@@ -3,7 +3,16 @@
 <meta name="description" content="" />
 <meta name="author" content="" />
 <title>TPA At-Thoriq</title>
+
+@if($websiteData->logo !== null)
+
+<link rel="icon" type="image/x-icon" href="{{ asset('storage/uploads/' . $websiteData->logo) }}" />
+
+@else
+
 <link rel="icon" type="image/x-icon" href="{{ asset('assets/img/logo.png') }}" />
+@endif
+
 <!-- Bootstrap icons-->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
 <!-- Google fonts-->

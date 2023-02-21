@@ -24,11 +24,9 @@
                     <!-- Mashead text and app badges-->
                     <div class="mb-5 mb-lg-0 text-center text-lg-start">
                         <h1 class="display-3 lh-1 mb-3">Selamat Datang!</h1>
-                        <p class="lead fw-normal text-muted mb-5">Lembaga pendidikan Taman Pendidikan Al-Qur'an
-                            At-Thoriq adalah institusi yang memprioritaskan pengajaran Al-Qur'an dan Pendidikan Agama
-                            Islam. Melalui implementasi Al-Qur'an dan sunnah dalam proses belajar dan kegiatan
-                            sehari-hari, hal ini akan menghasilkan generasi yang memahami Al-Qur'an dan memiliki akhlak
-                            yang baik.</p>
+                        <p class="lead fw-normal text-muted mb-5">
+                            {{ strip_tags($websiteData->welcome_message) }}
+                        </p>
                         <div class="d-flex flex-column flex-lg-row align-items-center">
                             <a href="{{ url('profile') }}"
                                 class="btn bg-gradient-primary-to-secondary rounded-pill px-3 mb-2 mb-lg-0">
@@ -70,7 +68,18 @@
                                     <!-- * * 100% like the demo example below.-->
                                     <video muted="muted" autoplay="" loop=""
                                         style="width: 100%; height: 100%; object-fit: cover">
-                                        <source src="{{ asset('assets/img/male-kid.mp4') }}" type="video/mp4" /></video>
+
+                                        @if($websiteData->welcome_video !== null)
+
+                                        <source src="{{ asset('storage/uploads/' . $websiteData->welcome_video) }}" type="video/mp4" />
+
+                                        @else
+
+                                        <source src="{{ asset('assets/img/male-kid.mp4') }}" type="video/mp4" />
+                                        
+                                        @endif
+
+                                    </video>
                                 </div>
                             </div>
                         </div>
@@ -85,10 +94,9 @@
         <div class="container px-5">
             <div class="row gx-5 justify-content-center">
                 <div class="col-xl-8">
-                    <div class="h2 fs-1 text-white mb-4">"Tahapan pertama dalam mencari ilmu adalah mendengarkan,
-                        kemudian diam dan menyimak dengan penuh perhatian, lalu menjaganya, lalu mengamalkannya dan
-                        kemudian menyebarkannya"</div>
-                    <p class="lead fw-normal text-white mb-5">– Sufyan bin Uyainah
+                    <div class="h2 fs-1 text-white mb-4">
+                        "{{ strip_tags($websiteData->quote_message) }}"</div>
+                    <p class="lead fw-normal text-white mb-5">– {{ strip_tags($websiteData->quote_by) }}
                     </p>
                 </div>
             </div>
@@ -148,8 +156,21 @@
                 <h2 class="display-4 lh-1 mb-5 text-center">Lokasi</h2>
                 <div class="col-lg-8 order-lg-1 mb-5 mb-lg-0">
                     <div class="container-fluid d-flex justify-content-center">
-                        <iframe src="https://maps.google.com/maps?q=-6.878794,107.828998&z=15&output=embed" width="100%"
-                            height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+
+                        @if($websiteData->maps_latitude !== null && $websiteData->maps_longitude !== null)
+
+                        <iframe src="https://maps.google.com/maps?q={{ $websiteData->maps_latitude }},{{ $websiteData->maps_longitude }}&z=15&output=embed" width="100%"
+                            height="450" style="border:0;" allowfullscreen="" loading="lazy">
+                        </iframe>
+
+                        @else
+
+                        <iframe src="https://maps.google.com/maps?q=-6.914744,107.609810&z=15&output=embed" width="100%"
+                            height="450" style="border:0;" allowfullscreen="" loading="lazy">
+                        </iframe>
+
+                        @endif
+
                     </div>
                 </div>
                 <div class="col-lg-4 order-lg-0">
