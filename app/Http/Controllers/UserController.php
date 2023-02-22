@@ -226,7 +226,7 @@ class UserController extends Controller
         $user = User::find($id);
 
         if ($user->photo !== null) {
-            Storage::disk('profile')->delete($user->photo);
+            Storage::disk('uploads')->delete($user->photo);
         } else if (!$user) {
             return redirect()->back()->with('error', 'Data user tidak ditemukan!');
         }

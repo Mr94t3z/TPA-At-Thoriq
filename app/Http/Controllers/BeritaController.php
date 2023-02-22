@@ -107,8 +107,8 @@ class BeritaController extends Controller
     {
         $berita = Berita::find($id);
 
-        if ($berita->photo !== null) {
-            Storage::disk('profile')->delete($berita->photo);
+        if ($berita->poster !== null) {
+            Storage::disk('uploads')->delete($berita->poster);
         } else if (!$berita) {
             return redirect()->back()->with('error', 'Data berita tidak ditemukan!');
         }

@@ -110,7 +110,7 @@ class GuruController extends Controller
         $guru = Guru::find($id);
 
         if ($guru->photo !== null) {
-            Storage::disk('profile')->delete($guru->photo);
+            Storage::disk('uploads')->delete($guru->photo);
         } else if (!$guru) {
             return redirect()->back()->with('error', 'Data guru tidak ditemukan!');
         }
