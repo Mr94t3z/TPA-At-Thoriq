@@ -11,6 +11,7 @@ use App\Http\Controllers\PenggunaanLahanController;
 use App\Http\Controllers\SiswaController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\WebsiteController;
+use App\Http\Controllers\BeritaController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -82,6 +83,21 @@ Route::middleware(['auth', 'roles:1'])->group(function () {
 
     Route::put('/website/edit/{website}', [WebsiteController::class, 'update'])->name('website.update');
 
+    // [MANAJEMEN BERITA ROUTE]
+    Route::get('post-berita', [BeritaController::class, 'berita'])->name('post-berita');
+
+    Route::get('post-berita/create', [BeritaController::class, 'create'])->name('create-berita');
+
+    Route::post('post-berita/create', [BeritaController::class, 'createAction'])->name('berita.action');
+
+    Route::get('/post-berita/create/checkSlug', [BeritaController::class, 'checkSlug']);
+
+    Route::get('/post-berita/edit/{berita}', [BeritaController::class, 'editBerita'])->name('edit-berita');
+
+    Route::put('/post-berita/edit/{berita}', [BeritaController::class, 'update'])->name('berita.update');
+
+    Route::delete('/post-berita/delete/{id}', [BeritaController::class, 'delete'])->name('berita.destroy');
+
     // [USERS ROUTE]
     Route::get('users', [UserController::class, 'users'])->name('users');
 
@@ -103,7 +119,7 @@ Route::middleware(['auth', 'roles:1'])->group(function () {
 
     Route::get('guru/create', [GuruController::class, 'create'])->name('create-guru');
 
-    Route::post('guru/post', [GuruController::class, 'createAction'])->name('guru.action');
+    Route::post('guru/create', [GuruController::class, 'createAction'])->name('guru.action');
 
     Route::get('/guru/edit/{guru}', [GuruController::class, 'editGuru'])->name('edit-guru');
 
@@ -116,7 +132,7 @@ Route::middleware(['auth', 'roles:1'])->group(function () {
 
     Route::get('siswa/create', [SiswaController::class, 'create'])->name('create-siswa');
 
-    Route::post('siswa/post', [SiswaController::class, 'createAction'])->name('siswa.action');
+    Route::post('siswa/create', [SiswaController::class, 'createAction'])->name('siswa.action');
 
     Route::get('/siswa/edit/{siswa}', [SiswaController::class, 'editSiswa'])->name('edit-siswa');
 
@@ -129,7 +145,7 @@ Route::middleware(['auth', 'roles:1'])->group(function () {
 
     Route::get('luas-tanah/create', [LuasTanahController::class, 'create'])->name('create-lt');
 
-    Route::post('luas-tanah/post', [LuasTanahController::class, 'createAction'])->name('lt.action');
+    Route::post('luas-tanah/create', [LuasTanahController::class, 'createAction'])->name('lt.action');
 
     Route::get('/luas-tanah/edit/{lt}', [LuasTanahController::class, 'editLuasTanah'])->name('edit-lt');
 
@@ -142,7 +158,7 @@ Route::middleware(['auth', 'roles:1'])->group(function () {
 
     Route::get('penggunaan-lahan/create', [PenggunaanLahanController::class, 'create'])->name('create-pl');
 
-    Route::post('penggunaan-lahan/post', [PenggunaanLahanController::class, 'createAction'])->name('pl.action');
+    Route::post('penggunaan-lahan/create', [PenggunaanLahanController::class, 'createAction'])->name('pl.action');
 
     Route::get('/penggunaan-lahan/edit/{pl}', [PenggunaanLahanController::class, 'editPenggunaanLahan'])->name('edit-pl');
 
