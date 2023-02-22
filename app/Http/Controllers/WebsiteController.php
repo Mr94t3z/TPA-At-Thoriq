@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Berita;
 use App\Models\IdentitasLembaga;
 use App\Models\KepalaPendidikan;
 use App\Models\LuasTanah;
@@ -21,7 +22,9 @@ class WebsiteController extends Controller
 
         $websiteData = Website::first();
 
-        return view('frontend/website', compact('profileData', 'websiteData'));
+        $beritaData = Berita::orderBy('created_at', 'desc')->take(2)->get();
+
+        return view('frontend/website', compact('profileData', 'websiteData', 'beritaData'));
     }
 
     // Fungsi Halaman Profile
@@ -43,16 +46,24 @@ class WebsiteController extends Controller
         $profileData = IdentitasLembaga::first();
         $websiteData = Website::first();
 
-        return view('frontend/berita', compact('profileData', 'websiteData'));
+        $beritaData = Berita::orderBy('created_at', 'desc')->paginate(2);
+
+        return view('frontend/berita', compact('profileData', 'websiteData', 'beritaData'));
     }
 
-    // Fungsi Halaman Show Berita
-    public function indexBerita()
+    // Fungsi Halaman Read Berita
+    public function readBerita($slug)
     {
         $profileData = IdentitasLembaga::first();
         $websiteData = Website::first();
 
-        return view('backend/berita/index', compact('profileData', 'websiteData'));
+        $berita = Berita::where('slug', $slug)->first();
+
+        if (!$berita) {
+            return redirect()->back()->with('error', 'Data berita tidak ditemukan!');
+        }
+
+        return view('frontend/read', compact('profileData', 'websiteData', 'berita'));
     }
 
     // Fungsi Halaman Fasilitas

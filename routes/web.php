@@ -32,6 +32,8 @@ Route::get('profile', [WebsiteController::class, 'profile']);
 
 Route::get('berita', [WebsiteController::class, 'berita']);
 
+Route::get('/berita/read/{slug}', [WebsiteController::class, 'readBerita'])->name('read');
+
 Route::get('fasilitas', [WebsiteController::class, 'fasilitas']);
 
 

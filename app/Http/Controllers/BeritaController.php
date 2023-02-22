@@ -60,7 +60,10 @@ class BeritaController extends Controller
     public function berita(Request $request)
     {
         $data['q'] = $request->get('q');
-        $data['tbl_berita'] = Berita::where('title', 'like', '%' . $data['q'] . '%')->paginate(5);
+        $data['tbl_berita'] = Berita::where('title', 'like', '%' . $data['q'] . '%')
+            ->orderBy('updated_at', 'desc')
+            ->paginate(5);
+
 
         return view('backend/berita/index', $data);
     }
@@ -80,24 +83,41 @@ class BeritaController extends Controller
     // Fungsi Edit Berita
     public function update(Request $request, Berita $berita)
     {
-        $validatedData = $request->validate([
-            'title' => 'required',
-            'slug' => 'required|unique:tbl_berita',
-            'creator' => 'required',
-            'poster' => 'image|mimes:jpeg,png,jpg,gif,svg|max:5120',
-            'content' => 'required',
-        ], [
-            'title.required' => 'Judul berita harus diisi!',
-            'slug.required' => 'Slug berita harus diisi!',
-            'creator.required' => 'Nama Creator berita harus diisi!',
-            'poster.image' => 'File yang anda upload bukan gambar!',
-            'poster.mimes' => 'Ekstensi poster yang anda upload tidak sesuai!',
-            'poster.max' => 'Ukuran poster maksimal 5 MB!',
-            'content.required' => 'Konten berita harus diisi!',
-        ]);
+        // make slug value not change if slug value not null or same with slug value before
+        if ($request->slug == $berita->slug) {
+            $validatedData = $request->validate([
+                'title' => 'required',
+                'creator' => 'required',
+                'poster' => 'image|mimes:jpeg,png,jpg,gif,svg|max:5120',
+                'content' => 'required',
+            ], [
+                'title.required' => 'Judul berita harus diisi!',
+                'creator.required' => 'Nama Creator berita harus diisi!',
+                'poster.image' => 'File yang anda upload bukan gambar!',
+                'poster.mimes' => 'Ekstensi poster yang anda upload tidak sesuai!',
+                'poster.max' => 'Ukuran poster maksimal 5 MB!',
+                'content.required' => 'Konten berita harus diisi!',
+            ]);
+        } else {
+            $validatedData = $request->validate([
+                'title' => 'required',
+                'slug' => 'required|unique:tbl_berita',
+                'creator' => 'required',
+                'poster' => 'image|mimes:jpeg,png,jpg,gif,svg|max:5120',
+                'content' => 'required',
+            ], [
+                'title.required' => 'Judul berita harus diisi!',
+                'slug.required' => 'Slug berita harus diisi!',
+                'creator.required' => 'Nama Creator berita harus diisi!',
+                'poster.image' => 'File yang anda upload bukan gambar!',
+                'poster.mimes' => 'Ekstensi poster yang anda upload tidak sesuai!',
+                'poster.max' => 'Ukuran poster maksimal 5 MB!',
+                'content.required' => 'Konten berita harus diisi!',
+            ]);
+        }
 
         $berita->title = $validatedData['title'];
-        $berita->slug = $validatedData['slug'];
+        $berita->slug = $validatedData['slug'] ?? $berita->slug;
         $berita->creator = $validatedData['creator'];
         $berita->content = $validatedData['content'];
 
