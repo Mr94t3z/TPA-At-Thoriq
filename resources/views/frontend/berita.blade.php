@@ -28,8 +28,8 @@
                             </p>
 
                             <h3 class="font-alt" style="text-align: justify">{{ $berita->title }}</h3>
-                            <p class="align-left text-start mt-3"><a href="{{ route('read', $berita->slug) }}" class="text-gradient"
-                                    style="text-decoration:none;">Baca Selengkapnya</a></p>
+                            <p class="align-left text-start mt-3"><a href="{{ route('read', $berita->slug) }}"
+                                    class="text-gradient" style="text-decoration:none;">Baca Selengkapnya</a></p>
                         </div>
                     </div>
                 </div>
