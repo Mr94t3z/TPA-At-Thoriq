@@ -81,25 +81,39 @@ class BeritaController extends Controller
     public function update(Request $request, Berita $berita)
     {
         $validatedData = $request->validate([
-            'nama' => 'required',
-            'email' => 'required|email',
-            'roles' => 'required',
-            'password' => 'required',
+            'title' => 'required',
+            'slug' => 'required|unique:tbl_berita',
+            'creator' => 'required',
+            'poster' => 'image|mimes:jpeg,png,jpg,gif,svg|max:5120',
+            'content' => 'required',
         ], [
-            'nama.required' => 'Nama harus diisi!',
-            'email.required' => 'Email harus diisi!',
-            'email.email' => 'Format email anda salah!',
-            'roles.required' => 'Roles harus diisi!',
-            'password.required' => 'Password harus diisi!',
+            'title.required' => 'Judul berita harus diisi!',
+            'slug.required' => 'Slug berita harus diisi!',
+            'creator.required' => 'Nama Creator berita harus diisi!',
+            'poster.image' => 'File yang anda upload bukan gambar!',
+            'poster.mimes' => 'Ekstensi poster yang anda upload tidak sesuai!',
+            'poster.max' => 'Ukuran poster maksimal 5 MB!',
+            'content.required' => 'Konten berita harus diisi!',
         ]);
 
-        $berita->nama = $validatedData['nama'];
-        $berita->email = $validatedData['email'];
-        $berita->roles = $validatedData['roles'];
+        $berita->title = $validatedData['title'];
+        $berita->slug = $validatedData['slug'];
+        $berita->creator = $validatedData['creator'];
+        $berita->content = $validatedData['content'];
+
+        if ($request->file('poster') == "") {
+            $berita->poster = $berita->poster;
+        } else {
+            // Delete the old photo
+            Storage::disk('uploads')->delete($berita->poster);
+
+            // Store the new photo in the uplaods/berita directory
+            $berita->poster = $request->file('poster')->store('berita', 'uploads');
+        }
 
         $berita->save();
 
-        return redirect()->route('users')->with('success', 'Data berita berhasil diupdate!');
+        return redirect()->route('post-berita')->with('success', 'Data berita berhasil diupdate!');
     }
 
     // Fungsi Delete Berita

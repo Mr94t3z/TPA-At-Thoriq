@@ -111,7 +111,7 @@
                                             <td>{{ $berita->updated_at}}</td>
                                             <td>
                                                 <a href="{{ route('edit-berita', ['berita' => $berita]) }}"
-                                                    class="btn btn-warning btn-circle btn-sm">
+                                                    class="btn btn-warning btn-circle btn-sm mb-2">
                                                     <i class="fas fa-pen"></i>
                                                 </a>
 

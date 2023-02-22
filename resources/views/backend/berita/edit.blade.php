@@ -9,7 +9,6 @@
         trix-toolbar [data-trix-button-group="file-tools"] {
             display: none;
         }
-
     </style>
 
 </head>
@@ -42,7 +41,7 @@
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Posting Berita</h1>
+                        <h1 class="h3 mb-0 text-gray-800">Edit Posting Berita</h1>
                     </div>
 
                     <!-- Content Row -->
@@ -63,37 +62,41 @@
                         <!-- End Of Error Message -->
 
                         <div class="card-body">
-                            <form action="{{ route('berita.update', ['berita' => $berita]) }}" method="POST"
-                                enctype="multipart/form-data" class="user">
+                            <form action="{{ route('berita.update', ['berita' => $berita]) }}" method="POST" enctype="multipart/form-data"
+                                class="user">
                                 @csrf
                                 @method('PUT')
 
                                 <div class="mb-3 mr-3 ml-3">
                                     <label class="form-label">Judul Berita</label>
-                                    <input class="form-control" name="title" type="text"
-                                        value="{{  $berita->title }}">
+                                    <input class="form-control" name="title" type="text" id="title" value="{{ old('title', $berita->title) }}">
                                 </div>
 
                                 <div class="mb-3 mr-3 ml-3">
-                                    <label class="form-label">URL</label>
-                                    <input class="form-control" name="slug" type="text"
-                                        value="{{  $berita->slug }}">
+                                    <label class="form-label">Slug</label>
+                                    <input class="form-control" name="slug" type="text" id="slug" value="{{ old('slug', $berita->slug) }}">
+                                    <p class="text-danger">Note: Jangan mengubah Slug ini dan biarkan ini berubah otomatis mengikuti Judul Berita.</p>
+                                </div>
+
+                                <div class="mb-3 mr-3 ml-3">
+                                    <label class="form-label">Nama Creator</label>
+                                    <input class="form-control" name="creator" type="text" value="{{ old('creator', $berita->creator) }}">
                                 </div>
 
                                 <div class="mb-3 mr-3 ml-3">
                                     <label class="form-label">Poster Berita</label>
                                     <input class="form-control" name="poster" type="file">
-                                    <p class="text-danger">Note: Ukuran gambar maksimal 5 MB dengan format jpeg, png, jpg, gif, dan svg.</p>
+                                    <p class="text-danger">Note: Ukuran gambar maksimal 5 MB dengan format jpeg, png,
+                                        jpg, gif, dan svg.</p>
                                 </div>
 
                                 <div class="mb-3 mr-3 ml-3">
                                     <label class="form-label">Isi Berita</label>
-                                    <input id="content" type="hidden" name="content"
-                                        value="{{  $berita->content }}">
-                                    <trix-editor input="content"></trix-editor>
+                                    <input id="body" type="hidden" name="content" value="{{ old('content', $berita->content) }}">
+                                    <trix-editor input="body"></trix-editor>
                                 </div>
 
-                                <button type="submit" class="btn btn-primary">Submit</button>
+                                <button type="submit" class="btn btn-primary">Update</button>
                                 <a href="{{ url('berita') }}" class="btn btn-warning">Cancel</a>
                             </form>
 
@@ -113,6 +116,14 @@
             <!-- End of Footer -->
 
             <script>
+                const title = document.querySelector('#title');
+                const slug = document.querySelector('#slug');
+
+                title.addEventListener('change', function () {
+                    fetch('/post-berita/create/checkSlug?title=' + title.value)
+                        .then(response => response.json())
+                        .then(data => slug.value = data.slug)
+                });
 
                 document.addEventListener('trix-file-accept', function (e) {
                     e.preventDefault();
