@@ -104,7 +104,9 @@
         </div>
     </aside>
 
-    <!-- IF tbl_berita null hiden this -->
+    
+    @if(count($beritaData) > 0)
+    <!-- Berita Terbaru Section -->
     <section id="features">
         <div class="container px-5">
             <div class="row">
@@ -124,8 +126,8 @@
                             </p>
 
                             <h3 class="font-alt" style="text-align: justify">{{ $berita->title }}</h3>
-                            <p class="align-left text-start mt-3"><a href="{{ route('read', $berita->slug) }}" class="text-gradient"
-                                    style="text-decoration:none;">Baca Selengkapnya</a></p>
+                            <p class="align-left text-start mt-3"><a href="{{ route('read', $berita->slug) }}"
+                                    class="text-gradient" style="text-decoration:none;">Baca Selengkapnya</a></p>
                         </div>
                     </div>
                 </div>
@@ -143,6 +145,9 @@
             </a>
         </div>
     </section>
+
+    @endif
+
 
     <!-- App features section-->
     <section id="features">
