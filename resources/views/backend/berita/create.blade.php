@@ -74,6 +74,7 @@
                                 <div class="mb-3 mr-3 ml-3">
                                     <label class="form-label">Slug</label>
                                     <input class="form-control" name="slug" type="text" id="slug" value="{{ old('slug') }}">
+                                    <p class="text-danger">Note: Jangan mengubah Slug ini dan biarkan ini berubah otomatis mengikuti Judul Berita.</p>
                                 </div>
 
                                 <div class="mb-3 mr-3 ml-3">
