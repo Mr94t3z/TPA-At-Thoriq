@@ -43,7 +43,7 @@ class KepalaPendidikanController extends Controller
             'pendidikan_terakhir.required' => 'Pendidikan Terakhir harus diisi!',
             'photo.image' => 'File yang anda upload bukan gambar!',
             'photo.mimes' => 'Format gambar yang anda upload salah!',
-            'photo.max' => 'Ukuran gambar maksimal 1MB!',
+            'photo.max' => 'Ukuran gambar maksimal 1 MB!',
         ]);
 
         $kp->nama = $validatedData['nama'];

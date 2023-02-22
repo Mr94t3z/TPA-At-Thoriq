@@ -71,6 +71,7 @@
                                 <div class="mb-3 mr-3 ml-3">
                                     <label class="form-label">Logo :</label>
                                     <input class="form-control" name="logo" type="file">
+                                    <p class="text-danger">Note: Ukuran gambar maksimal 1 MB dengan format jpeg, png, jpg, gif, dan svg.</p>
                                 </div>
 
                                 <div class="mb-3 mr-3 ml-3">
@@ -83,6 +84,7 @@
                                 <div class="mb-3 mr-3 ml-3">
                                     <label class="form-label">Welcome Video :</label>
                                     <input class="form-control" name="welcome_video" type="file">
+                                    <p class="text-danger">Note: Ukuran video maksimal 20 MB dengan format mp4, 3gp, mov, flv, avi, dan wmv.</p>
                                 </div>
 
                                 <div class="mb-3 mr-3 ml-3">
@@ -113,6 +115,7 @@
                                 <div class="mb-3 mr-3 ml-3">
                                     <label class="form-label">Maps Video :</label>
                                     <input class="form-control" name="maps_video" type="file">
+                                    <p class="text-danger">Note: Ukuran video maksimal 20 MB dengan format mp4, 3gp, mov, flv, avi, dan wmv.</p>
                                 </div>
 
                                 <div class="mb-3 mr-3 ml-3">
@@ -124,6 +127,7 @@
                                 <div class="mb-3 mr-3 ml-3">
                                     <label class="form-label">Visi Video :</label>
                                     <input class="form-control" name="visi_video" type="file">
+                                    <p class="text-danger">Note: Ukuran video maksimal 20 MB dengan format mp4, 3gp, mov, flv, avi, dan wmv.</p>
                                 </div>
 
                                 <div class="mb-3 mr-3 ml-3">
@@ -135,11 +139,13 @@
                                 <div class="mb-3 mr-3 ml-3">
                                     <label class="form-label">Misi Video :</label>
                                     <input class="form-control" name="misi_video" type="file">
+                                    <p class="text-danger">Note: Ukuran video maksimal 20 MB dengan format mp4, 3gp, mov, flv, avi, dan wmv.</p>
                                 </div>
 
                                 <div class="mb-3 mr-3 ml-3">
                                     <label class="form-label">Fasilitas Image :</label>
                                     <input class="form-control" name="fasilitas_image" type="file">
+                                    <p class="text-danger">Note: Ukuran gambar maksimal 2 MB dengan format jpeg, png, jpg, gif, dan svg.</p>
                                 </div>
 
                                 <button type="submit" class="btn btn-primary">Submit</button>

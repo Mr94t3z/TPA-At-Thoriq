@@ -75,8 +75,8 @@
 
                                 <div class="mb-3">
                                     <label for="formFile" class="form-label">Foto profile</label>
-                                    
                                     <input class="form-control" type="file" name="photo">
+                                    <p class="text-danger">Note: Ukuran gambar maksimal 1 MB dengan format jpeg, png, jpg, gif, dan svg.</p>
                                 </div>
 
                                 <button type="submit" class="btn btn-primary">Submit</button>

@@ -56,13 +56,13 @@
                         <!-- End Of Error Message -->
 
                         <div class="card-body">
-                            <form action="{{ route('guru.action') }}" method="POST" enctype="multipart/form-data" class="user">
+                            <form action="{{ route('guru.action') }}" method="POST" enctype="multipart/form-data"
+                                class="user">
                                 @csrf
 
                                 <div class="mb-3">
                                     <label for="exampleInputNama" class="form-label">Nama lengkap</label>
-                                    <input type="text" class="form-control" name="nama"
-                                        value="{{ old('nama') }}">
+                                    <input type="text" class="form-control" name="nama" value="{{ old('nama') }}">
                                 </div>
 
                                 <div class="mb-3">
@@ -73,8 +73,9 @@
 
                                 <div class="mb-3">
                                     <label for="exampleInputFP" class="form-label">Foto Profile</label>
-                                    <input type="file" class="form-control" name="photo"
-                                        value="{{ old('photo') }}">
+                                    <input type="file" class="form-control" name="photo" value="{{ old('photo') }}">
+                                    <p class="text-danger">Note: Ukuran gambar maksimal 1 MB dengan format jpeg, png,
+                                        jpg, gif, dan svg.</p>
                                 </div>
 
                                 <button type="submit" class="btn btn-primary">Submit</button>
