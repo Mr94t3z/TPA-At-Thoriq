@@ -137,9 +137,9 @@
                                     <video muted="muted" autoplay="" loop=""
                                         style="width: 100%; height: 100%; object-fit: cover">
 
-                                        @if($websiteData->visi !== null)
+                                        @if($websiteData->visi_video !== null)
 
-                                        <source src="{{ asset('storage/uploads/' . $websiteData->visi) }}" type="video/mp4" />
+                                        <source src="{{ asset('storage/uploads/' . $websiteData->visi_video) }}" type="video/mp4" />
 
                                         @else
 
@@ -226,9 +226,9 @@
                                     <video muted="muted" autoplay="" loop=""
                                         style="width: 100%; height: 100%; object-fit: cover">
 
-                                        @if($websiteData->misi !== null)
+                                        @if($websiteData->misi_video !== null)
 
-                                        <source src="{{ asset('storage/uploads/' . $websiteData->misi) }}" type="video/mp4" />
+                                        <source src="{{ asset('storage/uploads/' . $websiteData->misi_video ) }}" type="video/mp4" />
 
                                         @else
 
