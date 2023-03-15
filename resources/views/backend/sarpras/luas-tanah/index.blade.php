@@ -86,8 +86,8 @@
                                             <td>{{ $tbl_sarpras_luas_tanah->firstItem() + $key }}</td>
                                             <td>{{ $lt->keterangan}}</td>
                                             <td>{{ $lt->luas}} m<sup>2</sup></td>
-                                            <td>{{ $lt->created_at}}</td>
-                                            <td>{{ $lt->updated_at}}</td>
+                                            <td>{{ date('d F Y', strtotime($lt->created_at)) }}</td>
+                                            <td>{{ date('d F Y', strtotime($lt->updated_at)) }}</td>
                                             <td>
                                                 <a href="{{ route('edit-lt', ['lt' => $lt]) }}"
                                                     class="btn btn-warning btn-circle btn-sm">

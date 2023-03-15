@@ -94,8 +94,8 @@
                                             <td>{{ $pendukung->baik}}</td>
                                             <td>{{ $pendukung->rusak}}</td>
                                             <td>{{ $pendukung->baik + $pendukung->rusak}}</td>
-                                            <td>{{ $pendukung->created_at}}</td>
-                                            <td>{{ $pendukung->updated_at}}</td>
+                                            <td>{{ date('d F Y', strtotime($pendukung->created_at)) }}</td>
+                                            <td>{{ date('d F Y', strtotime($pendukung->updated_at)) }}</td>
                                             <td>
                                                 <a href="{{ route('edit-pendukung', ['pendukung' => $pendukung]) }}"
                                                     class="btn btn-warning btn-circle btn-sm">

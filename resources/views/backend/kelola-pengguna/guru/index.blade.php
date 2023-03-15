@@ -102,8 +102,8 @@
                                                 </div>
                                                 @endif
                                             </td>
-                                            <td>{{ $guru->created_at}}</td>
-                                            <td>{{ $guru->updated_at}}</td>
+                                            <td>{{ date('d F Y', strtotime($guru->created_at)) }}</td>
+                                            <td>{{ date('d F Y', strtotime($guru->updated_at)) }}</td>
                                             <td>
                                                 <a href="{{ route('edit-guru', ['guru' => $guru]) }}"
                                                     class="btn btn-warning btn-circle btn-sm">

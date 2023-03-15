@@ -164,13 +164,14 @@
 
                             <div class="mb-3 mr-3 ml-3">
                                 <label class="form-label">Dibuat pada :</label>
-                                <input class="form-control" type="text" value="{{  $lembaga->created_at }}"
+                                <input class="form-control" type="text" value="{{ date('d F Y', strtotime($lembaga->created_at)) }}"
                                     aria-label="Disabled input example" disabled readonly>
                             </div>
 
                             <div class="mb-3 mr-3 ml-3">
                                 <label class="form-label">Terakhir diperbaharui :</label>
-                                <input class="form-control" type="text" value="{{  $lembaga->updated_at }}"
+                                
+                                <input class="form-control" type="text" value="{{ date('d F Y', strtotime($lembaga->updated_at)) }}"
                                     aria-label="Disabled input example" disabled readonly>
                             </div>
 

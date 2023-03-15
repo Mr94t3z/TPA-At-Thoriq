@@ -92,8 +92,8 @@
                                             <td>{{ $pl->penggunaan}}</td>
                                             <td>{{ $pl->bersertifikat}} m<sup>2</sup></td>
                                             <td>{{ $pl->belum_sertifikat}} m<sup>2</sup></td>
-                                            <td>{{ $pl->created_at}}</td>
-                                            <td>{{ $pl->updated_at}}</td>
+                                            <td>{{ date('d F Y', strtotime($pl->created_at)) }}</td>
+                                            <td>{{ date('d F Y', strtotime($pl->updated_at)) }}</td>
                                             <td>
                                                 <a href="{{ route('edit-pl', ['pl' => $pl]) }}"
                                                     class="btn btn-warning btn-circle btn-sm mb-2">

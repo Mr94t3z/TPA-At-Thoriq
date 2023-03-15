@@ -96,8 +96,8 @@
                                             <td>{{ $siswa->jenis_kelamin}}</td>
                                             <td>{{ $siswa->kelas == 0 ? 'Tidak ada kelas' : 'Kelas '.$siswa->kelas }}
                                             </td>
-                                            <td>{{ $siswa->created_at}}</td>
-                                            <td>{{ $siswa->updated_at}}</td>
+                                            <td>{{ date('d F Y', strtotime($siswa->created_at)) }}</td>
+                                            <td>{{ date('d F Y', strtotime($siswa->updated_at)) }}</td>
                                             <td>
                                                 <a href="{{ route('edit-siswa', ['siswa' => $siswa]) }}"
                                                     class="btn btn-warning btn-circle btn-sm mb-3">

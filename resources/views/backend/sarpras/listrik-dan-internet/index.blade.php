@@ -73,8 +73,8 @@
                                             <td>{{ $lni->listrik_sumber}}</td>
                                             <td>{{ $lni->internet_provider}}</td>
                                             <td>{{ $lni->internet_kualitas}}</td>
-                                            <td>{{ $lni->created_at}}</td>
-                                            <td>{{ $lni->updated_at}}</td>
+                                            <td>{{ date('d F Y', strtotime($lni->created_at)) }}</td>
+                                            <td>{{ date('d F Y', strtotime($lni->updated_at)) }}</td>
                                             <td>
                                                 <a href="{{ route('edit-lni', ['lni' => $lni]) }}"
                                                     class="btn btn-warning btn-circle btn-sm mb-2">

@@ -107,8 +107,8 @@
                                                 @endif
 
                                             </td>
-                                            <td>{{ $berita->created_at}}</td>
-                                            <td>{{ $berita->updated_at}}</td>
+                                            <td>{{ date('d F Y', strtotime( $berita->created_at)) }}</td>
+                                            <td>{{ date('d F Y', strtotime( $berita->updated_at)) }}</td>
                                             <td>
                                                 <a href="{{ route('edit-berita', ['berita' => $berita]) }}"
                                                     class="btn btn-warning btn-circle btn-sm mb-2">

@@ -90,8 +90,8 @@
                                                     {{ $user->roles == 1 ? 'Administrator' : 'Pengguna' }}
                                                 </button>
                                             </td>
-                                            <td>{{ $user->created_at}}</td>
-                                            <td>{{ $user->updated_at}}</td>
+                                            <td>{{ date('d F Y', strtotime($user->created_at)) }}</td>
+                                            <td>{{ date('d F Y', strtotime($user->updated_at)) }}</td>
                                             <td>
                                                 <a href="{{ route('edit-user', ['user' => $user]) }}"
                                                     class="btn btn-warning btn-circle btn-sm">
