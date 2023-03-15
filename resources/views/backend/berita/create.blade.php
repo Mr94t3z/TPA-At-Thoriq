@@ -96,7 +96,7 @@
                                 </div>
 
                                 <button type="submit" class="btn btn-primary">Posting</button>
-                                <a href="{{ url('berita') }}" class="btn btn-warning">Cancel</a>
+                                <a href="{{ url('post-berita') }}" class="btn btn-warning">Cancel</a>
                             </form>
 
                         </div>

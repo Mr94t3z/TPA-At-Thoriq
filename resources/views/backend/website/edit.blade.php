@@ -75,6 +75,13 @@
                                 </div>
 
                                 <div class="mb-3 mr-3 ml-3">
+                                    <label class="form-label">Link Pendaftaran :</label>
+                                    <input class="form-control" name="link_pendaftaran" type="text"
+                                        value="{{  $website->link_pendaftaran }}">
+                                    <p class="text-danger">Note: Link dapat berupa Google Form dan sejenisnya.</p>
+                                </div>
+
+                                <div class="mb-3 mr-3 ml-3">
                                     <label class="form-label">Welcome Message :</label>
                                     <input id="welcome_message" type="hidden" name="welcome_message"
                                         value="{{  $website->welcome_message }}">

@@ -61,6 +61,12 @@
                             </div>
 
                             <div class="mb-3 mr-3 ml-3">
+                                <label class="form-label">Link Pendaftaran :</label>
+                                <input class="form-control" type="text" value="{{ $website->link_pendaftaran }}"
+                                    aria-label="Disabled input example" disabled readonly>
+                            </div>
+
+                            <div class="mb-3 mr-3 ml-3">
                                 <label class="form-label">Welcome Message :</label>
                                 <input class="form-control" type="text" value="{{ $website->welcome_message }}"
                                     aria-label="Disabled input example" disabled readonly>

@@ -109,6 +109,7 @@ class WebsiteController extends Controller
     {
         $validatedData = $request->validate([
             'logo' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:1024',
+            'link_pendaftaran' => 'nullable',
             'welcome_message' => 'nullable',
             'welcome_video' => 'nullable|file|mimes:mp4,3gp,mov,flv,avi,wmv|max:20000',
             'quote_message' => 'nullable',
@@ -142,6 +143,7 @@ class WebsiteController extends Controller
             'fasilitas_image.max' => 'Gambar Fasilitas maksimal berukuran 2 MB!',
         ]);
 
+        $website->link_pendaftaran = $validatedData['link_pendaftaran'];
         $website->welcome_message = $validatedData['welcome_message'];
         $website->quote_message = $validatedData['quote_message'];
         $website->quote_by = $validatedData['quote_by'];

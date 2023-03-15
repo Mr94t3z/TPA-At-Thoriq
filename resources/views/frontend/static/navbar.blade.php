@@ -16,14 +16,26 @@
                 <li class="nav-item"><a class="nav-link me-lg-3" href="{{ url('/') }}">Home</a></li>
                 <li class="nav-item"><a class="nav-link me-lg-3" href="{{ url('profile') }}">Profile</a></li>
                 <li class="nav-item"><a class="nav-link me-lg-3" href="{{ url('fasilitas') }}">Fasilitas</a></li>
+                {{-- <li class="nav-item"><a class="nav-link me-lg-3" href="{{ $websiteData->link_pendaftaran }}">Pendaftaran</a></li> --}}
                 <li class="nav-item"><a class="nav-link me-lg-3" href="{{ url('login') }}">Login</a></li>
             </ul>
-            <a
+
+            {{-- <a
                 href="https://wa.me/6281223626127?text=Assalamu'alaikum%20Wr.%20Wb.%20Saya%20mempunyai%20feedback%20untuk%20website%20Anda:">
                 <button class="btn btn-success rounded-pill px-3 mb-2 mb-lg-0">
                     <span class="d-flex align-items-center">
                         <i class="bi bi-whatsapp me-2"></i>
                         <span class="small">Send Feedback</span>
+                    </span>
+                </button>
+            </a> --}}
+
+            <a
+                href="{{ $websiteData->link_pendaftaran }}">
+                <button class="btn btn-primary rounded-pill px-3 mb-2 mb-lg-0">
+                    <span class="d-flex align-items-center">
+                        <i class="bi bi-file-earmark-text-fill me-2"></i>
+                        <span class="small">Pendaftaran</span>
                     </span>
                 </button>
             </a>
